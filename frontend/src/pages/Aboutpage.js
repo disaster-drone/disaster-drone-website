@@ -1,4 +1,4 @@
-import './Aboutpage.css'
+import './AboutPage.css'
 
 const Aboutpage = () => {
     return(
@@ -7,3 +7,4 @@ const Aboutpage = () => {
         </div>
     )
 }
+export default Aboutpage;
