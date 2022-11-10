@@ -1,12 +1,10 @@
-import './AboutPage.css'
-import Navbar from '../components/Navbar';
+import './Aboutpage.css'
 
 const AboutPage = () => {
     return(
-        <>
-            <Navbar/>
-            <div className="aboutpage-container"> </div>
-        </>
+        <div className="aboutpage-container">
+    
+        </div>
     )
 }
 export default AboutPage;
