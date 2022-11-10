@@ -1,9 +1,10 @@
 import './Aboutpage.css'
 
-const Aboutpage = () => {
+const AboutPage = () => {
     return(
         <div className="aboutpage-container">
     
         </div>
     )
 }
+export default AboutPage;
