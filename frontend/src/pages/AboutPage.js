@@ -2,9 +2,12 @@ import './AboutPage.css'
 
 const AboutPage = () => {
     return(
-        <div className="aboutpage-container">
+        <>
+            <Navbar/>
+            <div className="aboutpage-container">
     
-        </div>
+            </div>
+        </>
     )
 }
 export default AboutPage;
