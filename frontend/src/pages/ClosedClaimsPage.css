@@ -1,0 +1,26 @@
+.fileclaim-container{
+    background: white;
+    background-size: cover;
+    margin: 4rem;
+}
+
+.fileclaim-title{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+}
+
+.fileclaim-main-title{
+    font-family: "Poppins";
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+}
+
+.fileclaim-desc{
+    font-family: "Poppins";
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: black;
+}
