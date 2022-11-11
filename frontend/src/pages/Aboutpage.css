@@ -10,7 +10,7 @@
 .aboutpage-top{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: fit-content;
     height: 50%;
     background: #d62311;
     margin: 0;
