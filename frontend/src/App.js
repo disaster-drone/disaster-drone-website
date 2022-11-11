@@ -10,10 +10,6 @@ function App() {
   return (
     <Routes>
       <Route path='/*' element={<Homepage />}>
-          <Route path="Homepage" element={<Homepage />} />
-          <Route path="AboutPage" element={<AboutPage/>} />
-          <Route path="FileClaimsPage" element={<FileClaimsPage/>} />
-          <Route path="ClosedClaimsPage" element={<ClosedClaimsPage/>}/>
       </Route> 
     </Routes>
   );
