@@ -13,7 +13,7 @@ const Navbar = () => {
                 <Link to="/Homepage" className="navbar-logo">
                     <img src={logo} className="logo" />
                 </Link>
-                <ul className="navbar-right">
+                <ul className="navbar-left">
                     <Link className="link-btn" to="/Homepage">
                         <li className="navbar-text"> Home</li>                    
                     </Link>
@@ -27,7 +27,7 @@ const Navbar = () => {
                         <li className="navbar-text"> Closed Claims</li>                    
                     </Link>
                 </ul>
-                <ul className="navbar-left">
+                <ul className="navbar-right">
                     <Link className="link-btn" to="/Homepage">
                         <li className="logout-btn">Log out</li>              
                     </Link>
