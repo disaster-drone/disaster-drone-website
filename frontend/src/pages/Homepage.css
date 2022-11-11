@@ -1,9 +1,7 @@
-body{
-    background: url('../images/sf-wave.svg') no-repeat;
-    background-size: cover;
-}
 
 .homepage{
+    background: url('../images/sf-wave.svg') no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     height: 100vh;
