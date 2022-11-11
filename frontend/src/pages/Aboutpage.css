@@ -1,0 +1,42 @@
+.aboutpage-container {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient( to top, #ffffff 0%,#ffffff 47%, #d62311 47%, #d62311 100%);
+
+}
+
+.aboutpage-top-title {
+    display: flex; 
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #f4f3f3;
+    margin: 10px;
+    padding: 5px;
+}
+
+.about-mission{
+    color: #ffffff;
+    margin: 85px;
+    font-size: 25px;
+}
+
+.aboutpage-bottom{
+    flex-direction: column; 
+    max-width: 90%;
+}
+.aboutpage-bottom-title {
+    display: flex; 
+    height: 80px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #d62311;
+    margin: 10px;
+    padding: 5px;
+
+}
+
+.about-solution{
+    color: #d62311;
+    font-size: 25px;
+    padding: 1em;
+}
