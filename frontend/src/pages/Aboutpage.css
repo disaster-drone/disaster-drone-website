@@ -11,10 +11,10 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 55%;
+    height: 50%;
     background: #d62311;
     margin: 0;
-    padding: 4rem 0 0 2rem;
+    padding: 2rem 0 0 2rem;
 }
 
 .aboutpage-top-title {
@@ -30,7 +30,7 @@
     color: #ffffff;
     font-size: 1.5rem;
     font-family: "Poppins";
-    width: 80%;
+    width: 70%;
 }
 
 .aboutpage-bottom{
