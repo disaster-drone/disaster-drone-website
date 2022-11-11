@@ -8,12 +8,15 @@ const FileClaimsPage = () => {
         <Navbar/>
         <div className="fileclaim-container">
             <section className="fileclaim-title">
-                <span>FILE A CLAIM</span>
-                <span> Uploaded Claims</span>
+                <span className="fileclaim-main-title">FILE A CLAIM</span>
+                <span className="fileclaim-desc" > Uploaded Claims</span>
             </section>
             <section className="fileclaim-form">
-                <ClaimButton/>
-                <ClaimButton/>
+                <ClaimButton className="claim-btn" />
+                <ClaimButton className="claim-btn"/>
+                <ClaimButton className="claim-btn"/>
+                <ClaimButton className="claim-btn"/>
+                <ClaimButton className="claim-btn"/>
             </section>
         </div>
         </>

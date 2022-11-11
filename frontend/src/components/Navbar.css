@@ -1,13 +1,17 @@
+.navbar-header{
+    background-color: #d9d9d9;
+    height: 0.75rem;
+}
+
 .navbar{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     padding: 0.5rem 0rem;
-
+    border-bottom: 0.125rem solid #d9d9d9;
     width: 100vw;
     height: fit-content;
-
     background: white;
 }
 

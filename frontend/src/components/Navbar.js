@@ -6,6 +6,8 @@ import './Navbar.css';
 
 const Navbar = () => {
     return(
+        <>
+        <div className="navbar-header"></div>
         <nav className="navbar">
             <div className="navbar-container">
                 <Link to="/Homepage" className="navbar-logo">
@@ -35,6 +37,7 @@ const Navbar = () => {
                 </ul>
             </div>
         </nav>
+        </>
     )
 }
 export default Navbar;
