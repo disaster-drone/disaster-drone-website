@@ -6,7 +6,6 @@ const AboutPage = () => {
         <>
             <Navbar/>
             <div className="aboutpage-container">
-    
             </div>
         </>
     )
