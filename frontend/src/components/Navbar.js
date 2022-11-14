@@ -1,30 +1,39 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from 'react-router-dom'
+import {FaBars, FaTimes} from 'react-icons/fa';
 
 import logo from '../images/DD1.png';
 import './Navbar.css';
 
 const Navbar = () => {
+
+    const navRef = useRef();
+
+    const showNavbar = () => {
+        navRef.current.classList.toggle('active-navbar');
+    }
+
+
     return(
         <>
-        <div className="navbar-header"></div>
-        <nav className="navbar">
-            <div className="navbar-container">
-                <Link to="/Homepage" className="navbar-logo">
-                    <img src={logo} className="logo" />
-                </Link>
+        <div className="navbar-top "></div>
+        <div className="navbar">
+            <nav className="navbar-content" ref={navRef}>
                 <ul className="navbar-left">
+                    <Link to="/Homepage" className="navbar-logo">
+                        <img src={logo} className="logo" />
+                    </Link>
                     <Link className="link-btn" to="/Homepage">
-                        <li className="navbar-text"> Home</li>                    
+                        <li className="navbar-text">Home</li>                    
                     </Link>
                     <Link className="link-btn" to="/AboutPage">
-                        <li className="navbar-text"> About</li>                    
+                        <li className="navbar-text">About</li>                    
                     </Link>
                     <Link className="link-btn" to="/FileClaimsPage">
-                        <li className="navbar-text"> File A Claim</li>                    
+                        <li className="navbar-text">File A Claim</li>                    
                     </Link>
                     <Link className="link-btn" to="/ClosedClaimsPage">
-                        <li className="navbar-text"> Closed Claims</li>                    
+                        <li className="navbar-text">Closed Claims</li>                    
                     </Link>
                 </ul>
                 <ul className="navbar-right">
@@ -35,8 +44,14 @@ const Navbar = () => {
                         <li className="settings-btn">Settings</li>           
                     </Link>
                 </ul>
-            </div>
-        </nav>
+                <button className="nav-btn nav-close-btn" onClick={showNavbar}> 
+                    <FaTimes/>
+                </button>
+            </nav>
+            <button className="nav-btn" onClick={showNavbar}>
+                <FaBars/> 
+            </button>
+        </div>
         </>
     )
 }

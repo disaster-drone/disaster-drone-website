@@ -10,6 +10,7 @@ import ClosedClaimsPage from './pages/ClosedClaimsPage';
 import LoginPage from './pages/LoginPage';
 import Layout from './components/Layout';
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

@@ -4,25 +4,24 @@ import dronePic from '../images/sf-drone-about.svg'
 
 const AboutPage = () => {
     return(
-        <>
-            <div className="aboutpage-container">
-                <Navbar/>
-                <div className="aboutpage-content">
-                    <section className="aboutpage-top">
-                        <span className="aboutpage-top-title">The Mission</span>
-                        <span className="about-mission">In certain disaster scenarios
-                            sending a person to check on an insurance claim might be
-                            impractical or infeasible depending on the where damage
-                            is and how much damage occurred. The purpose of this project
-                            is to help State Farm develop and test the idea of creating
-                            something where a State Farm insurance Specialist or State Farm
-                            Agent would not have to be physically at the insurance claim
-                            site to validate the extent of the damage and file a claim.</span>
-                    </section>
-                    <section className="aboutpage-bottom">
-                        <img src={dronePic} alt="drone" className="aboutpage-bottom-img"/>
-                        <section className="aboutpage-bottom-text">
-                            <span className="aboutpage-bottom-title">The Solution</span>
+        <div className="aboutpage">
+            <Navbar/>
+            <div className="aboutpage-content">
+                <section className="aboutpage-top">
+                    <span className="aboutpage-top-title">The Mission</span>
+                    <span className="about-mission">In certain disaster scenarios
+                        sending a person to check on an insurance claim might be
+                        impractical or infeasible depending on the where damage
+                        is and how much damage occurred. The purpose of this project
+                        is to help State Farm develop and test the idea of creating
+                        something where a State Farm insurance Specialist or State Farm
+                        Agent would not have to be physically at the insurance claim
+                        site to validate the extent of the damage and file a claim.</span>
+                </section>
+                <section className="aboutpage-bottom">
+                    <img src={dronePic} alt="drone" className="aboutpage-bottom-img"/>
+                    <section className="aboutpage-bottom-text">
+                        <span className="aboutpage-bottom-title">The Solution</span>
                         <span className="about-solution">To solve the problem statement,
                             we going are going to be working with a team of electrical engineers
                             who will build a drone that can fly around the disaster site and take
@@ -32,12 +31,12 @@ const AboutPage = () => {
                             Then, once in the virtual environment, the insurance agent will be able to walk
                             around and take pictures of certain damage points as if they were at the insurance
                             claim site in person. This will then be uploaded to a website that will automate
-                            the process of creating the insurance claim document.</span>
-                        </section>
+                            the process of creating the insurance claim document.
+                        </span>
                     </section>
-                </div>
+                </section>
             </div>
-        </>
+        </div>
     )
 }
 export default AboutPage;
