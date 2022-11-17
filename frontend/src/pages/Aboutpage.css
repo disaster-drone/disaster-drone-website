@@ -1,4 +1,4 @@
-.aboutpage-container {
+.aboutpage {
     display: flex;
     flex-direction: column;
     width: 100vw;
@@ -7,30 +7,37 @@
     padding: 0;
 }
 
+.aboutpage-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .aboutpage-top{
     display: flex;
     flex-direction: column;
-    width: fit-content;
+    width: 100%;
     height: 50%;
     background: #d62311;
-    margin: 0;
-    padding: 2rem 0 0 2rem;
+    padding: 2rem 0 2rem 2rem;
 }
 
 .aboutpage-top-title {
-    font-family: "Poppins";
+    font-family: inherit;
     display: flex; 
     font-size: 2.5rem;
     font-weight: bold;
     color: #f4f3f3;
-    margin: 0;
+    margin: 0 0 0 4rem;
 }
 
 .about-mission{
     color: #ffffff;
     font-size: 1.5rem;
-    font-family: "Poppins";
+    font-family: inherit;
     width: 70%;
+    margin: 0 0 0 4rem;
 }
 
 .aboutpage-bottom{
@@ -39,8 +46,7 @@
     width: 100%;
     height: 50%;
     background: white;
-    margin: 0;
-    padding: 2rem 0 0 0rem;
+    padding: 2rem 0 2rem 0rem;
 }
 
 .aboutpage-bottom-text{
@@ -51,11 +57,11 @@
 
 .aboutpage-bottom-img{
     height: 15rem;
-    margin: 4rem 4rem 2rem 4rem;
+    margin: 1.25rem 4rem 2rem 4rem;
 }
 
 .aboutpage-bottom-title {
-    font-family: "Poppins";
+    font-family: inherit;
     display: flex; 
     font-size: 2.5rem;
     font-weight: bold;
@@ -67,6 +73,7 @@
 .about-solution{
     color: #d62311;
     font-size: 1.25rem;
-    font-family: "Poppins";
+    font-family: inherit;
+
     width: 90%;
 }

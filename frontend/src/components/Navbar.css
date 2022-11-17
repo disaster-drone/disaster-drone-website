@@ -1,31 +1,35 @@
-.navbar-header{
-    background-color: #d9d9d9;
-    height: 0.75rem;
+
+*{
+    font-family: Noto Sans, sans-serif;
+}
+
+.navbar-top{
+    background-color: #f4f3f3;
+    height: 2rem;
 }
 
 .navbar{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    padding: 0.5rem 0rem;
+    padding: 0.25rem 0rem;
     border-bottom: 0.125rem solid #d9d9d9;
     height: fit-content;
     background: white;
 }
 
-.navbar-container {
+.navbar-content{
     display: flex;
     flex-direction: row;
-    justify-content: left;
     align-items: center;
-    margin: 0 0 0 4.5rem;
-    width: 100%;
-    height: 100%;
+    justify-content: space-between;
+    margin: 0 4.5rem 0 4.5rem;
+    width: 100vw;
+    height: fit-content;
 }
 
 .logo{
-    width: 9rem;
+    width: 6.5rem;
     margin: 0;
 }
 
@@ -35,17 +39,7 @@
 }
 
 .link-btn:hover{
-    color: #d62311;
-}
-
-.navbar-right{
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    align-items: center;
-    gap: 1rem;
-    color: grey;
-    margin: 0 0 0 25rem;
+    color: #D22211;
 }
 
 .navbar-left{
@@ -56,25 +50,36 @@
 
     margin: 0;
     gap: 2rem;
+}
 
-    color: grey;
+.navbar-right{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 0 0 0;
 }
 
 .navbar-text {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.125rem;
     text-decoration: none;
+    color: #403c3c;
+}
+
+.navbar-text:hover{
+    color: #D22211;
 }
 
 .logout-btn{
     color: #d62311;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: bold;
     text-decoration: none;
 }
 
 .logout-btn:hover{
-    color: red;
+    color: #C31908;
 }
 
 .settings-btn{
@@ -82,16 +87,29 @@
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    height: 2.5rem;
-    width: 7.5rem;
+    margin: 0.25rem;
+    height: 2rem;
+    width: 7rem;
     background: #d62311;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: bold;
     text-decoration: none;
 }
 
 .settings-btn:hover{
-    background: red;
+    background: #C31908;
 }
+
+.nav-btn{
+    padding: 5px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #d62311;
+    visibility: hidden;
+    opacity: 0;
+}
+
 

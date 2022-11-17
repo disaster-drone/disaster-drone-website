@@ -4,15 +4,15 @@ import Navbar from '../components/Navbar';
 import './Homepage.css';
 import background from '../images/redgrad.svg';
 import drone from '../images/drone.png';
-import wave from '../images/sf-wave.svg';
+import wave from '../images/sf-wave.png';
 
 
 
 const Homepage = () => {
   return (
     <>  
+      <Navbar/> 
       <div className="homepage">
-        <Navbar/> 
         <div className="homepage-content">
             <section className="homepage-left">  
               <span className="homepage-title-bot">DISASTER DRONE</span>
