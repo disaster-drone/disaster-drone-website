@@ -11,8 +11,8 @@ import wave from '../images/sf-wave.png';
 const Homepage = () => {
   return (
     <>  
+      <Navbar/> 
       <div className="homepage">
-        <Navbar/> 
         <div className="homepage-content">
             <section className="homepage-left">  
               <span className="homepage-title-bot">DISASTER DRONE</span>

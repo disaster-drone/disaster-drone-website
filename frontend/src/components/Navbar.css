@@ -50,8 +50,6 @@
 
     margin: 0;
     gap: 2rem;
-
-    color: grey;
 }
 
 .navbar-right{
@@ -60,14 +58,17 @@
     list-style: none;
     align-items: center;
     gap: 1rem;
-    color: grey;
     margin: 0 0 0 0;
 }
 
 .navbar-text {
     font-size: 1.125rem;
-    font-weight: bold;
     text-decoration: none;
+    color: #403c3c;
+}
+
+.navbar-text:hover{
+    color: #D22211;
 }
 
 .logout-btn{

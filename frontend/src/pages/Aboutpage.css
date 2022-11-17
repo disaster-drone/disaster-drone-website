@@ -12,10 +12,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    float: none;
-    position: static;
-    margin-left: 15px;
-    margin-right: 15px;
 }
 
 .aboutpage-top{
@@ -24,8 +20,7 @@
     width: 100%;
     height: 50%;
     background: #d62311;
-    margin: 0;
-    padding: 2rem 0 0 2rem;
+    padding: 2rem 0 2rem 2rem;
 }
 
 .aboutpage-top-title {
@@ -34,7 +29,7 @@
     font-size: 2.5rem;
     font-weight: bold;
     color: #f4f3f3;
-    margin: 0;
+    margin: 0 0 0 4rem;
 }
 
 .about-mission{
@@ -42,6 +37,7 @@
     font-size: 1.5rem;
     font-family: inherit;
     width: 70%;
+    margin: 0 0 0 4rem;
 }
 
 .aboutpage-bottom{
@@ -50,8 +46,7 @@
     width: 100%;
     height: 50%;
     background: white;
-    margin: 0;
-    padding: 2rem 0 0 0rem;
+    padding: 2rem 0 2rem 0rem;
 }
 
 .aboutpage-bottom-text{
@@ -62,7 +57,7 @@
 
 .aboutpage-bottom-img{
     height: 15rem;
-    margin: 4rem 4rem 2rem 4rem;
+    margin: 1.25rem 4rem 2rem 4rem;
 }
 
 .aboutpage-bottom-title {

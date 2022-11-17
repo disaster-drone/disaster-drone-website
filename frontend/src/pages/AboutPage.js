@@ -4,8 +4,9 @@ import dronePic from '../images/sf-drone-about.svg'
 
 const AboutPage = () => {
     return(
+        <>
+        <Navbar/>
         <div className="aboutpage">
-            <Navbar/>
             <div className="aboutpage-content">
                 <section className="aboutpage-top">
                     <span className="aboutpage-top-title">The Mission</span>
@@ -37,6 +38,7 @@ const AboutPage = () => {
                 </section>
             </div>
         </div>
+        </>
     )
 }
 export default AboutPage;
