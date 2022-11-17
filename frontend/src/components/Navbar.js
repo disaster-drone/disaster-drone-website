@@ -23,24 +23,24 @@ const Navbar = () => {
                     <Link to="/Homepage" className="navbar-logo">
                         <img src={logo} className="logo" />
                     </Link>
-                    <Link className="link-btn" to="/Homepage">
+                    <Link className="link-btn" to="/dash/Homepage">
                         <li className="navbar-text">Home</li>                    
                     </Link>
-                    <Link className="link-btn" to="/AboutPage">
+                    <Link className="link-btn" to="/dash/AboutPage">
                         <li className="navbar-text">About</li>                    
                     </Link>
-                    <Link className="link-btn" to="/FileClaimsPage">
+                    <Link className="link-btn" to="/dash/FileClaimsPage">
                         <li className="navbar-text">File A Claim</li>                    
                     </Link>
-                    <Link className="link-btn" to="/ClosedClaimsPage">
+                    <Link className="link-btn" to="/dash/ClosedClaimsPage">
                         <li className="navbar-text">Closed Claims</li>                    
                     </Link>
                 </ul>
                 <ul className="navbar-right">
-                    <Link className="link-btn" to="/Homepage">
+                    <Link className="link-btn" to="/dash/Homepage">
                         <li className="logout-btn">Log out</li>              
                     </Link>
-                    <Link className="link-btn" to="/Homepage">
+                    <Link className="link-btn" to="/dash/Homepage">
                         <li className="settings-btn">Settings</li>           
                     </Link>
                 </ul>
