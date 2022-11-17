@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 
 import Homepage from './pages/Homepage';
@@ -12,9 +12,8 @@ import Layout from './components/Layout';
 
 function App() {
   return (
-    <BrowserRouter>
       <Routes>
-        <Route path='/*' element={<Homepage />} />
+        <Route path='/' element={<Homepage />} />
           <Route index element={<Homepage />} />
           <Route path="Homepage" element={<Homepage />} />
           <Route path="AboutPage" element={<AboutPage />} />
@@ -22,7 +21,6 @@ function App() {
           <Route path="ClosedClaimsPage" element={<ClosedClaimsPage />} />
           <Route path="LoginPage" element={<LoginPage />} />
       </Routes>
-    </BrowserRouter>
   );
 }
 
