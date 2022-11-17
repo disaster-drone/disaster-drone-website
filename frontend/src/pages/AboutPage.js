@@ -5,7 +5,6 @@ import dronePic from '../images/sf-drone-about.svg'
 const AboutPage = () => {
     return(
         <>
-        <Navbar/>
         <div className="aboutpage">
             <div className="aboutpage-content">
                 <section className="aboutpage-top">

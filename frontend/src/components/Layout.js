@@ -2,6 +2,8 @@ import { Outlet } from 'react-router-dom';
 
 import React from 'react'
 
+//This is parent component that will be rendered BEFORE you login as an employee.
+
 const Layout = () => {
   return ( 
     <Outlet /> // renders the children of the outlet compoenent.
