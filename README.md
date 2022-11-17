@@ -11,4 +11,4 @@ Website for the Disaster Drone Project
 3. In Command Prompt, navigate to the frontend folder and type "npm install".
 4. Lastly, type "npm start" to start the application.
 
-#macOS Installation & Startup Process
+##macOS Installation & Startup Process
