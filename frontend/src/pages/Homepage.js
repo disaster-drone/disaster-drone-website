@@ -23,6 +23,7 @@ const Homepage = () => {
               <img src={drone} alt="drone" className="drone"/>
             </section>
         </div> 
+        <img src={wave} alt="wave" className="wave"/>
       </div>
     </>
   )

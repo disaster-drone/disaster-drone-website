@@ -20,7 +20,7 @@ const Navbar = () => {
         <div className="navbar">
             <nav className="navbar-content" ref={navRef}>
                 <ul className="navbar-left">
-                    <Link to="/Homepage" className="navbar-logo">
+                    <Link to="/dash/Homepage" className="navbar-logo">
                         <img src={logo} className="logo" />
                     </Link>
                     <Link className="link-btn" to="/dash/Homepage">
