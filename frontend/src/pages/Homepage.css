@@ -1,4 +1,3 @@
-
 .homepage{
     background: #d62311;
     display: flex;
@@ -43,7 +42,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: left;
-    margin: 0rem 0 -2rem 4rem;
+    margin: -25rem 0 -2rem 4rem;
+    z-index: 3;
 }
 
 .homepage-title-top{
@@ -58,8 +58,16 @@
     gap: 0;
 }
 
+.jake{
+    position: absolute;
+    height: 50rem;
+    right: -15rem;
+    bottom: -10rem;
+    z-index: 2;
+}
+
 .homepage-title-bot{
-    font-size: 4.25rem;
+    font-size: 5.25rem;
     font-weight: bold;
     color: white;
     margin: 0rem 0;
@@ -81,8 +89,7 @@
 }
 
 .homepage-description{
-    font-size: 2.25rem;
-    font-weight: bold;
+    font-size: 1.75rem;
     color: white;
     margin: 1.25rem 0 0 0;
 }

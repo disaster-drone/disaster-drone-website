@@ -145,3 +145,5 @@
 20221129	16:25:11	353f383b-9d68-465e-bfd3-952a70f1aa66	POST	/auth/logout	http://localhost:3500
 20221129	16:25:19	89b0c5d0-dd27-403c-91ae-75aac8f1aff0	GET	/logo192.png	undefined
 20221129	16:25:20	71b46a53-61cf-4b3e-972f-22f88a536bda	POST	/auth/logout	http://localhost:3500
+20221129	16:29:23	a482b37e-929c-4e0b-a706-bc9641eaff40	POST	/auth	http://localhost:3500
+20221129	16:29:27	dec22518-6202-4526-8c55-9f5f73ba0a76	POST	/auth/logout	http://localhost:3500

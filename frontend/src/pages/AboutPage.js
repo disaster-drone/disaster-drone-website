@@ -22,15 +22,11 @@ const AboutPage = () => {
                     <img src={dronePic} alt="drone" className="aboutpage-bottom-img"/>
                     <section className="aboutpage-bottom-text">
                         <span className="aboutpage-bottom-title">The Solution</span>
-                        <span className="about-solution">To solve the problem statement,
-                            we going are going to be working with a team of electrical engineers
-                            who will build a drone that can fly around the disaster site and take
-                            photos of the site. Then we, the computer science engineering team will
-                            develop an application that can use photogrammetry software to create a
-                            three-dimensional model and render that model into a virtual reality environment.
-                            Then, once in the virtual environment, the insurance agent will be able to walk
-                            around and take pictures of certain damage points as if they were at the insurance
-                            claim site in person. This will then be uploaded to a website that will automate
+                        <span className="about-solution">There will be photos taken of a disaster site with a drone.
+                            Then we will use photogrammetry software to create a 3D model and render that model into a
+                            virtual reality environment. Then, once in the virtual environment, the insurance agent will be
+                            able to walkaround and take screenshots of certain damage points as if they were at the disaster
+                            site in person. This will then be uploaded to a website that will automate
                             the process of creating the insurance claim document.
                         </span>
                     </section>

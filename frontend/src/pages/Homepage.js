@@ -5,6 +5,7 @@ import './Homepage.css';
 import background from '../images/redgrad.svg';
 import drone from '../images/drone.png';
 import wave from '../images/sf-wave.png';
+import jake from '../images/jake.png';
 
 
 
@@ -20,10 +21,9 @@ const Homepage = () => {
               <span className="homepage-description"> Making insurance claims from disaster sights possible without putting anyone at risk. </span>
             </section>
             <section className="homepage-right"> 
-              <img src={drone} alt="drone" className="drone"/>
+              <img src={jake} alt="jake" className="jake"/>
             </section>
         </div> 
-        <img src={wave} alt="wave" className="wave"/>
       </div>
     </>
   )
