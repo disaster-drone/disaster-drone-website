@@ -35,10 +35,12 @@ export const usersApiSlice = apiSlice.injectEndpoints({
     }),
 })
 
+// this auto generates a hook for us to use in our components
 export const {
     useGetUsersQuery,
 } = usersApiSlice
 
+// this is a selector that will allow us to get the users from the store
 // returns the query result object
 export const selectUsersResult = usersApiSlice.endpoints.getUsers.select()
 

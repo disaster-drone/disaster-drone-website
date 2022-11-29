@@ -1,9 +1,16 @@
 import React, { useRef } from "react";
-import { Link } from 'react-router-dom'
 import {FaBars, FaTimes} from 'react-icons/fa';
+
+import { useEffect } from 'react'
+import { useNavigate, Link, useLocation } from 'react-router-dom'
+import { useSendLogoutMutation } from '../features/auth/authApiSlice'
+
 
 import logo from '../images/DD1.png';
 import './Navbar.css';
+
+const DASH_REGEX = /^\/dash(\/)?$/
+const USERS_REGEX = /^\/dash\/users(\/)?$/
 
 const Navbar = () => {
 
@@ -13,8 +20,42 @@ const Navbar = () => {
         navRef.current.classList.toggle('active-navbar');
     }
 
+    const navigate = useNavigate()
+    const { pathname } = useLocation()
 
-    return(
+    const [sendLogout, {
+        isLoading,
+        isSuccess,
+        isError,
+        error
+    }] = useSendLogoutMutation()
+
+    useEffect(() => {
+        if (isSuccess) navigate('/')
+    }, [isSuccess, navigate])
+
+
+    if (isLoading) return <p>Logging Out...</p>
+
+    if (isError) return <p>Error: {error.data?.message}</p>
+
+    let dashClass = null
+    if (!DASH_REGEX.test(pathname) && !USERS_REGEX.test(pathname)) {
+        dashClass = "navbar"
+    }
+
+    const logoutButton = (
+        <button
+                className="logout-btn"
+                title="Logout"
+            onClick={sendLogout}
+        > 
+        Logout
+        </button>
+    )
+
+
+    const content = (
         <>
         <div className="navbar-top "></div>
         <div className="navbar">
@@ -37,9 +78,7 @@ const Navbar = () => {
                     </Link>
                 </ul>
                 <ul className="navbar-right">
-                    <Link className="link-btn" to="/dash/Homepage">
-                        <li className="logout-btn">Log out</li>              
-                    </Link>
+                    {logoutButton}
                     <Link className="link-btn" to="/dash/Homepage">
                         <li className="settings-btn">Settings</li>           
                     </Link>
@@ -54,5 +93,6 @@ const Navbar = () => {
         </div>
         </>
     )
+    return content
 }
 export default Navbar;

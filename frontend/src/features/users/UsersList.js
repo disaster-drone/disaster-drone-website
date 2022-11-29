@@ -1,4 +1,6 @@
 import { useGetUsersQuery } from "./usersApiSlice";
+import User from "./User";
+import './UsersList.css'
 
 const UsersList = () => {
 
