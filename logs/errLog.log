@@ -1,1 +1,26 @@
 20221031	19:23:59	9e98c631-7df8-4b66-a676-5c3f48f69d21	Error	Not allowed by CORS	GET	/	https://www.google.com
+20221121	23:21:30	19ce3931-18ff-4c76-83dc-00b433919238	ReferenceError	roles is not defined	POST	/users	undefined
+20221121	23:22:34	00edccc9-c3b6-4f52-a5ac-316c8f54e73a	ReferenceError	roles is not defined	POST	/users	undefined
+20221121	23:22:44	ff4d1624-522a-4abd-aec6-0e648fe92a94	ReferenceError	hash is not defined	POST	/users	undefined
+20221121	23:24:12	9b9f2a30-9ab3-45e0-902d-5b0269a7fac2	ReferenceError	bcyrpt is not defined	POST	/users	undefined
+20221121	23:24:28	50a17f9c-657e-43f8-acc5-9008db900c64	ReferenceError	bcyrpt is not defined	POST	/users	undefined
+20221121	23:24:40	4859db3f-05af-47ea-80ab-fd9633ddee66	ValidationError	User validation failed: email: Path `email` is required.	POST	/users	undefined
+20221121	23:24:59	77debaf1-e968-49e2-b5f9-45adb2ce05fd	ValidationError	User validation failed: email: Path `email` is required.	POST	/users	undefined
+20221121	23:28:57	5dd1695f-01bf-4239-8312-62587705d199	ReferenceError	duplicateUserame is not defined	POST	/users	undefined
+20221121	23:33:19	27cd1ccd-7b35-4a5f-8eed-f7378cc03e08	SyntaxError	Unexpected token } in JSON at position 180	POST	/users	undefined
+20221121	23:35:32	1be4ad14-7905-4aa6-a10c-ffa88835fa32	SyntaxError	Unexpected string in JSON at position 134	POST	/users	undefined
+20221121	23:36:34	b49675e7-6427-496c-88fb-06180cb922c6	SyntaxError	Unexpected token , in JSON at position 300	PATCH	/users	undefined
+20221121	23:36:40	7d98a79f-1748-4e2f-a6d9-a698dd9f2439	SyntaxError	Unexpected token , in JSON at position 300	PATCH	/users	undefined
+20221121	23:36:41	d1c97614-54dc-4f8f-a940-fc4618cc3e75	SyntaxError	Unexpected token , in JSON at position 300	PATCH	/users	undefined
+20221121	23:37:25	397da42c-cf4b-45a0-8e0c-25dd702df883	SyntaxError	Unexpected token " in JSON at position 0	PATCH	/users	undefined
+20221122	14:02:43	8b9ce154-5766-4f6b-b73b-9fd226d6546e	ReferenceError	Cannot access 'user' before initialization	DELETE	/users	undefined
+20221122	14:04:29	5d973b8b-e342-4312-a608-657c008a5a3e	ReferenceError	Cannot access 'user' before initialization	DELETE	/users	undefined
+20221122	14:04:33	50f286af-27ee-4175-8d54-c1c15b77ce25	ReferenceError	Cannot access 'user' before initialization	DELETE	/users	undefined
+20221122	14:05:06	6d11d114-78d7-4ffc-9130-8c287cd3328f	SyntaxError	Unexpected token , in JSON at position 297	DELETE	/users	undefined
+20221122	14:05:15	a7380557-0ffe-4f50-b789-d0c6a6645601	ReferenceError	Cannot access 'user' before initialization	DELETE	/users	undefined
+20221122	14:06:58	a065fad5-432c-4cec-9df0-cab1ae9fc3c3	ReferenceError	repsonse is not defined	DELETE	/users	undefined
+20221122	14:09:02	1fb21155-8a8d-4bbd-b2e3-aec5400a010f	ReferenceError	repsonse is not defined	DELETE	/users	undefined
+20221122	14:15:01	7c8be5d0-e4e0-47ef-9349-31cdd19bef6b	SyntaxError	Unexpected token , in JSON at position 372	DELETE	/users	undefined
+20221122	14:17:02	eb2993af-4a3f-464f-9036-62f3d5c873e0	SyntaxError	Unexpected string in JSON at position 114	POST	/users	undefined
+20221129	16:20:52	1618fe9f-3e23-4301-83c0-2b192bbe430a	SyntaxError	Unexpected token } in JSON at position 187	POST	/users	undefined
+20221129	16:22:04	42cf7d30-93e4-4b3c-af4c-bd3a1929ca0a	SyntaxError	Unexpected string in JSON at position 197	POST	/users	undefined

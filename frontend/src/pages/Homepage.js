@@ -11,7 +11,6 @@ import wave from '../images/sf-wave.png';
 const Homepage = () => {
   return (
     <>  
-      <Navbar/> 
       <div className="homepage">
         <div className="homepage-content">
             <section className="homepage-left">  
@@ -24,6 +23,7 @@ const Homepage = () => {
               <img src={drone} alt="drone" className="drone"/>
             </section>
         </div> 
+        <img src={wave} alt="wave" className="wave"/>
       </div>
     </>
   )

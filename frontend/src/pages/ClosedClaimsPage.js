@@ -5,7 +5,6 @@ import Navbar from '../components/Navbar';
 const ClosedClaimsPage = () => {
     return (
         <>
-        <Navbar/>
         <div className="fileclaim-container">
             <section className="fileclaim-title">
                 <span className="fileclaim-main-title">CLOSED CLAIMS</span>

@@ -12,6 +12,10 @@ const claimSchema = new mongoose.Schema(
         type: String,
         required: true,
     },
+    clientName: {
+        type: String,
+        required: true,   
+    },
     desc: {
         type: String,
         required: true,
@@ -27,10 +31,11 @@ const claimSchema = new mongoose.Schema(
 }
 )
 
+// auto increment plug in allows us to increment id starting at a 1000 and not a random.
 claimSchema.plugin(AutoIncrement,{
     inc_field: 'claimNumber',
     id: 'claimNums',
-    start_seq: 500, 
+    start_seq: 1000, 
 });
 
 module.exports = mongoose.model('Claim', claimSchema)

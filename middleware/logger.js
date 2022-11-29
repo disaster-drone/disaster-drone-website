@@ -1,9 +1,10 @@
-const{ format } = require('date-fns')
-const { v4: uuid } = require('uuid')
-const fs = require('fs')
+const{ format } = require('date-fns') // allowing us to date our logs.
+const { v4: uuid } = require('uuid') // destucturing v4 and renaming it uuid 
+const fs = require('fs') // the file system module that comes directly from node
 const fsPromises = require('fs').promises
 const path = require('path')
 
+// helper function that logs events.
 const logEvents = async (message, logFileName) => {
     const dateTime = `${format(new Date(), 'yyyyMMdd\tHH:mm:ss')}`
     const logItem = `${dateTime}\t${uuid()}\t${message}\n`
