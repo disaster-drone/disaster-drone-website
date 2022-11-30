@@ -38,11 +38,11 @@
 .homepage-left{
     display: flex;
     position: relative;
-    max-width: 50vw;
+    max-width: 60vw;
     flex-direction: column;
     justify-content: center;
     align-items: left;
-    margin: -25rem 0 -2rem 4rem;
+    margin: -20rem 0 -2rem 6rem;
     z-index: 3;
 }
 
@@ -60,9 +60,9 @@
 
 .jake{
     position: absolute;
-    height: 50rem;
-    right: -15rem;
-    bottom: -10rem;
+    width: 120%;
+    right: -12rem;
+    bottom: -2rem;
     z-index: 2;
 }
 
