@@ -1,6 +1,6 @@
 
 *{
-    font-family: Noto Sans, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .navbar-top{
@@ -15,6 +15,7 @@
     padding: 0.25rem 0rem;
     border-bottom: 0.125rem solid #d9d9d9;
     height: 4.25rem;
+    width: 100vw;
     background: white;
 }
 
@@ -47,7 +48,6 @@
     flex-direction: row;
     list-style: none;
     align-items: center;
-
     margin: 0;
     gap: 2rem;
 }
@@ -76,6 +76,8 @@
     font-size: 1.25rem;
     font-weight: bold;
     text-decoration: none;
+    background-color: transparent;
+    border: none;
 }
 
 .logout-btn:hover{

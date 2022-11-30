@@ -46,8 +46,8 @@ const Navbar = () => {
 
     const logoutButton = (
         <button
-                className="logout-btn"
-                title="Logout"
+            className="logout-btn"
+            title="Logout"
             onClick={sendLogout}
         > 
         Logout
@@ -83,13 +83,7 @@ const Navbar = () => {
                         <li className="settings-btn">Settings</li>           
                     </Link>
                 </ul>
-                <button className="nav-btn nav-close-btn" onClick={showNavbar}> 
-                    <FaTimes/>
-                </button>
             </nav>
-            <button className="nav-btn" onClick={showNavbar}>
-                <FaBars/> 
-            </button>
         </div>
         </>
     )

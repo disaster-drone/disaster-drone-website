@@ -23,3 +23,10 @@
     font-weight: bold;
     color: black;
 }
+
+.fileclaim-curve{
+    position: absolute;
+    bottom: -3rem;
+    right: -5rem;
+    width: 110%;
+}

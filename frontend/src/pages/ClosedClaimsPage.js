@@ -1,6 +1,8 @@
 import './ClosedClaimsPage.css';
 import ClaimButton from '../components/ClaimButton';
 import Navbar from '../components/Navbar';
+import curve from '../images/claim-curve-real-fr.png';
+
 
 const ClosedClaimsPage = () => {
     return (
@@ -15,8 +17,10 @@ const ClosedClaimsPage = () => {
                 <ClaimButton className="claim-btn"/>
                 <ClaimButton className="claim-btn"/>
                 <ClaimButton className="claim-btn"/>
-                <ClaimButton className="claim-btn"/>
             </section>
+            <div>
+                <img src={curve} alt="curve" className="fileclaim-curve"/>
+            </div>
         </div>
         </>
     )
