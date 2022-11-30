@@ -147,3 +147,7 @@
 20221129	16:25:20	71b46a53-61cf-4b3e-972f-22f88a536bda	POST	/auth/logout	http://localhost:3500
 20221129	16:29:23	a482b37e-929c-4e0b-a706-bc9641eaff40	POST	/auth	http://localhost:3500
 20221129	16:29:27	dec22518-6202-4526-8c55-9f5f73ba0a76	POST	/auth/logout	http://localhost:3500
+20221129	17:58:50	798a2449-d190-47ea-9543-8ab3f178499e	POST	/auth	http://localhost:3500
+20221129	17:59:08	3e9dbd79-85ea-430b-9e87-f4f51968183e	GET	/main.64908152628700040f94.hot-update.json	undefined
+20221129	18:18:59	195294c7-55f6-4276-91d4-24e030a3fe81	GET	/logo192.png	undefined
+20221129	18:18:59	9be9384d-6926-4028-8b08-04c8d2570d65	GET	/favicon.ico	undefined
