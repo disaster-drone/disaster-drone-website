@@ -23,7 +23,12 @@ const claimSchema = new mongoose.Schema(
     completed: {
         type: Boolean, 
         default: false,
-    }
+    },
+    source: {
+        file: { type: Buffer, required: true },
+        filename: { type: String, required: true },
+        mimetype: { type: String, required: true }
+      }
 },
 
 {

@@ -160,3 +160,11 @@
 20221130	23:02:38	ddfdd8dc-26a8-4040-881f-ca4cad65422f	POST	/auth	http://localhost:3500
 20221130	23:04:32	ddec49a2-c2ed-4523-9e29-208783e7577c	POST	/auth/logout	http://localhost:3500
 20221130	23:04:38	779f0ad5-89ef-4a8d-bc98-594ac4a17a0f	POST	/auth	http://localhost:3500
+20221201	12:32:43	cf345767-8c85-434c-9c69-63da2c47db29	POST	/auth	http://localhost:3500
+20221201	13:17:27	2e34c5a2-cc58-4bb6-ba9f-1326cd30f2f8	POST	/auth	http://localhost:3500
+20221201	13:17:34	d414e5cd-30ac-4749-8f40-57140603c017	POST	/auth	http://localhost:3500
+20221201	13:17:34	8bdc7667-6993-485b-96be-7a9558e2969f	POST	/auth	http://localhost:3500
+20221201	13:17:35	408274e6-2b2b-4d07-89fa-505f8e16a3c3	POST	/auth	http://localhost:3500
+20221201	13:17:35	5f6500bf-6579-4bda-83a7-30e88ff2aa4a	POST	/auth	http://localhost:3500
+20221201	13:17:35	7c636fa3-7f7c-45b0-8a20-20408531b234	POST	/auth	http://localhost:3500
+20221201	13:17:36	808f073d-e97f-4caa-b486-1304cc20400c	POST	/auth	http://localhost:3500
