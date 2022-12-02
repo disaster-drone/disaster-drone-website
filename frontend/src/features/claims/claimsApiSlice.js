@@ -8,20 +8,19 @@ const claimAdapter = createEntityAdapter({})
 
 const initialState = claimAdapter.getInitialState()
 
-export const claimApiSlice = apiSlice.injectEndpoints({
+export const claimsApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
-        getclaim: builder.query({
-            query: () => '/claim',
+        getNotes: builder.query({
+            query: () => '/claims',
             validateStatus: (response, result) => {
                 return response.status === 200 && !result.isError
             },
-            keepUnusedDataFor: 5,
             transformResponse: responseData => {
-                const loadedclaim = responseData.map(claim => {
+                const loadedNotes = responseData.map(claim => {
                     claim.id = claim._id
                     return claim
                 });
-                return claimAdapter.setAll(initialState, loadedclaim)
+                return claimsAdapter.setAll(initialState, loadedNotes)
             },
             providesTags: (result, error, arg) => {
                 if (result?.ids) {
@@ -32,26 +31,63 @@ export const claimApiSlice = apiSlice.injectEndpoints({
                 } else return [{ type: 'Claim', id: 'LIST' }]
             }
         }),
+        addNewClaim: builder.mutation({
+            query: initialClaim => ({
+                url: '/claims',
+                method: 'POST',
+                body: {
+                    ...initialClaim,
+                }
+            }),
+            invalidatesTags: [
+                { type: 'Claim', id: "LIST" }
+            ]
+        }),
+        updateClaim: builder.mutation({
+            query: initialClaim => ({
+                url: '/claims',
+                method: 'PATCH',
+                body: {
+                    ...initialClaim,
+                }
+            }),
+            invalidatesTags: (result, error, arg) => [
+                { type: 'Claim', id: arg.id }
+            ]
+        }),
+        deleteClaim: builder.mutation({
+            query: ({ id }) => ({
+                url: `/claims`,
+                method: 'DELETE',
+                body: { id }
+            }),
+            invalidatesTags: (result, error, arg) => [
+                { type: 'Claim', id: arg.id }
+            ]
+        }),
     }),
 })
 
 export const {
-    useGetclaimQuery,
-} = claimApiSlice
+    useGetClaimsQuery,
+    useAddNewClaimMutation,
+    useUpdateClaimMutation,
+    useDeleteClaimMutation,
+} = claimsApiSlice
 
 // returns the query result object
-export const selectclaimResult = claimApiSlice.endpoints.getclaim.select()
+export const selectClaimResult = claimApiSlice.endpoints.getClaim.select()
 
 // creates memoized selector
-const selectclaimData = createSelector(
-    selectclaimResult,
+const selectClaimsData = createSelector(
+    selectClaimsResult,
     claimResult => claimResult.data // normalized state object with ids & entities
 )
 
 //getSelectors creates these selectors and we rename them with aliases using destructuring
 export const {
-    selectAll: selectAllclaim,
+    selectAll: selectAllClaims,
     selectById: selectClaimById,
     selectIds: selectClaimIds
     // Pass in a selector that returns the claim slice of state
-} = claimAdapter.getSelectors(state => selectclaimData(state) ?? initialState)
+} = claimAdapter.getSelectors(state => selectClaimData(state) ?? initialState)
