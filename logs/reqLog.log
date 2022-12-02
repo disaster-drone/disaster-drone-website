@@ -168,3 +168,5 @@
 20221201	13:17:35	5f6500bf-6579-4bda-83a7-30e88ff2aa4a	POST	/auth	http://localhost:3500
 20221201	13:17:35	7c636fa3-7f7c-45b0-8a20-20408531b234	POST	/auth	http://localhost:3500
 20221201	13:17:36	808f073d-e97f-4caa-b486-1304cc20400c	POST	/auth	http://localhost:3500
+20221201	18:02:23	b243f2fe-60a0-4856-a1fe-2295a905b7c2	POST	/auth	http://localhost:3500
+20221201	18:02:25	c805a1b5-bc7b-4605-8f11-5e18e038aae7	POST	/auth	http://localhost:3500
