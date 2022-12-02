@@ -73,13 +73,15 @@ const Navbar = () => {
                     <Link className="link-btn" to="/dash/FileClaimsPage">
                         <li className="navbar-text">File A Claim</li>                    
                     </Link>
+                    {/*
                     <Link className="link-btn" to="/dash/ClosedClaimsPage">
                         <li className="navbar-text">Closed Claims</li>                    
                     </Link>
+                    */}
                 </ul>
                 <ul className="navbar-right">
                     {logoutButton}
-                    <Link className="link-btn" to="/dash/Homepage">
+                    <Link className="link-btn" to="/dash/SettingsPage">
                         <li className="settings-btn">Settings</li>           
                     </Link>
                 </ul>

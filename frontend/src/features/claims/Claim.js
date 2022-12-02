@@ -3,7 +3,8 @@ import { faPenToSquare } from "@fortawesome/free-solid-svg-icons"
 import { useNavigate } from 'react-router-dom'
 
 import { useSelector } from 'react-redux'
-import { selectNoteById } from './notesApiSlice'
+import { selectClaimById } from './claimsApiSlice'
+import './ClaimsList.css'
 
 const Claim = ({ claimId }) => {
 
@@ -20,18 +21,19 @@ const Claim = ({ claimId }) => {
 
         return (
             <tr className="table__row">
-                <td className="table__cell claim__status">
-                    {note.completed
+                <td className="table__cell-claim claim__status">
+                    {claim.completed
                         ? <span className="claim__status--completed">Completed</span>
                         : <span className="claim__status--open">Open</span>
                     }
                 </td>
-                <td className="table__cell claim__created">{created}</td>
-                <td className="table__cell claim__updated">{updated}</td>
-                <td className="table__cell claim__title">{note.title}</td>
-                <td className="table__cell claim__username">{note.username}</td>
+                <td className="table__cell-claim claim__created">{created}</td>
+                <td className="table__cell-claim  claim__updated">{claim.title}</td>
+                <td className="table__cell-claim  claim__title">{claim.desc}</td>
+                <td className="table__cell-claim  claim__title">{claim.clientName}</td>
+                <td className="table__cell-claim  claim__username">{claim.username}</td>
 
-                <td className="table__cell">
+                <td className="table__cell-claim">
                     <button
                         className="icon-button table__button"
                         onClick={handleEdit}
