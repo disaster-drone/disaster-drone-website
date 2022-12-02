@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { selectUserById } from './usersApiSlice'
 
+import './UsersList.css'
+
 import React from 'react'
 
 const User = ({ userId }) => {
@@ -21,9 +23,9 @@ const User = ({ userId }) => {
 
         return (
             <tr className="table__row user">
-                <td className={`table__cell ${cellStatus}`}>{user.username}</td>
-                <td className={`table__cell ${cellStatus}`}>{userRolesString}</td>
-                <td className={`table__cell ${cellStatus}`}>
+                <td className={`table__cell-users ${cellStatus}`}>{user.username}</td>
+                <td className={`table__cell-users ${cellStatus}`}>{userRolesString}</td>
+                <td className={`table__cell-users ${cellStatus}`}>
                     <button
                         className="icon-button table__button"
                         onClick={handleEdit}

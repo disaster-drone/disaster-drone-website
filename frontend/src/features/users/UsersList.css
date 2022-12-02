@@ -4,43 +4,47 @@ thead,
 tbody,
 tr {
   display: contents;
-  background: red;
 }
 
-.table {
-  font-size: 1rem;
-  width: 100%;
+.table-users {
+  font-size: 1.5rem;
+  width: 70%;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  color: orange;
-  gap: 0.1em;
+  color: black;
+  gap: 0rem;
 }
 
-.table__button {
+.table__button-users{
   padding: 0.25em;
   font-size: 1.5rem;
-  color: var(--TABLE-COLOR);
+  color: black;
 }
 
-.table__thead {
+.table__thead-users {
   position: sticky;
   top: 0;
   z-index: 1;
 }
 
-.table__th,
-.table__cell {
-  background-color: var(--TABLE-BGCOLOR);
+.table__th-users{
+  background-color: #d62311;
   text-align: left;
-  border: 1px solid var(--TABLE-COLOR);
-  padding: 0.5em;
+  border: 1px solid #d62311;
+  padding: 0.5rem;
+}
+.table__cell-users {
+  background-color: white;
+  text-align: left;
+  border: 1px solid black;
+  padding: 0.5rem;
 }
 
-.table__cell:last-child {
+.table__cell-users:last-child {
   display: grid;
   place-content: center;
 }
 
-.table__cell--inactive {
+.table__cell-users--inactive {
   background-color: var(--INACTIVE);
 }

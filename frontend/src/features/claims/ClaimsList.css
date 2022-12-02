@@ -1,0 +1,73 @@
+/* || TABLES - GENERAL */
+
+thead,
+tbody,
+tr {
+  display: contents;
+}
+
+.claims-list-container{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+.table-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+
+.table-claims {
+  display: flex;
+  font-size: 1rem;
+  width: 70%;
+  display: grid;
+  grid-template-columns: 0.25fr 0.25fr 0.5fr 0.5fr 0.25fr 0.25fr 0.25fr;
+  color: black;
+  gap: 0rem;
+}
+
+.table__button-claims {
+  padding: 0.25em;
+  font-size: 1.5rem;
+  color: black;
+}
+
+.table__thead-claims {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #d62311;
+}
+
+.table__th-claims,
+.table__cell-claims {
+  background-color: #d62311;
+  text-align: left;
+  border: 1px solid #d62311;
+  padding: 0.5em;
+}
+
+.table__cell-claim {
+  display: flex;
+  border: 1px solid black;
+  align-items: center;
+  padding: 0 0 0 0.25rem;
+}
+
+.table__cell-claims:last-child {
+  display: grid;
+  place-content: center;
+}
+
+.table__cell-claims--inactive {
+  background-color: var(--INACTIVE);
+}

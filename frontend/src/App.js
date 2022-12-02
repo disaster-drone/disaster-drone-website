@@ -11,6 +11,8 @@ import LoginPage from './features/auth/LoginPage'
 import Layout from './components/Layout'
 import DashLayout from './components/DashLayout'
 import UsersList from './features/users/UsersList'
+import ClaimsList from './features/claims/ClaimsList'
+import SettingsPage from './pages/SettingsPage';
 
 
 
@@ -28,10 +30,17 @@ function App() {
             <Route path="AboutPage" element={<AboutPage />} />
             <Route path="FileClaimsPage" element={<FileClaimsPage />} />
             <Route path="ClosedClaimsPage" element={<ClosedClaimsPage />} />
+            <Route path="SettingsPage" element={<SettingsPage />} />
 
             <Route path="users">
               <Route index element={<UsersList />} />
             </Route>
+
+            <Route path="claims">
+              <Route index element={<ClaimsList />} />
+            </Route>
+
+
             
           </Route> {/* End Dash */}
 
