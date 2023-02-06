@@ -44,7 +44,7 @@ const createNewClaim = asyncHandler(async (req, res) => {
     }
 
     // Create and store the new user 
-    const claim = await Claim.create({ user, title, desc })
+    const claim = await Claim.create({ user, title, desc, clientName })
 
     if (claim) { // Created 
         return res.status(201).json({ message: 'New claim created' })

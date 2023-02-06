@@ -30,10 +30,16 @@ app.use(cookieParser()) // this allows us to parse cookies.
 
 app.use ('/', express.static(path.join(__dirname, 'public')))
 
+app.get('/launch-unreal', (req, res) => {
+    // code to launch Unreal Engine
+});
+
 app.use('/', require('./routes/root'))
 app.use('/auth', require('./routes/authRoutes'))
 app.use('/users', require('./routes/userRoutes'))
 app.use('/claims', require('./routes/claimRoutes'))
+app.use('/files', require('./routes/index.js'))
+app.use('/uploads', require('./routes/index.js'))
 
 
 app.all('*', (req, res) => {

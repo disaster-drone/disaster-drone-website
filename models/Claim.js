@@ -25,11 +25,11 @@ const claimSchema = new mongoose.Schema(
         default: false,
     },
     source: {
-        file: { type: Buffer, required: true },
-        filename: { type: String, required: true },
-        mimetype: { type: String, required: true }
+        file: { type: Buffer, required: false },
+        filename: { type: String, required: false },
+        mimetype: { type: String, required: false }
       }
-},
+    },
 
 {
     timestamps: true // gives us both createdAt and updatedAt
