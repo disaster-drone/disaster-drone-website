@@ -26,3 +26,10 @@
 20221129	16:22:04	42cf7d30-93e4-4b3c-af4c-bd3a1929ca0a	SyntaxError	Unexpected string in JSON at position 197	POST	/users	undefined
 20221201	13:17:35	eba34fac-8eb8-4f00-a726-18378f7f2f74	Too Many Requests: Too many login attempts from this IP, please try again after a 60 second pause	POST	/	http://localhost:3500
 20221201	13:17:36	68844e0d-c19a-4ad1-944b-94e692d91613	Too Many Requests: Too many login attempts from this IP, please try again after a 60 second pause	POST	/	http://localhost:3500
+20221201	18:41:48	41137e41-47e6-4bcc-8edf-bca92b665764	TypeError	app.use is not a function	GET	/files	undefined
+20221201	18:43:38	a4529639-5056-454f-97cf-e0d23158bd6a	TypeError	app.use is not a function	GET	/files	undefined
+20221201	18:43:39	8aecc5ae-e2b7-44e1-b357-9fd3c8d507d9	TypeError	app.use is not a function	GET	/files	undefined
+20221201	18:43:48	96029e4b-c194-45db-888a-42f3986e691e	TypeError	app.use is not a function	GET	/files	undefined
+20221201	20:32:36	a0f871b3-7831-4696-9344-af3b87c8f0c4	SyntaxError	Unexpected token } in JSON at position 130	POST	/claims	undefined
+20221201	20:32:40	6ccafb2e-d843-4fd5-af6a-0b866015f04a	ValidationError	Claim validation failed: user: Cast to ObjectId failed for value "Carlos1" (type string) at path "user" because of "BSONTypeError", clientName: Path `clientName` is required.	POST	/claims	undefined
+20221201	20:34:20	ac47bf8b-83bc-41da-a7b4-b4e3e600bfa3	ValidationError	Claim validation failed: clientName: Path `clientName` is required.	POST	/claims	undefined
