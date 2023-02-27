@@ -5,14 +5,13 @@ const cwd = path.join(__dirname, '..');
 const processFile = require("../middleware/upload");
 const { format } = require("util");
 const { Storage } = require("@google-cloud/storage");
-// Instantiate a storage client with credentials
-const storage = new Storage({ keyFilename: "./my-service-account-key.json" });
-const bucket = storage.bucket("dsd-cloud-storage");
 
+// Instantiate a storage client with credentials
+const bucketName = 'dsd-cloud-storage';
 
 // define the path and name of Google Cloud Storage object to download
-const fileName = 'dji_demo/objects/OfficeScptTest.obj'
-// define the destination folder of downloaded object
+
+const storage = new Storage();
 
 // @ desc upload a file
 // @ route POST /files
@@ -72,53 +71,106 @@ const upload = async (req, res) => {
     }
   };
   
-  // @ desc get list of the files
-  // @ route get /files
-  // @ access Private
-  const getListFiles = async (req, res) => {
-    try {
-      const [files] = await bucket.getFiles();
-      let fileInfos = [];
-  
-      files.forEach((file) => {
-        fileInfos.push({
-          name: file.name,
-          url: file.metadata.mediaLink,
-        });
-      });
-  
-      res.status(200).send(fileInfos);
-    } catch (err) {
-      console.log(err);
-  
-      res.status(500).send({
-        message: "Unable to read list of files!",
-      });
-    }
-  };
-  
-  // @ desc download a file
-  // @ route get /files/:name
-  // @ access Private
-  const download = async (req, res) => {
-    try {
-      const contents = await storage.bucket(bucket).file(fileName).download();
+
+// @ desc: make files public
+// @ route: files/makepublic
+// @access: Private
+const makePublic = async (req, res) => {
+  try{
+    const [files] = await storage.bucket(bucketName).getFiles();
+    files.forEach((file) => {
+      storage.bucket(bucketName).file(fileName).makePublic();
+      console.log(`gs://${bucketName}/${fileName} is now public.`);
+    });
+  } catch (err) {
+    console.log(err);
+    makePublic().catch(console.error);
+  }
+};
+
+
+// @ desc: get list of the files
+// @ route: get /files
+// @ access: Private
+const getListFiles = async (req, res) => {
+  try {
+    const [files] = await storage.bucket(bucketName).getFiles();
+    let fileInfo = [];
       
-      console.log(
-        `Contents of gs://${bucket}/${fileName} are ${contents.toString()}.`
-      );
-      
-      
-    } catch (err) {
-      res.status(500).send({
-        message: "Could not download the file. " + err,
+    files.forEach((file) => {
+      fileInfo.push({
+        name: file.name,
+        url: file.metadata.mediaLink,
+        content: file.metadata.contentType,
+        metagen: file.metadata.metageneration,
       });
-    }
-  };
+    });
+  
+    res.status(200).send(fileInfo);
+    res.json(fileInfo);
+  } catch (err) {
+    console.log(err);
+  
+    res.status(500).send({
+      message: "Unable to read list of files!",
+    });
+  }
+};
+
+  
+// @ desc download a file
+// @ route get /files/:name
+// @ access Private
+const downloadIntoMemory = async (req, res) => {
+  const bucket = storage.bucket(bucketName);
+  const file = bucket.file(fileName);
+
+  const fileContents = await file.download();
+  console.log(`Downloaded file contents: ${fileContents.name}`);
+};
+
+// @ desc download a file
+// @ route get /files/:name
+// @ access Private
+const downloadFile = async (req, res) => {
+  const bucket = storage.bucket(bucketName);
+  const file = bucket.file(fileName);
+
+  const fileContents = await file.download();
+  console.log(`Downloaded file contents: ${fileContents.name}`);
+};
+
+const getListImages = async (req, res) => {
+  try {
+    const [files] = await storage.bucket(bucketName).getFiles();
+    const imageFiles = files.filter(file => file.name.endsWith('.jpg') || file.name.endsWith('.png'));
+    const imageInfo = [];
+      
+    imageFiles.forEach((image) => {
+      imageInfo.push({
+        name: image.name,
+        url: image.metadata.mediaLink,
+        content: image.metadata.contentType,
+      });
+    });
+  
+    res.status(200).send(imageInfo);
+    res.json(imageInfo);
+  } catch (err) {
+    console.log(err);
+  
+    res.status(500).send({
+      message: "Unable to read list of images!",
+    });
+  }
+};
+
   
   module.exports = {
     upload,
     getListFiles,
-    download,
+    downloadIntoMemory,
+    makePublic,
+    getListImages,
   };
   
