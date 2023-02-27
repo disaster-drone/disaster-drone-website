@@ -10,8 +10,8 @@ const FileClaimsPage = () => {
         <div className="file-claims-page">
             <div className="fileclaim-container">
                 <section className="fileclaim-title">
-                    <span className="fileclaim-main-title">FILE A CLAIM</span>
-                    <span className="fileclaim-desc" > Uploaded Claims</span>
+                    <span className="fileclaim-main-title">FILE A CASE</span>
+                    <span className="fileclaim-desc" > Uploaded Cases</span>
                 </section>
                 <section className="fileclaim-form">
                     <ClaimsList/>

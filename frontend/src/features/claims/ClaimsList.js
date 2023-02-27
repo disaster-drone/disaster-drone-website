@@ -36,9 +36,9 @@ const ClaimsList = () => {
                             <th scope="col" className="table__th-claims claim__created">Created</th>
                             <th scope="col" className="table__th-claims claim__updated">Title</th>
                             <th scope="col" className="table__th-claims claim__title">Description</th>
-                            <th scope="col" className="table__th-claims claim__title">Client</th>
-                            <th scope="col" className="table__th-claims claim__username">Agent</th>
-                            <th scope="col" className="table__th-claims claim__edit">Edit</th>
+                            <th scope="col" className="table__th-claims claim__title"></th>
+                            <th scope="col" className="table__th-claims claim__username"></th>
+                            <th scope="col" className="table__th-claims claim__edit"></th>
                         </tr>
                     </thead>
                     <tbody>

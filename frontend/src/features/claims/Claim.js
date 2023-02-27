@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons"
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 import { useSelector } from 'react-redux'
 import { selectClaimById } from './claimsApiSlice'
@@ -30,16 +30,31 @@ const Claim = ({ claimId }) => {
                 <td className="table__cell-claim claim__created">{created}</td>
                 <td className="table__cell-claim  claim__updated">{claim.title}</td>
                 <td className="table__cell-claim  claim__title">{claim.desc}</td>
-                <td className="table__cell-claim  claim__title">{claim.clientName}</td>
-                <td className="table__cell-claim  claim__username">{claim.username}</td>
-
-                <td className="table__cell-claim">
+                <td className="table__cell-claim  claim__title">
+                    <Link to="/dash/DocumentPage">
                     <button
-                        className="icon-button table__button"
+                        className="press-btn">
+                        Case Document
+                    </button>
+                    </Link>
+                </td>
+                <td className="table__cell-claim  claim__title">
+                    <button
+                        className="press-btn"
+                        >
+                        Open Diaster App
+                    </button>
+                </td>
+
+                <td className="table__cell-claim  claim__title">
+                    <Link to="/dash/GalleryPage">
+                    <button
+                        className="press-btn"
                         onClick={handleEdit}
                     >
-                        <FontAwesomeIcon icon={faPenToSquare} />
+                    Case Images
                     </button>
+                    </Link>
                 </td>
             </tr>
         )

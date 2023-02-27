@@ -1,0 +1,50 @@
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
+.gallery-page{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+.gallerypage-container{
+    background: white;
+    background-size: cover;
+    margin: 4rem;
+}
+
+.gallerypage-title{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+}
+
+.gallerypage-main-title{
+    font-family: "Poppins";
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+}
+
+.gallerypage-desc{
+    font-family: "Poppins";
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: black;
+}
+
+.gallerypage-curve{
+    position: absolute;
+    bottom: -3rem;
+    right: -5rem;
+    width: 110%;
+}
+
+.gallerypage-gallery{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
