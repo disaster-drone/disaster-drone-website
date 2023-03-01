@@ -16,15 +16,15 @@ class GalleryPage extends Component{
     }
 
     componentDidMount(){
-        fetch('http://localhost:3500/files/listfiles')
+        fetch('http://localhost:3500/files/listimages')
         .then(response => {
             if(!response.ok){
                 throw Error("Error in the componentdidmount 1");
             }
             return response.json();
         })
-        .then (allData => {
-            this.setState({photos: allData})
+        .then (images => {
+            this.setState({photos: images})
         })
         .catch(err => {
             throw Error("Error: in the copmonentDidMount 2")

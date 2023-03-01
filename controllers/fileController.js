@@ -8,6 +8,7 @@ const { Storage } = require("@google-cloud/storage");
 
 // Instantiate a storage client with credentials
 const bucketName = 'dsd-cloud-storage';
+const bucketNameImage = 'dsd-cloud-storage/dji_demo_images';
 
 // define the path and name of Google Cloud Storage object to download
 
@@ -143,7 +144,7 @@ const downloadFile = async (req, res) => {
 const getListImages = async (req, res) => {
   try {
     const [files] = await storage.bucket(bucketName).getFiles();
-    const imageFiles = files.filter(file => file.name.endsWith('.jpg') || file.name.endsWith('.png'));
+    const imageFiles = files.filter(file => file.name.endsWith('.JPG') || file.name.endsWith('.PNG'));
     const imageInfo = [];
       
     imageFiles.forEach((image) => {
