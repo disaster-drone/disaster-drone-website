@@ -1,0 +1,17 @@
+.claim-description{
+    
+}
+.desc-form-title{
+    font-family: "Poppins";
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: black;
+}
+.desc-form{
+    width: 20em;
+    height: 5em;
+}
+.claim-image{
+    max-width: 20rem;
+    margin: 4rem auto;
+}

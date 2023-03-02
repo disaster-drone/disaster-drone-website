@@ -1,5 +1,6 @@
 import Navbar from '../components/Navbar'
 import DocumentForm from '../components/DocumentForm'
+import IndividualClaim from '../components/IndividualClaim'
 import './DocumentPage.css'
 
 const DocumentPage = () => {
@@ -12,7 +13,8 @@ const DocumentPage = () => {
                         <span className="documentpage-desc" >View Form and Download</span>
                     </section>
                     <section className="documentpage-form">
-                    </section>
+                        <IndividualClaim />
+                    </section>  
                 </div>
             </div>        
         </>
