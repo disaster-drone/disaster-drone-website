@@ -1,17 +1,36 @@
-.claim-description{
-    
+.claim-content{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    margin: 2em;
+}
+
+.claim-desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.claim-img-desc-container{
+    display: flex;
+    flex-direction: row;
+}
+.claim-number{
+    margin: 0 0 0 1em;
+    font-weight: bold;
 }
 .desc-form-title{
     font-family: "Poppins";
-    font-size: 2.5rem;
-    font-weight: bold;
     color: black;
 }
 .desc-form{
     width: 20em;
-    height: 5em;
+    height: 2em;
 }
 .claim-image{
+    display: flex;
     max-width: 20rem;
-    margin: 4rem auto;
+    margin: 0;
+    padding: 0;
 }

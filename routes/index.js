@@ -17,4 +17,10 @@ router.route('/makepublic')
 router.route('/listimages')
   .get(fileController.getListImages)  
 
+router.route('/listbuckets')
+  .get(fileController.getListBuckets)
+
+router.route('/getpins')
+  .get(fileController.getPins)
+  
 module.exports = router;

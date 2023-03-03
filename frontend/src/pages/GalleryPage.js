@@ -13,7 +13,8 @@ import stlyed from 'styled-components';
 
 function GalleryPage(){
     const [images, setImages] = useState([]); // images is an array of objects by default is set empty.
-
+    const [pins, setPins] = useState([]); // pins is an array of objects by default is set empty.
+    const [pinnedImages, setPinnedImages] = useState([]); // pinnedImages is an array of objects by default is set empty.
 
     useEffect(() => {
         const apiRoot = 'http://localhost:3500';
@@ -21,6 +22,15 @@ function GalleryPage(){
             .get(`${apiRoot}/files/listimages`)
             .then(res => setImages([...images, ...res.data]))
     }, [])
+
+    useEffect(() => { 
+        const apiRoot = 'http://localhost:3500';
+        axios
+            .get(`${apiRoot}/files/getpins`)
+            .then(res => setPins([...pins, ...res.data]))
+    }, [])
+
+    
 
 
     return (
