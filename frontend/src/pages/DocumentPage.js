@@ -21,6 +21,7 @@ const DocumentPage = () => {
                             <p id="p-text">This case was made using the Diaster Drone website, by the insurance agent
                             billy bob for carlos who is insured by StateFarm Insurance. There are some legals words 
                             that might be able to go in here to make the document look a little more professional. </p>
+                            <div className="seperation-bar-top"></div>
                         </span>
                         <span className="indiv-claims"> 
                             <IndividualClaim />

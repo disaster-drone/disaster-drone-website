@@ -1,8 +1,12 @@
-.claim-content{
+.claim-container{
     display: flex;
     flex-direction: column;
-    font-size: 1.2rem;
-    margin: 2em;
+    margin: 0 2em 0 2em;
+}
+
+.claim-content{
+    display: flex;
+    flex-direction: row;
 }
 
 .claim-desc{
@@ -12,25 +16,47 @@
     align-items: center;
 }
 
-.claim-img-desc-container{
-    display: flex;
-    flex-direction: row;
+#claim-id{
+    margin: 1em 0 0 0;
+    font-size: 1em;
 }
-.claim-number{
-    margin: 0 0 0 1em;
-    font-weight: bold;
+
+#desc-title{
+    margin: 0 0 0 0;
+    font-size: 1em;
 }
-.desc-form-title{
-    font-family: "Poppins";
-    color: black;
+
+.desc-form-box{
+    width: 60em;
+    height: 12em;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    border: 0.5px solid #ccc;
+    border-radius: 0.25em;
+    background-color: white;
+    resize: none;
 }
-.desc-form{
-    width: 20em;
-    height: 2em;
-}
+
 .claim-image{
     display: flex;
     max-width: 20rem;
-    margin: 0;
+    margin: 0 0 1em 0;
     padding: 0;
+}
+
+.seperation-bar{
+    height: 1px;
+    background: red;
+    width: 100%;
+    margin: 1em;
+}
+
+#title-text{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#p-text{
+    font-size: 1em;
+    text-align: center;
 }

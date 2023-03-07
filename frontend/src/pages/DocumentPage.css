@@ -38,7 +38,7 @@
     display: flex;
     flex-direction: column;
     outline-style: solid;
-    outline-width: 0.10em;
+    outline-width: 0.05em;
     outline-color: black;
 }
 
@@ -46,7 +46,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 3em;
     justify-content: center;
+}
+
+.seperation-bar-top{
+    height: 1px;
+    background: red;
+    width: 90%;
+    margin: 0 2em 0 2em;
 }
 
 #title-text{
