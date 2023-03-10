@@ -123,12 +123,10 @@ const getListFiles = async (req, res) => {
 // @ desc download a file
 // @ route get /files/:name
 // @ access Private
-const downloadIntoMemory = async (req, res) => {
-  const bucket = storage.bucket(bucketName);
-  const file = bucket.file(fileName);
+const downloadIntoMemory = async (req, res, {downloadFile}) => {
+  const contents = await storage.bucket(bucketName).file({downloadFile}).download();
+  downloadIntoMemory().catch(console.error);
 
-  const fileContents = await file.download();
-  console.log(`Downloaded file contents: ${fileContents.name}`);
 };
 
 // @ desc download a file
