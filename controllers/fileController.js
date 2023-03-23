@@ -1,3 +1,4 @@
+
 const path = require('path');
 const cwd = path.join(__dirname, '..');
 
@@ -9,8 +10,6 @@ const { Storage } = require("@google-cloud/storage");
 // Instantiate a storage client with credentials
 const bucketName = 'dsd-cloud-storage';
 const bucketNameImage = 'dsd-cloud-storage/dji_demo_images';
-
-// define the path and name of Google Cloud Storage object to download
 
 const storage = new Storage();
 
@@ -104,6 +103,7 @@ const getListFiles = async (req, res) => {
         url: file.metadata.mediaLink,
         content: file.metadata.contentType,
         metagen: file.metadata.metageneration,
+        folder: file.prefix,
       });
     });
   
@@ -122,12 +122,10 @@ const getListFiles = async (req, res) => {
 // @ desc download a file
 // @ route get /files/:name
 // @ access Private
-const downloadIntoMemory = async (req, res) => {
-  const bucket = storage.bucket(bucketName);
-  const file = bucket.file(fileName);
+const downloadIntoMemory = async (req, res, {downloadFile}) => {
+  const contents = await storage.bucket(bucketName).file({downloadFile}).download();
+  downloadIntoMemory().catch(console.error);
 
-  const fileContents = await file.download();
-  console.log(`Downloaded file contents: ${fileContents.name}`);
 };
 
 // @ desc download a file
@@ -166,6 +164,56 @@ const getListImages = async (req, res) => {
   }
 };
 
+const getPins = async (req, res) => {
+  try {
+    const [files] = await storage.bucket(bucketName).getFiles();
+    const csvFiles = files.filter(file => file.name.endsWith('.csv'));
+    const csvInfo = [];
+    const csvData = [];
+      
+    csvFiles.forEach((file) => {
+      csvInfo.push({
+        name: file.name,
+        url: file.metadata.mediaLink,
+        content: file.metadata.contentType,
+      });
+      
+    });
+  
+    res.status(200).send(csvInfo);
+    res.json(csvInfo);
+  } catch (err) {
+    console.log(err);
+  
+    res.status(500).send({
+      message: "Unable to get list of CSV's from the google cloud.!",
+    });
+  }
+};
+
+const getListBuckets = async (req, res) => {
+  try {
+    const [buckets] = await storage.getBuckets();
+    let bucketInfo = [];
+      
+    buckets.forEach((bucket) => {
+      bucketInfo.push({
+        name: bucket.name,
+      });
+      console.log(bucket.name)
+    });
+  
+    res.status(200).send(bucketInfo);
+    res.json(bucketInfo);
+  } catch (err) {
+    console.log(err);
+  
+    res.status(500).send({
+      message: "Unable to read list of buckets!",
+    });
+  }
+};
+
   
   module.exports = {
     upload,
@@ -173,5 +221,7 @@ const getListImages = async (req, res) => {
     downloadIntoMemory,
     makePublic,
     getListImages,
+    getListBuckets,
+    getPins,
   };
   

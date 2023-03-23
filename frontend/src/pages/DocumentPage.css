@@ -34,9 +34,35 @@
     color: black;
 }
 
-.documentpage-curve{
-    position: absolute;
-    bottom: -3rem;
-    right: -5rem;
-    width: 110%;
+.documentpage-form{
+    display: flex;
+    flex-direction: column;
+    outline-style: solid;
+    outline-width: 0.05em;
+    outline-color: black;
+}
+
+.pdfstuff{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3em;
+    justify-content: center;
+}
+
+.seperation-bar-top{
+    height: 1px;
+    background: red;
+    width: 90%;
+    margin: 0 2em 0 2em;
+}
+
+#title-text{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#p-text{
+    font-size: 1em;
+    text-align: center;
 }

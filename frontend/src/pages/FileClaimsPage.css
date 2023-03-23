@@ -40,3 +40,14 @@
     right: -5rem;
     width: 110%;
 }
+
+
+#title-text{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#p-text{
+    font-size: 1em;
+    text-align: center;
+}
