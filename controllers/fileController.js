@@ -1,3 +1,4 @@
+
 const path = require('path');
 const cwd = path.join(__dirname, '..');
 
@@ -9,8 +10,6 @@ const { Storage } = require("@google-cloud/storage");
 // Instantiate a storage client with credentials
 const bucketName = 'dsd-cloud-storage';
 const bucketNameImage = 'dsd-cloud-storage/dji_demo_images';
-
-// define the path and name of Google Cloud Storage object to download
 
 const storage = new Storage();
 
@@ -170,6 +169,7 @@ const getPins = async (req, res) => {
     const [files] = await storage.bucket(bucketName).getFiles();
     const csvFiles = files.filter(file => file.name.endsWith('.csv'));
     const csvInfo = [];
+    const csvData = [];
       
     csvFiles.forEach((file) => {
       csvInfo.push({
@@ -177,6 +177,7 @@ const getPins = async (req, res) => {
         url: file.metadata.mediaLink,
         content: file.metadata.contentType,
       });
+      
     });
   
     res.status(200).send(csvInfo);
