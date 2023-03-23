@@ -15,7 +15,6 @@ function GalleryPage(){
     const apiRoot = 'http://localhost:3500';
 
     const getImages = async () => {
-
         const imageResult = await axios.get(`${apiRoot}/files/listimages`)
         setImages(imageResult.data)
         console.log('this should run first and get all the images: ', images)
@@ -44,6 +43,7 @@ function GalleryPage(){
         setFilterdImages(tempFilterdImages)
         console.log('this should run last and filter out the images: ', filterdImages)
     }
+
     
     useEffect(() => {
         getImages()
@@ -59,7 +59,7 @@ function GalleryPage(){
                 </section>
                 <section className="gallerypage-gallery">
                         <div className="wrapper-image">
-                            {filterdImages.map(image => (
+                            {images.map(image => (
                                 <CloudImage url={image.url} key={image.name} />
                             ))}
                         </div>
