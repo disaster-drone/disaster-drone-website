@@ -44,7 +44,7 @@ function GalleryPage(){
             <div className="gallerypage-container">
                 <section className="gallerypage-title">
                     <span className="gallerypage-main-title">GALLERY</span>
-                    <span className="gallerypage-desc" >View pin point images</span>
+                    <span className="gallerypage-desc" >Pinned Images</span>
                 </section>
                 <section className="gallerypage-gallery">
                         <div className="wrapper-image">
