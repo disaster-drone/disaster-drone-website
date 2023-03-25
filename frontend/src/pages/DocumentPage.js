@@ -1,11 +1,48 @@
 import Navbar from '../components/Navbar'
+import React, { useState, useEffect } from 'react';
 import DocumentForm from '../components/DocumentForm'
 import IndividualClaim from '../components/IndividualClaim'
 import './DocumentPage.css'
-
 import sfddlogo from '../images/DD1.png'
+import axios from 'axios';
+import Papa from 'papaparse';
 
-const DocumentPage = () => {
+
+function DocumentPage(){
+
+    const apiRoot = 'http://localhost:3500';
+    const [allImages, setAllImages] = useState([]); // images is an array of objects by default is set empty.
+    const [csvImageNames, setCsvImageNames] = useState([]); // pinnedImages is an array of objects by default is set empty.
+    const [filteredImages, setFilteredImages] = useState([]); // filterdImages is an array of objects by default is set empty.
+
+
+    // this functions get an array of image objects and loads them into the "images" array.
+    const getImages = async () => {
+        const allImagesResult = await axios.get(`${apiRoot}/files/listimages`)
+        setAllImages(allImagesResult.data)
+        console.log('this is the array of all images', allImages)
+    }
+
+    // this function gets the csv download link and then parses the csv file into an array of image names.
+    const getCsvData = async () => {
+        const csvData = await axios.get(`${apiRoot}/files/getpins`)
+        const cvsUrl = await csvData.data[0].url
+        Papa.parse(cvsUrl, {
+            download: true,
+            header: false,
+            complete: function(data) {
+                setCsvImageNames(data.data.map((image) => image[0]))
+            }   
+        })
+        console.log('this is the array of image names from the csv file', csvImageNames)
+    }
+    
+    useEffect(() => {
+        getImages()
+        getCsvData()
+    }, []);
+
+
     return (
         <>
             <div className="documentpage">
@@ -24,9 +61,9 @@ const DocumentPage = () => {
                             <div className="seperation-bar-top"></div>
                         </span>
                         <span className="indiv-claims"> 
-                            <IndividualClaim />
-                            <IndividualClaim />
-                            <IndividualClaim />
+                            {allImages.filter((image) => csvImageNames.includes(image.name)).map(image => (
+                                <IndividualClaim url={image.url} key={image.name} alt={image.name}/>
+                            ))}
                         </span>
                     </section>  
                 </div>

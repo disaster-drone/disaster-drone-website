@@ -1,6 +1,7 @@
 import React from 'react';
-import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css"
 import { Routes, Route } from 'react-router-dom'
+import { PDFExport, savePDF } from '@progress/kendo-react-pdf'
 
 
 import Homepage from './pages/Homepage'
