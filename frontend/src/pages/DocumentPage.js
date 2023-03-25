@@ -11,49 +11,37 @@ import Papa from 'papaparse';
 function DocumentPage(){
 
     const apiRoot = 'http://localhost:3500';
-    const [images, setImages] = useState([]); // images is an array of objects by default is set empty.
-    const [pinnedImages, setPinnedImages] = useState([]); // pinnedImages is an array of objects by default is set empty.
-    const [filterdImages, setFilterdImages] = useState([]); // filterdImages is an array of objects by default is set empty.
+    const [allImages, setAllImages] = useState([]); // images is an array of objects by default is set empty.
+    const [csvImageNames, setCsvImageNames] = useState([]); // pinnedImages is an array of objects by default is set empty.
+    const [filteredImages, setFilteredImages] = useState([]); // filterdImages is an array of objects by default is set empty.
 
+
+    // this functions get an array of image objects and loads them into the "images" array.
     const getImages = async () => {
-        const imageResult = await axios.get(`${apiRoot}/files/listimages`)
-        setImages(imageResult.data)
+        const allImagesResult = await axios.get(`${apiRoot}/files/listimages`)
+        setAllImages(allImagesResult.data)
+        console.log('this is the array of all images', allImages)
     }
 
+    // this function gets the csv download link and then parses the csv file into an array of image names.
     const getCsvData = async () => {
-        const pinsResult = await axios.get(`${apiRoot}/files/getpins`)
-        const cvsUrl = await pinsResult.data[0].url
+        const csvData = await axios.get(`${apiRoot}/files/getpins`)
+        const cvsUrl = await csvData.data[0].url
         Papa.parse(cvsUrl, {
             download: true,
             header: false,
             complete: function(data) {
-                setPinnedImages(data.data)
-            }
+                setCsvImageNames(data.data.map((image) => image[0]))
+            }   
         })
-
-        const tempFilterdImages = await filterImages(pinnedImages, images)
-        setFilterdImages(tempFilterdImages)
+        console.log('this is the array of image names from the csv file', csvImageNames)
     }
-    
-    const filterImages = async(array1, array2) => {
-        const tempFilterdImages = []
-        array1.forEach((pinnedImage) => {
-            array2.forEach((image) => {
-                //console.log('Comparing pinned image', pinnedImage[0], 'with image', image.name)
-                if(pinnedImage[0] === image.name){
-                    //console.log('FOUND A MATCH! adding ', image, ' to filterdImages')
-                    tempFilterdImages.push(image)
-                }
-            })  
-        })
-        return tempFilterdImages
-    }
-
     
     useEffect(() => {
         getImages()
         getCsvData()
     }, []);
+
 
     return (
         <>
@@ -73,7 +61,7 @@ function DocumentPage(){
                             <div className="seperation-bar-top"></div>
                         </span>
                         <span className="indiv-claims"> 
-                            {filterdImages.map(image => (
+                            {allImages.filter((image) => csvImageNames.includes(image.name)).map(image => (
                                 <IndividualClaim url={image.url} key={image.name} alt={image.name}/>
                             ))}
                         </span>
