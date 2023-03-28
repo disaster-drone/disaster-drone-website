@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+// what is a slice? 
+
 const authSlice = createSlice({
     name: 'auth',
     initialState: { token: null },
@@ -14,8 +16,11 @@ const authSlice = createSlice({
     }
 })
 
+// export the actions so that they can be used in other files
 export const { setCredentials, logOut } = authSlice.actions
 
+// export the reducer so we can add it to the store
 export default authSlice.reducer
+
 
 export const selectCurrentToken = (state) => state.auth.token
