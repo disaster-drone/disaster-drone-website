@@ -5,6 +5,16 @@
     width: 100vw;
     margin: 0;
     padding: 0;
+    background-image: url('../images/fileclaims-bg.png')
+}
+
+.file-claims-page-container{
+    display: flex;
+    flex-direction: column;
+    background: white;
+    background-size: cover;
+    margin: 4em 4em 0em 4em;
+    padding: 0 0 0em 0;
 }
 
 .fileclaim-title{
@@ -12,6 +22,7 @@
     flex-direction: column;
     align-items: left;
     justify-content: center;
+    width: auto;
 }
 
 .file-claims-page-title{
@@ -20,6 +31,7 @@
     font-weight: bold;
     color: black;
     margin-left: 25px; 
+    width: auto;
 }
 
 .file-claims-page-subtitle{
@@ -28,6 +40,7 @@
     font-weight: bold;
     color: black;
     margin-left: 25px;
+    width: auto;
 }
 
 /* This is for the individual slide for each card */
@@ -41,7 +54,7 @@
 /*  This is the container of the list */
 .slick-list {
     margin: 0 auto !important;
-    width: 80%;
+    width: 70em;
     background-color: gainsboro;
     border-radius: 10px;
     overflow: hidden;

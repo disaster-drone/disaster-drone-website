@@ -89,29 +89,31 @@ const FileClaimsPage = () => {
 
     return (
         <div className="file-claims-page">
-            <span className="file-claims-page-title">File Cases</span>
-            <span className="file-claims-page-subtitle">Select a case</span>
-            <Slider {...settings}>
-            {images.map((image) => (
-                <div className="card">
-                    <div className="card-top">
-                        <img src={image.url} alt={image.name} />    
-                    </div>
-                    <div className="card-bottom">
-                        <p> Case ID: {Math.floor(Math.random() * 10000) + 1}</p>
-                        <p> Customer: </p>
-                        <p> Updated:  </p>
-                        <Link to ="/dash/GalleryPage">
-                            <button className="Screenshots">Claim Screenshots</button>
-                        </Link>
-                        <Link to="/dash/DocumentPage">
-                            <button className="Document">Claim Document</button>
-                        </Link>
-                        <button className="Download">Download</button>
-                    </div>
-                </div>    
-            ))}
-            </Slider>
+            <div className="file-claims-page-container">
+                <span className="file-claims-page-title">FILE CLAIM</span>
+                <span className="file-claims-page-subtitle">Select a case</span>
+                <Slider {...settings}>
+                {images.map((image) => (
+                    <div className="card">
+                        <div className="card-top">
+                            <img src={image.url} alt={image.name} />    
+                        </div>
+                        <div className="card-bottom">
+                            <p> Case ID: {Math.floor(Math.random() * 10000) + 1}</p>
+                            <p> Customer: </p>
+                            <p> Updated:  </p>
+                            <Link to ="/dash/GalleryPage">
+                                <button className="Screenshots">Claim Screenshots</button>
+                            </Link>
+                            <Link to="/dash/DocumentPage">
+                                <button className="Document">Claim Document</button>
+                            </Link>
+                            <button className="Download">Download</button>
+                        </div>
+                    </div>    
+                ))}
+                </Slider>
+            </div>
         </div>
     )
 }
