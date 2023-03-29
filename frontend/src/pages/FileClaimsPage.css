@@ -5,12 +5,16 @@
     width: 100vw;
     margin: 0;
     padding: 0;
+    background-image: url('../images/fileclaims-bg.png')
 }
 
-.fileclaim-container{
+.file-claims-page-container{
+    display: flex;
+    flex-direction: column;
     background: white;
     background-size: cover;
-    margin: 4rem;
+    margin: 4em 4em 0em 4em;
+    padding: 0 0 0em 0;
 }
 
 .fileclaim-title{
@@ -18,36 +22,86 @@
     flex-direction: column;
     align-items: left;
     justify-content: center;
+    width: auto;
 }
 
-.fileclaim-main-title{
+.file-claims-page-title{
     font-family: "Poppins";
     font-size: 1.5rem;
     font-weight: bold;
     color: black;
+    margin-left: 25px; 
+    width: auto;
 }
 
-.fileclaim-desc{
+.file-claims-page-subtitle{
     font-family: "Poppins";
     font-size: 2.5rem;
     font-weight: bold;
     color: black;
+    margin-left: 25px;
+    width: auto;
 }
 
-.fileclaim-curve{
-    position: absolute;
-    bottom: -3rem;
-    right: -5rem;
-    width: 110%;
+/* This is for the individual slide for each card */
+.slick-slide > div {
+    margin: 10px 10px 10px; 
+    width: 80%;
+    object-position: 50% 50%;
+
 }
 
-
-#title-text{
-    font-size: 1.5em;
-    font-weight: bold;
+/*  This is the container of the list */
+.slick-list {
+    margin: 0 auto !important;
+    width: 70em;
+    background-color: gainsboro;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-#p-text{
-    font-size: 1em;
-    text-align: center;
+.slick-next {
+    right: 85px !important;
+}
+.card{
+    border: 1px solid #fff;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 5px 5px 5px 5px;
+    height: fit-content;
+    padding: 20px;
+
+}
+/*  This is for the image */
+.card-top > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    border-radius: 8px; 
+    
+}
+
+.card-bottom{
+    margin: 10px 20px;
+}
+
+.card-bottom p{
+    font-family: "Poppins";
+    font-size: 15px;
+    color: black;
+    line-height: 100%;
+
+}
+
+.Screenshots, .Document, .Download{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0px;
+    background-color: #D62311;
+    border-radius: 10px;
+    width: 200px;
+    color: white;
 }
