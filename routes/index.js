@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 const fileController = require("../controllers/fileController");
 
-const verifyJWT = require('../middleware/verifyJWT') //importing the verifyJWT middleware
-router.use(verifyJWT) //this will apply the verifyJWT middleware to all the routes in this file
+// const verifyJWT = require('../middleware/verifyJWT') //importing the verifyJWT middleware
+// router.use(verifyJWT) //this will apply the verifyJWT middleware to all the routes in this file
 
 router.route('/uploadfile')
   .post(fileController.upload)

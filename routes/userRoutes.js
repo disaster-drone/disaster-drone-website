@@ -7,8 +7,8 @@ const usersController = require('../controllers/usersController') //importing th
 // and same goes for the rest.
 // CRUD -> Create 
 
-const verifyJWT = require('../middleware/verifyJWT') //importing the verifyJWT middleware
-router.use(verifyJWT) //this will apply the verifyJWT middleware to all the routes in this file
+// const verifyJWT = require('../middleware/verifyJWT') //importing the verifyJWT middleware
+// router.use(verifyJWT) //this will apply the verifyJWT middleware to all the routes in this file
 
 
 router.route('/')
