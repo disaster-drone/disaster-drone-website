@@ -9,6 +9,7 @@ import IndividualClaim from '../components/IndividualClaim'
 
 import sfddlogo from '../images/DD1.png'
 import './DocumentPage.css'
+import { handle } from 'express/lib/router';
 
 
 function DocumentPage(){
@@ -16,8 +17,9 @@ function DocumentPage(){
     const [allImages, setAllImages] = useState([]); // images is an array of objects by default is set empty.
     const [csvImageNames, setCsvImageNames] = useState([]); // pinnedImages is an array of objects by default is set empty.
     const [filteredImages, setFilteredImages] = useState([]); // filterdImages is an array of objects by default is set empty.
+    const [text, setText] = useState('');
 
-
+  
     // this functions get an array of image objects and loads them into the "images" array.
     const getImages = async () => {
         const allImagesResult = await axios.get(`${apiRoot}/files/listimages`)

@@ -1,5 +1,4 @@
 import './Aboutpage.css'
-import Navbar from '../components/Navbar';
 import dronePic from '../images/sf-drone-about.svg'
 
 const AboutPage = () => {

@@ -6,11 +6,12 @@ const cwd = path.join(__dirname, '..');
 const processFile = require("../middleware/upload");
 const { format } = require("util");
 const { Storage } = require("@google-cloud/storage");
+const mongoose = require('mongoose');
+const { createSecureServer } = require('http2');
 
 // Instantiate a storage client with credentials
 const bucketName = 'dsd-cloud-storage';
 const bucketNameImage = 'dsd-cloud-storage/dji_demo_images';
-
 const storage = new Storage();
 
 // @ desc upload a file
@@ -144,7 +145,7 @@ const getListImages = async (req, res) => {
     const [files] = await storage.bucket(bucketName).getFiles();
     const imageFiles = files.filter(file => file.name.endsWith('.JPG') || file.name.endsWith('.PNG'));
     const imageInfo = [];
-      
+
     imageFiles.forEach((image) => {
       imageInfo.push({
         name: image.name,
@@ -152,9 +153,10 @@ const getListImages = async (req, res) => {
         content: image.metadata.contentType,
       });
     });
-  
+
     res.status(200).send(imageInfo);
     res.json(imageInfo);
+
   } catch (err) {
     console.log(err);
   
