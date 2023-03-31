@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import LoaderExampleInlineCentered from '../components/Loader';
 
 
 function SampleNextArrow(props) {
@@ -39,7 +40,6 @@ const FileClaimsPage = () => {
     const getImages = async () => {
         const imageResult = await axios.get(`${apiRoot}/files/listimages`)
         setImages(imageResult.data)
-        
     }
     useEffect(() => {
         getImages()
@@ -51,8 +51,8 @@ const FileClaimsPage = () => {
         dots: false,
         infinite: false,
         speed: 500,
-        slidesToShow: 2,
-        slidesToScroll: 2,
+        slidesToShow: 3,
+        slidesToScroll: 3,
         initialSlide: 1,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
@@ -93,28 +93,28 @@ const FileClaimsPage = () => {
             <div className="file-claims-page-container">
                 <span className="file-claims-page-title">FILE CLAIM</span>
                 <span className="file-claims-page-subtitle">Select a case</span>
-                <div className="carousel-container">
-                    <Slider {...settings}>
-                    {images.map((image) => (
-                        <div className="card">
-                            <div className="card-top">
-                                <img src={image.url} alt={image.name} />    
-                            </div>
-                            <div className="card-bottom">
-                                <p> Case ID: {image.name.split('/', 1)}</p>
-                                <p> Customer: </p>
-                                <Link id='link' to ="/dash/GalleryPage">
-                                    <button className="Screenshots">Claim Pinpoints</button>
-                                </Link>
-                                <Link id='link' to="/dash/DocumentPage">
-                                    <button className="Document">Claim Document</button>
-                                </Link>
-                                <button className="Download">Download</button>
-                            </div>
-                        </div>
-                    ))}
-                    </Slider>
-                </div>
+                  <div className="carousel-container">
+                      <Slider {...settings}>
+                      {images.map((image) => (
+                          <div className="card">
+                              <div className="card-top">
+                                  <img src={image.url} alt={image.name} />    
+                              </div>
+                              <div className="card-bottom">
+                                  <p> Case ID: {image.name.split('/', 1)}</p>
+                                  <p> Customer: </p>
+                                  <Link id='link' to ="/dash/GalleryPage">
+                                      <button className="Screenshots">Claim Pinpoints</button>
+                                  </Link>
+                                  <Link id='link' to="/dash/DocumentPage">
+                                      <button className="Document">Claim Document</button>
+                                  </Link>
+                                  <button className="Download">Download</button>
+                              </div>
+                          </div>
+                      ))}
+                      </Slider>
+                    </div>
             </div>
         </div>
     )

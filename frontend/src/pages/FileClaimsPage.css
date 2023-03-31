@@ -18,15 +18,6 @@
     padding: 0 0 0em 0;
 }
 
-.carousel-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 1em;
-    padding: 0;
-}
-
 .file-claims-page-title{
     font-family: "Poppins";
     font-size: 1.5rem;
@@ -45,11 +36,21 @@
     width: fit-content;
 }
 
+/* start of carousel css*/
+.carousel-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1em;
+    padding: 0;
+}
+
 
 /*  This is the container of the list */
 .slick-list {
     margin: 0 auto !important;
-    width: 60em;
+    width: 80em;
     background-color: gainsboro;    
     border-radius: 10px;
     overflow: hidden;
@@ -69,7 +70,7 @@
     border-radius: 8px;
     overflow: hidden;
     margin: 0em;
-    height: 23em;
+    height: 25em;
     padding: 1em 0 1em 0;
 }
 
