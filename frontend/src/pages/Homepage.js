@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './Homepage.css';
-import jake from '../images/jake5.png';
+import jake from '../images/jake-hero.png';
 
 
 
