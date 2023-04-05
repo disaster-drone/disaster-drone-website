@@ -43,9 +43,12 @@
     "react-scripts": "^5.0.1",
     "react-slick": "^0.29.0",
     "sass": "^1.56.1",
+    "stream": "^0.0.2",
     "styled-components": "^5.3.6",
+    "util": "^0.12.5",
     "uuid": "^9.0.0",
-    "validator": "^13.7.0"
+    "validator": "^13.7.0",
+    "webpack": "^4.44.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

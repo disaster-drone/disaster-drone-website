@@ -1,12 +1,14 @@
 import React from 'react'
-import styled from 'styled-components'
+import { Dimmer, Loader, Image, Segment } from 'semantic-ui-react'
 
-const Loader = () => {
-  return (
-    <div className="elipse-loader">
-        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-    </div>
-  )
-}
+const LoaderExampleText = () => (
+  <div>
+    <Segment>
+      <Dimmer active inverted>
+        <Loader inverted>Loading</Loader>
+      </Dimmer>
+    </Segment>
+  </div>
+)
 
-export default Loader
+export default LoaderExampleText

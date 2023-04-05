@@ -1,87 +1,84 @@
 
-    .homepage{
-        background-color: #d62311;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
+.homepage{
+    background-color: #d62311;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+ }
 
-    .homepage-content{
-        display: flex;
-        flex-direction: row;  
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        background-color: #d62311;
-        height: 100%;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-    }
+.homepage-content{
+    display: flex;
+    flex-direction: row;  
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+}
 
-    .homepage-right{
-        display: flex;
-        justify-content: center;
-        align-items: center ;
-        max-width: 50vw;
-        width: 50vw;
-        height: 100%;
-    }
+.homepage-right{
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    max-width: 50vw;
+    width: 50vw;
+    height: 100%;
+}
 
 
-    .drone{
-        display: flex;
-        position: absolute;
-        top: 350px;
-    }
+.drone{
+    display: flex;
+    position: absolute;
+    top: 350px;
+}
 
-    .homepage-left{
-        display: flex;
-        position: relative;
-        max-width: 50vw;
-        flex-direction: column;
-        justify-content: center;
-        align-items: left;
-        margin: -20rem 0 -2rem 6rem;
-        z-index: 3;
-    }
+.homepage-left{
+    display: flex;
+    position: relative;
+    max-width: 50vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    margin: -20rem 0 -2rem 6rem;
+    z-index: 3;
+}
 
-    .jake{
-        position: absolute;
-        width: 95em;
-        right:-1em;
-        bottom: 0em;
-        z-index: 3;
-    }
+.jake{
+    position: absolute;
+    width: 100%;
+    right: 0rem;
+    bottom: 0rem;
+    z-index: 2;
+}
 
-    .homepage-title-bot{
-        font-size: 5rem;
-        font-weight: bold;
-        color: white;
-        margin: 0rem 0;
-        padding: 0;
-        gap: 0;
-    }
+.homepage-title-bot{
+    font-size: 5rem;
+    font-weight: bold;
+    color: white;
+    margin: 0rem 0;
+    padding: 0;
+    gap: 0;
+}
 
-    .homepage-subtitle{
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: white;
-        margin: 0 0 1.25rem 0;
-    }
+.homepage-subtitle{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    margin: 0 0 1.25rem 0;
+}
 
-    .homepage-divider{
-        width: 100%;
-        height: 0.125rem;
-        background: white;
-    }
+.homepage-divider{
+    width: 100%;
+    height: 0.125rem;
+    background: white;
+}
 
-    .homepage-description{
-        font-size: 1.75rem;
-        color: white;
-        margin: 1.25rem 0 0 0;
-    }
-
+.homepage-description{
+    font-size: 1.75rem;
+    color: white;
+    margin: 1.25rem 0 0 0;
+}

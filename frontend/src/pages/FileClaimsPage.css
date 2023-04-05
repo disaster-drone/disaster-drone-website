@@ -2,27 +2,20 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     margin: 0;
     padding: 0;
-    background-image: url('../images/fileclaims-bg.png')
+    background-image: url('../images/fileclaim-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .file-claims-page-container{
     display: flex;
     flex-direction: column;
-    background: white;
     background-size: cover;
     margin: 4em 4em 0em 4em;
     padding: 0 0 0em 0;
-}
-
-.fileclaim-title{
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: center;
-    width: auto;
 }
 
 .file-claims-page-title{
@@ -31,7 +24,7 @@
     font-weight: bold;
     color: black;
     margin-left: 25px; 
-    width: auto;
+    width: fit-content;
 }
 
 .file-claims-page-subtitle{
@@ -40,68 +33,101 @@
     font-weight: bold;
     color: black;
     margin-left: 25px;
-    width: auto;
+    width: fit-content;
 }
 
-/* This is for the individual slide for each card */
-.slick-slide > div {
-    margin: 10px 10px 10px; 
-    width: 80%;
-    object-position: 50% 50%;
-
+/* start of carousel css*/
+.carousel-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1em;
+    padding: 0;
 }
+
 
 /*  This is the container of the list */
 .slick-list {
     margin: 0 auto !important;
-    width: 70em;
-    background-color: gainsboro;
+    width: 80em;
+    background-color: gainsboro;    
     border-radius: 10px;
     overflow: hidden;
 }
 
-.slick-next {
-    right: 85px !important;
+/* This is for the individual slide for each card */
+.slick-slide > div {
+    padding: 0 0em 0 0;
+    margin: 1em 0 1em 0;
+    width: 20em;
+    object-position: 50% 50%;
 }
+
 .card{
     border: 1px solid #fff;
-    background: white;
+    background: #fff;
     border-radius: 8px;
     overflow: hidden;
-    margin: 5px 5px 5px 5px;
-    height: fit-content;
-    padding: 20px;
-
+    margin: 0em;
+    height: 25em;
+    padding: 1em 0 1em 0;
 }
+
+.card-top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
 /*  This is for the image */
 .card-top > img {
-    width: 100%;
-    height: 100%;
+    height: 12em;
     object-fit: contain; 
     border-radius: 8px; 
-    
 }
 
 .card-bottom{
-    margin: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
 }
 
 .card-bottom p{
+    margin: 0em 0;
     font-family: "Poppins";
-    font-size: 15px;
+    font-size: 1em;
     color: black;
-    line-height: 100%;
-
+    text-decoration: None;
 }
 
 .Screenshots, .Document, .Download{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    text-decoration: none;
+    text-align: center;
     align-items: center;
-    margin: 10px 0px;
+    margin: 0.5em 0;
     background-color: #D62311;
     border-radius: 10px;
-    width: 200px;
+    width: 18em;
+    font-size: 0.75em;
+    font-weight: bold;
     color: white;
 }
+
+.next-arrow{
+    margin: 1em;
+}
+
+#link{
+    text-decoration: none;
+}
+
+
