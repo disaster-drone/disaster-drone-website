@@ -39,7 +39,7 @@ const FileClaimsPage = () => {
   const [allImages, setAllImages] = useState([]); // images is an array of objects by default is set empty.
   const [csvImageNames, setCsvImageNames] = useState([]); // pinnedImages is an array of objects by default is set empty.
   const [filteredImages, setFilteredImages] = useState([]); // filterdImages is an array of objects by default is set empty.
-
+  const [zipFiles, setZipFiles] = useState([]);
 
   // this functions get an array of image objects and loads them into the "images" array.
   const getImages = async () => {
@@ -61,10 +61,18 @@ const FileClaimsPage = () => {
       })
       console.log('this is the array of image names from the csv file', csvImageNames)
   }
+
+  const downloadZip = async () => {
+    const zipResult = await axios.get(`${apiRoot}/files/getzip`)
+    const zipUrl = await zipResult.data[0].url
+    setZipFiles(zipUrl)
+    console.log('this is the link to the zip array', zipUrl)
+  }
   
   useEffect(() => {
       getImages()
       getCsvData()
+      downloadZip()
   }, []);
 
     const settings = {
@@ -133,7 +141,9 @@ const FileClaimsPage = () => {
                                   <Link id='link' to="/dash/DocumentPage">
                                       <button className="Document">Claim Document</button>
                                   </Link>
-                                  <button className="Download">Download</button>
+                                  <a href={zipFiles[0]} target="_blank" rel="noopener noreferrer">
+                                    <button className="Download">Download</button>
+                                  </a>
                               </div>
                           </div>
                       ))}
