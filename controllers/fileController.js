@@ -7,6 +7,7 @@ const processFile = require("../middleware/upload");
 const { format } = require("util");
 const { Storage } = require("@google-cloud/storage");
 const mongoose = require('mongoose');
+
 const { createSecureServer } = require('http2');
 
 // Instantiate a storage client with credentials
@@ -144,6 +145,7 @@ const getListImages = async (req, res) => {
   try {
     const [files] = await storage.bucket(bucketName).getFiles();
     const imageFiles = files.filter(file => file.name.endsWith('.JPG') || file.name.endsWith('.PNG'));
+    const csvFiles = files.filter(file => file.name.endsWith('.csv'));
     const imageInfo = [];
 
     imageFiles.forEach((image) => {
@@ -171,7 +173,6 @@ const getPins = async (req, res) => {
     const [files] = await storage.bucket(bucketName).getFiles();
     const csvFiles = files.filter(file => file.name.endsWith('.csv'));
     const csvInfo = [];
-    const csvData = [];
       
     csvFiles.forEach((file) => {
       csvInfo.push({
@@ -189,6 +190,32 @@ const getPins = async (req, res) => {
   
     res.status(500).send({
       message: "Unable to get list of CSV's from the google cloud.!",
+    });
+  }
+};
+
+const getZip = async (req, res) => {
+  try {
+    const [files] = await storage.bucket(bucketName).getFiles();
+    const zipFiles = files.filter(file => file.name.endsWith('.zip'));
+    const zipInfo = [];
+      
+    zipFiles.forEach((file) => {
+      zipInfo.push({
+        name: file.name,
+        url: file.metadata.mediaLink,
+        content: file.metadata.contentType,
+      });
+      
+    });
+  
+    res.status(200).send(zipInfo);
+    res.json(zipInfo);
+  } catch (err) {
+    console.log(err);
+  
+    res.status(500).send({
+      message: "Unable to get list of zipped files from the google cloud.!",
     });
   }
 };
@@ -216,6 +243,77 @@ const getListBuckets = async (req, res) => {
   }
 };
 
+// const crateNewObject = async (req, res) => {
+
+//   const [csvImageNames, setCsvImageNames] = useState([]); // pinnedImages is an array of objects by default is set empty.
+
+//   // get a list of the folders in the bucket.
+//   storage.bucket(bucketName).getFiles({delimiter: '/' }, async (err, files) => {
+//     if(err){
+//       console.log('Error getting the files', err);
+//       return
+//     }
+
+//     // loop through each folder and create an object for each one.
+//     for (const folder of files) {
+
+//       // get the name of the folder.
+//       const folderName = folder.name.split('/').slice(0,-1).join('/');
+
+//       //check if a case with the same name already exist in the database.
+//       const existingCase = await Case.findOne({name: folderName});
+
+//       // if the case already exist then skip it.
+//       if(existingCase){
+//         console.log(`Case ${folderName} already exist in the database, skipping....`);
+//         continue
+//       }
+
+//       // get a list of all the files in the folder.
+//       const [files] = await storage.bucket(bucketName).getFiles({prefix: folderName});
+//       const imageFiles = files.filter(file => file.name.endsWith('.JPG') || file.name.endsWith('.PNG'));
+//       const csvInfo = [];
+      
+//       csvFiles.forEach((file) => {
+//         csvInfo.push({
+//           name: file.name,
+//           url: file.metadata.mediaLink,
+//           content: file.metadata.contentType,
+//         });
+//       });
+//       const cvsUrl = await csvInfo.data[0].url
+//       Papa.parse(cvsUrl, {
+//           download: true,
+//           header: false,
+//           complete: function(data) {
+//               setCsvImageNames(data.data.map((image) => image[0]))
+//           }   
+//       })
+
+//       // loop through each file and create a new image object for each one
+//       const images = []
+//       for(const file of imageFiles){
+//         const image = new Image({
+//           name: image.name,
+//           caseID: image.name.split('/', 1)[0],
+//           url: image.metadata.mediaLink,
+//           contentType: image.metadata.contentType,
+//         });
+//       }
+//       images.push(image)
+
+//       // create a new case and save it to the database.
+//       const sfCase = new Case({
+//         id: folderName,
+//         caseAllImages: images,
+//         csvPinnedNames: csvImageNames,
+//       });
+//       await sfCase.save();
+//       console.log(`Case ${folderName} created successfully!`);
+//     }
+//   });
+// }
+
   
   module.exports = {
     upload,
@@ -225,5 +323,6 @@ const getListBuckets = async (req, res) => {
     getListImages,
     getListBuckets,
     getPins,
+    getZip,
   };
   

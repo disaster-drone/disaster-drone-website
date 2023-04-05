@@ -3,6 +3,7 @@ import './FileClaimsPage.css';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Papa from 'papaparse';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -34,16 +35,37 @@ function SampleNextArrow(props) {
 
 const FileClaimsPage = () => {
 
-    const apiRoot = 'http://localhost:3500';
-    const [images, setImages] = useState([]); // images is an array of objects by default is set empty.
+  const apiRoot = 'http://localhost:3500';
+  const [allImages, setAllImages] = useState([]); // images is an array of objects by default is set empty.
+  const [csvImageNames, setCsvImageNames] = useState([]); // pinnedImages is an array of objects by default is set empty.
+  const [filteredImages, setFilteredImages] = useState([]); // filterdImages is an array of objects by default is set empty.
 
-    const getImages = async () => {
-        const imageResult = await axios.get(`${apiRoot}/files/listimages`)
-        setImages(imageResult.data)
-    }
-    useEffect(() => {
-        getImages()
-    }, []);
+
+  // this functions get an array of image objects and loads them into the "images" array.
+  const getImages = async () => {
+      const allImagesResult = await axios.get(`${apiRoot}/files/listimages`)
+      setAllImages(allImagesResult.data)
+      console.log('this is the array of all images', allImages)
+  }
+
+  // this function gets the csv download link and then parses the csv file into an array of image names.
+  const getCsvData = async () => {
+      const csvData = await axios.get(`${apiRoot}/files/getpins`)
+      const cvsUrl = await csvData.data[0].url
+      Papa.parse(cvsUrl, {
+          download: true,
+          header: false,
+          complete: function(data) {
+              setCsvImageNames(data.data.map((image) => image[0]))
+          }   
+      })
+      console.log('this is the array of image names from the csv file', csvImageNames)
+  }
+  
+  useEffect(() => {
+      getImages()
+      getCsvData()
+  }, []);
 
     const settings = {
         className: "center",
@@ -97,14 +119,14 @@ const FileClaimsPage = () => {
                 <span className="file-claims-page-subtitle">Select a case</span>
                   <div className="carousel-container">
                       <Slider {...settings}>
-                      {images.map((image) => (
+                      {allImages.filter((image) => csvImageNames.includes(image.name)).map((image) => (
                           <div className="card">
                               <div className="card-top">
                                   <img src={image.url} alt={image.name} />    
                               </div>
                               <div className="card-bottom">
-                                  <p> Case ID: {image.name.split('/', 1)}</p>
-                                  <p> Customer: </p>
+                                  <p> Case ID: {image.name.split('/', 1)[0]}</p>
+                                  <p> Customer: Faith G</p>
                                   <Link id='link' to ="/dash/GalleryPage">
                                       <button className="Screenshots">Claim Pinpoints</button>
                                   </Link>

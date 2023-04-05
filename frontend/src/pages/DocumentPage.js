@@ -52,7 +52,7 @@ function DocumentPage(){
         savePDF(element, {
         paperSize: "auto",
         margin: 40,
-        fileName: `Report for ${new Date().getFullYear()}`,
+        fileName: `Report for ${allImages[0].name.split('/', 1)[0]} ${ new Date().getFullYear()}`,
         });
     };
 

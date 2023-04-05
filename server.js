@@ -1,7 +1,11 @@
 // express is for building REST APIs.
 // body-parser helps to parse the request and create the req.body object.
-// cors provides express middleware to enable CORS with various options.
+
+// installs the module that loads environment variables from a .env file into process.env file.
+// This lets you separate configuration files from the code.
 require('dotenv').config()
+
+//installs the web framework for Node.js. (It will make our life easier.)
 const express = require('express')
 const app = express(); 
 const bodyParser = require('body-parser')
@@ -9,9 +13,10 @@ const path = require ('path')
 const { logger } = require ('./middleware/logger')
 const errorHandler = require('./middleware/errorHandler')
 const cookieParser = require('cookie-parser')
+//installs a Node.js package that allows cross origin resource sharing.
 const cors = require('cors')
 const corsOptions = require('./config/corsOptions')
-const connectDB = require('./config/dbConnection')
+const connectDB = require('./config/conn')
 const mongoose = require('mongoose')
 const { logEvents } = require('./middleware/logger')
 const PORT = process.env.PORT || 3500
@@ -29,10 +34,6 @@ app.use(express.json())
 app.use(cookieParser()) // this allows us to parse cookies.
 
 app.use ('/', express.static(path.join(__dirname, 'public')))
-
-app.get('/launch-unreal', (req, res) => {
-    // code to launch Unreal Engine
-});
 
 app.use('/', require('./routes/root'))
 app.use('/auth', require('./routes/authRoutes'))

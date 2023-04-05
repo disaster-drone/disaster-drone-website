@@ -7,7 +7,7 @@ const caseSchema = new mongoose.Schema(
         required: true,
     },
     caseAllImages:[imageSchema],
-    casePinnedImages:[imageSchema],
+    csvPinnedNames:[],
     clientName: {
         type: String,
         required: false,   
