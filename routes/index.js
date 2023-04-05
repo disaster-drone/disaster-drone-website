@@ -26,7 +26,7 @@ router.route('/listbuckets')
 router.route('/getpins')
   .get(fileController.getPins)
 
-router.route('getzip')
+router.route('/getzip')
   .get(fileController.getZip)
   
 module.exports = router;
