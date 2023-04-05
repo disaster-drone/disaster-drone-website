@@ -7,22 +7,29 @@ const asyncHandler = require('express-async-handler')
 // @route POST /auth
 // @access Public
 const login = asyncHandler(async (req, res) => {
+
+    // this is what is in the body of the request
     const { username, password } = req.body
 
+    // if no username or password found -> return error.
     if (!username || !password) {
         return res.status(400).json({ message: 'All fields are required' })
     }
 
+    // find the user in the database
     const foundUser = await User.findOne({ username }).exec()
 
+    // if user is not found -> return error.
     if (!foundUser || !foundUser.active) {
         return res.status(401).json({ message: 'Unauthorized' })
     }
 
+    // compare the password with the hashed password of the found user in the database
     const match = await bcrypt.compare(password, foundUser.password)
 
     if (!match) return res.status(401).json({ message: 'Unauthorized' })
 
+    // if the password is correct -> create a token
     const accessToken = jwt.sign(
         {
             "UserInfo": {
