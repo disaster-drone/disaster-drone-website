@@ -45,7 +45,7 @@ const FileClaimsPage = () => {
   const getImages = async () => {
       const allImagesResult = await axios.get(`${apiRoot}/files/listimages`)
       setAllImages(allImagesResult.data)
-      console.log('this is the array of all images', allImages)
+      //console.log('this is the array of all images', allImages)
   }
 
   // this function gets the csv download link and then parses the csv file into an array of image names.
@@ -59,14 +59,14 @@ const FileClaimsPage = () => {
               setCsvImageNames(data.data.map((image) => image[0]))
           }   
       })
-      console.log('this is the array of image names from the csv file', csvImageNames)
+      //console.log('this is the array of image names from the csv file', csvImageNames)
   }
 
   const downloadZip = async () => {
     const zipResult = await axios.get(`${apiRoot}/files/getzip`)
     const zipUrl = await zipResult.data[0].url
     setZipFiles(zipUrl)
-    console.log('this is the link to the zip array', zipUrl)
+    //console.log('this is the link to the zip array updated', zipFiles)
   }
   
   useEffect(() => {
@@ -76,8 +76,8 @@ const FileClaimsPage = () => {
   }, []);
 
     const settings = {
-        className: "center",
-        centerMode: true,
+        //className: "center",
+        //centerMode: true,
         dots: false,
         infinite: false,
         speed: 500,
@@ -141,7 +141,7 @@ const FileClaimsPage = () => {
                                   <Link id='link' to="/dash/DocumentPage">
                                       <button className="Document">Claim Document</button>
                                   </Link>
-                                  <a href={zipFiles[0]} target="_blank" rel="noopener noreferrer">
+                                  <a href={zipFiles} target="_blank" rel="noopener noreferrer"> 
                                     <button className="Download">Download</button>
                                   </a>
                               </div>
