@@ -127,7 +127,7 @@ const FileClaimsPage = () => {
                 <span className="file-claims-page-subtitle">Select a case</span>
                   <div className="carousel-container">
                       <Slider {...settings}>
-                      {allImages.filter((image) => csvImageNames.includes(image.name)).map((image) => (
+                      {allImages.map((image) => (
                           <div className="card">
                               <div className="card-top">
                                   <img src={image.url} alt={image.name} />    
