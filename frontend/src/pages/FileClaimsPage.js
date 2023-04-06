@@ -118,8 +118,6 @@ const FileClaimsPage = () => {
     // right now, the slider is mapping over the images array to show the functionality of the carousel 
     // but the it is only images from one case and not multiple cases.
 
-    // just adding some commment to see if this will help me push to github
-
     return (
         <div className="file-claims-page">
             <div className="file-claims-page-container">
