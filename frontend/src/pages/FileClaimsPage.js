@@ -135,15 +135,16 @@ const FileClaimsPage = () => {
                               <div className="card-bottom">
                                   <p> Case ID: {image.name.split('/', 1)[0]}</p>
                                   <p> Customer: Faith G</p>
+                                  <a className="download-link" href={zipFiles} target="_blank" rel="noopener noreferrer"> 
+                                    <button className="Download">1. Download VR enviorment</button>
+                                  </a>
                                   <Link id='link' to ="/dash/GalleryPage">
-                                      <button className="Screenshots">Claim Pinpoints</button>
+                                      <button className="Screenshots">2. Preview pinpoints</button>
                                   </Link>
                                   <Link id='link' to="/dash/DocumentPage">
-                                      <button className="Document">Claim Document</button>
+                                      <button className="Document">3. Create case document</button>
                                   </Link>
-                                  <a href={zipFiles} target="_blank" rel="noopener noreferrer"> 
-                                    <button className="Download">Download</button>
-                                  </a>
+                  
                               </div>
                           </div>
                       ))}

@@ -122,6 +122,10 @@
     color: white;
 }
 
+.download-link{
+    text-decoration: None;
+}
+
 .next-arrow{
     margin: 1em;
 }
