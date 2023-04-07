@@ -1,5 +1,4 @@
 import './FileClaimsPage.css';
-
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -7,7 +6,6 @@ import Papa from 'papaparse';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import LoaderExampleInlineCentered from '../components/Loader';
 
 
 function SampleNextArrow(props) {
@@ -120,13 +118,12 @@ const FileClaimsPage = () => {
     // but the it is only images from one case and not multiple cases.
 
     return (
-        <div className="file-claims-page">
-            <div className="file-claims-page-container">
-                <span className="file-claims-page-title">FILE CLAIM</span>
-                <span className="file-claims-page-subtitle">Select a case</span>
+        <div className="flex flex-row w-screen h-screen bg-cover">
+            <div className="max-w-[1240px] w-full h-full mx-auto flex flex-col justify-center">
+                <p className=" ml-4 mb-0 p-0 md:text-[2em] sm:text-6xl text-4xl font-bold">Available Cases</p>
                   <div className="carousel-container">
                       <Slider {...settings}>
-                      {allImages.map((image) => (
+                      {allImages.filter((image) => csvImageNames.includes(image.name)).map((image) => (
                           <div className="card">
                               <div className="card-top">
                                   <img src={image.url} alt={image.name} />    

@@ -50,29 +50,29 @@ const Navbar = () => {
         <div className="flex h-4 bg-slate-300"></div>
 
         <div className="h-16 bg-white">
-        <div className="flex bg-white justify-between item-center h-full max-w-[1240px] mx-auto px-4 text-gray-80 no-underline" >
+        <div className="flex bg-white justify-between item-center h-full max-w-[1240px] mx-auto px-4 text-gray-80 no-underline font-bold" >
             <Link to="/dash/Homepage">
                 <img className="h-16" src={logo} />
             </Link>
             <ul className="hidden md:flex">
-                <Link className="no-underline text-slate-900" to="/dash/Homepage">
+                <Link className="no-underline text-slate-900 hover:text-[#d62311]" to="/dash/Homepage">
                     <li className="p-4 decoration-black">Home</li>                    
                 </Link>
-                <Link className="no-underline text-slate-900" to="/dash/AboutPage">
+                <Link className="no-underline text-slate-900 hover:text-[#d62311]" to="/dash/AboutPage">
                     <li className="p-4">About</li>                    
                 </Link> 
-                <Link className="no-underline text-slate-900" to="/dash/FileClaimsPage">
+                <Link className="no-underline text-slate-900 hover:text-[#d62311]" to="/dash/FileClaimsPage">
                     <li className="p-4">Cases</li>                    
                 </Link>
-                <button className="p-4" title="Logout" onClick={sendLogout}>Logout</button>
-                <Link className="no-underline text-slate-900" to="/dash/SettingsPage">
+                <button className="p-4 text-[#d62311] hover:text-slate-900" title="Logout" onClick={sendLogout}>Logout</button>
+                <Link className="no-underline text-[#d62311] hover:text-slate-900 items-center justify-center"  to="/dash/SettingsPage">
                     <li className="p-4">Settings</li>           
                 </Link>
             </ul>
-            <div onClick={handleNav} className='block md:hidden'>
-                {!nav ? <AiOutlineClose size={20}/> : <AiOutlineMenu size={20}/> }
+            <div onClick={handleNav} className='md:hidden flex items-center'>
+                {nav ? <AiOutlineClose size={20}/> : <AiOutlineMenu size={30}/> }
             </div>
-            <div className={!nav ? 'fixed left-0 top-0 w-[60%] h-full border-r border-r-white bg-white ease-in-out duration-500' : 'fixed left-[-100%]'}>
+            <div className={nav ? 'fixed left-0 top-0 w-[60%] h-full border-r border-r-white bg-white ease-in-out duration-500' : 'fixed left-[-100%]'}>
                 <Link to="/dash/Homepage">
                     <img className="h-16 ml-4" src={logo} />
                 </Link>
@@ -86,7 +86,7 @@ const Navbar = () => {
                     <Link className="no-underline text-slate-900" to="/dash/FileClaimsPage">
                         <li className="p-4 border-b">Cases</li>                    
                     </Link>
-                        <li className="p-4 uppercase border-b" title="Logout" onClick={sendLogout}>Logout</li>
+                        <li className="p-4 uppercase border-b text-[#d62311]" title="Logout" onClick={sendLogout}>Logout</li>
                     <Link className="no-underline text-slate-900" to="/dash/SettingsPage">
                         <li className="p-4">Settings</li>           
                     </Link>
