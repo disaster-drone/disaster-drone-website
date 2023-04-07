@@ -6,21 +6,24 @@ import jake from '../images/jake_circle.png';
 
 const Homepage = () => {
   return (
-    <div className='flex flex-row text-white bg-[#D62311] w-screen h-screen'>
-      <div className='max-w-[1240px] w-full h-full mx-auto pt-24 text-left flex flex-col justify-start'>
-        <p className='md:text-8xl sm:text-6xl text-4xl font-bold'>DISASTER DRONE</p>
-        <p className='text-[#f2ddbb] md:text-6xl sm:text-4xl text-xl font-bold'>A StateFarm Sponsored Project</p>
-        <div className='flex justify-left'> 
-          <p className='md:text-5xl sm:text-3xl text-xl font-bold'>Making insurance cases </p>
-          <Typed 
-            className='md:text-5xl sm:text-3xl text-xl font-bold pl-2'
-            strings={['risk free.', 'danger free.', 'future forward.']} 
-            typeSpeed={30} 
-            backSpeed={20} 
-            loop/>
+      <div className='bg-[#D62311] w-screen h-screen py-16 px-4 text-white'>
+        <div className='max-w-[1240px] mx-auto grid md:grid-cols-2'>
+          <div className='max-w-[620px] mx-auto pt-24 text-left flex flex-col justify-start'>
+            <p className='md:text-7xl sm:text-6xl text-4xl font-bold'>DISASTER DRONE</p>
+            <p className='text-[#f2ddbb] md:text-4xl sm:text-4xl text-xl font-bold'>A StateFarm Sponsored Project</p>
+            <div className='flex justify-left'> 
+              <p className='md:text-3xl sm:text-2xl text-xl font-bold'>Making insurance cases </p>
+              <Typed 
+              className='md:text3xl sm:text-3xl text-xl font-bold pl-2'
+              strings={['risk free.', 'danger free.', 'future forward.']} 
+              typeSpeed={30} 
+              backSpeed={20} 
+              loop/>
+            </div>
+          </div>
+          <img className='max-w-[620px] mx-auto scale-70' src={jake} alt='jake' />
         </div>
       </div>
-    </div>
   )
 }
 export default Homepage

@@ -118,36 +118,35 @@ const FileClaimsPage = () => {
     // but the it is only images from one case and not multiple cases.
 
     return (
-        <div className="flex flex-row w-screen h-screen bg-cover">
-            <div className="max-w-[1240px] w-full h-full mx-auto flex flex-col justify-center">
-                <p className=" ml-4 mb-0 p-0 md:text-[2em] sm:text-6xl text-4xl font-bold">Available Cases</p>
-                  <div className="carousel-container">
-                      <Slider {...settings}>
-                      {allImages.filter((image) => csvImageNames.includes(image.name)).map((image) => (
-                          <div className="card">
-                              <div className="card-top">
-                                  <img src={image.url} alt={image.name} />    
-                              </div>
-                              <div className="card-bottom">
-                                  <p> Case ID: {image.name.split('/', 1)[0]}</p>
-                                  <p> Customer: Faith G</p>
-                                  <a className="download-link" href={zipFiles} target="_blank" rel="noopener noreferrer"> 
-                                    <button className="Download">1. Download VR enviorment</button>
-                                  </a>
-                                  <Link id='link' to ="/dash/GalleryPage">
-                                      <button className="Screenshots">2. Preview pinpoints</button>
-                                  </Link>
-                                  <Link id='link' to="/dash/DocumentPage">
-                                      <button className="Document">3. Create case document</button>
-                                  </Link>
-                  
-                              </div>
-                          </div>
-                      ))}
-                      </Slider>
+      <div className="flex flex-row w-screen h-screen bg-cover">
+        <div className="max-w-[1240px] w-full h-full mx-auto flex flex-col justify-center">
+          <p className=" ml-4 mb-0 p-0 md:text-[2em] sm:text-6xl text-4xl font-bold">Available Cases</p>
+            <div className="carousel-container">
+              <Slider {...settings}>
+                {allImages.filter((image) => csvImageNames.includes(image.name)).map((image) => (
+                  <div className="card">
+                    <div className="card-top">
+                      <img src={image.url} alt={image.name} />    
                     </div>
+                    <div className="card-bottom">
+                      <p> Case ID: {image.name.split('/', 1)[0]}</p>
+                      <p> Customer: Faith G</p>
+                      <a className="download-link" href={zipFiles} target="_blank" rel="noopener noreferrer"> 
+                        <button className="Download">1. Download VR enviorment</button>
+                      </a>
+                      <Link id='link' to ="/dash/GalleryPage">
+                        <button className="Screenshots">2. Preview pinpoints</button>
+                      </Link>
+                      <Link id='link' to="/dash/DocumentPage">
+                        <button className="Document">3. Create case document</button>
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+              </Slider>
             </div>
-        </div>
+          </div>
+      </div>
     )
 }
 export default FileClaimsPage;

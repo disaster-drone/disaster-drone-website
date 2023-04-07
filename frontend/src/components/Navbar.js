@@ -47,7 +47,7 @@ const Navbar = () => {
 
     const content = (
         <>
-        <div className="flex h-4 bg-slate-300"></div>
+        <div className="flex h-4 bg-[#F4F3F3]"></div>
 
         <div className="h-16 bg-white">
         <div className="flex bg-white justify-between item-center h-full max-w-[1240px] mx-auto px-4 text-gray-80 no-underline font-bold" >
@@ -94,6 +94,7 @@ const Navbar = () => {
             </div>
         </div>
         </div>
+        <div className="flex h-0.5 bg-[#D9D9D9]"></div>
         </>
     )
     return content
