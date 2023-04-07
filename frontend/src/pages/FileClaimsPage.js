@@ -114,6 +114,7 @@ const FileClaimsPage = () => {
           ]
     };
 
+    //<p> Case ID: {image.name.split('/', 3)[2]}</p> THIS ONLY GETS THE PURE NAME OF THE IMAGES.
 
     // right now, the slider is mapping over the images array to show the functionality of the carousel 
     // but the it is only images from one case and not multiple cases.

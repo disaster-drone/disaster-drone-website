@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons"
 import { useNavigate, Link } from 'react-router-dom'
 
 import { useSelector } from 'react-redux'

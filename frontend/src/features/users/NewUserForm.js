@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react"
 import { useAddNewUserMutation } from "./usersApiSlice"
 import { useNavigate } from "react-router-dom"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSave } from "@fortawesome/free-solid-svg-icons"
 import { ROLES } from "../../config/roles"
 
 const USER_REGEX = /^[A-z]{3,20}$/
@@ -91,7 +89,7 @@ const NewUserForm = () => {
                             title="Save"
                             disabled={!canSave}
                         >
-                            <FontAwesomeIcon icon={faSave} />
+                            <Button className="new-button-needs-to-gohere"></Button>
                         </button>
                     </div>
                 </div>
