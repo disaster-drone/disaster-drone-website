@@ -6,9 +6,9 @@ import jake from '../images/jake_circle.png';
 
 const Homepage = () => {
   return (
-      <div className='bg-[#D62311] w-screen h-screen py-16 px-4 text-white'>
-        <div className='max-w-[1240px] mx-auto grid md:grid-cols-2'>
-          <div className='max-w-[620px] mx-auto pt-24 text-left flex flex-col justify-start'>
+      <div className='bg-[#D62311] w-screen h-screen py-16 px-4 text-white overflow-hidden'>
+        <div className='max-w-[1512px] mx-auto grid md:grid-cols-2'>
+          <div className='max-w-[756px] mx-auto pt-24 text-left flex flex-col justify-start'>
             <p className='md:text-7xl sm:text-6xl text-4xl font-bold'>DISASTER DRONE</p>
             <p className='text-[#f2ddbb] md:text-4xl sm:text-4xl text-xl font-bold'>A StateFarm Sponsored Project</p>
             <div className='flex justify-left'> 
@@ -21,7 +21,7 @@ const Homepage = () => {
               loop/>
             </div>
           </div>
-          <img className='max-w-[620px] mx-auto scale-70' src={jake} alt='jake' />
+          <img className='max-w-[756px] mx-auto scale-70' src={jake} alt='jake' />
         </div>
       </div>
   )

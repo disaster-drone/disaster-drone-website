@@ -50,11 +50,11 @@ const Navbar = () => {
         <div className="flex h-4 bg-[#F4F3F3]"></div>
 
         <div className="h-16 bg-white">
-        <div className="flex bg-white justify-between item-center h-full max-w-[1240px] mx-auto px-4 text-gray-80 no-underline font-bold" >
+        <div className="flex bg-white justify-between item-center h-full max-w-[1512px] mx-auto px-4 text-gray-80 no-underline font-bold" >
             <Link to="/dash/Homepage">
                 <img className="h-16" src={logo} />
             </Link>
-            <ul className="hidden md:flex">
+            <ul className="hidden md:flex ">
                 <Link className="no-underline text-slate-900 hover:text-[#d62311]" to="/dash/Homepage">
                     <li className="p-4 decoration-black">Home</li>                    
                 </Link>
