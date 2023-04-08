@@ -60,6 +60,9 @@ const Navbar = () => {
                 </Link>
                 <Link className="no-underline text-slate-900 hover:text-[#d62311]" to="/dash/AboutPage">
                     <li className="p-4">About</li>                    
+                </Link>
+                <Link className="no-underline text-slate-900 hover:text-[#d62311]" to="/dash/TeamPage">
+                    <li className="p-4">Team</li>                    
                 </Link> 
                 <Link className="no-underline text-slate-900 hover:text-[#d62311]" to="/dash/FileClaimsPage">
                     <li className="p-4">Cases</li>                    

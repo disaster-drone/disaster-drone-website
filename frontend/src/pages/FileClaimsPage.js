@@ -120,7 +120,7 @@ const FileClaimsPage = () => {
     return (
       <div className="flex flex-row w-screen h-screen bg-cover">
         <div className="max-w-[1240px] w-full h-full mx-auto flex flex-col justify-center">
-          <p className=" ml-4 mb-0 p-0 md:text-[2em] sm:text-6xl text-4xl font-bold">Available Cases</p>
+          <p className=" ml-4 mb-0 p-0 md:text-[1.5em] sm:text-6xl text-4xl font-bold">FILE A CASE</p>
             <div className="carousel-container">
               <Slider {...settings}>
                 {allImages.filter((image) => csvImageNames.includes(image.name)).map((image) => (
