@@ -20,7 +20,7 @@ const AboutPage = () => {
                 </section>  
                 <section className="flex flex-col md:flex-row bg-white">
                 <div className="mx-auto max-w-[1512px] flex md:flex-row flex-col">
-                    <img src={dronePic} alt="drone" className="md:w-[350px] w-[700px] pl-12 pt-12"/>
+                    <img src={dronePic} alt="drone-picture" className="md:w-[350px] w-[700px] pl-12 pt-12"/>
                     <section className="flex flex-col">
                         <span className="text-4xl font-bold text-[#D62311] px-8 pt-12">The Solution</span>
                         <span className="text-2xl text-[#D62311] px-8 pt-2 pb-12 max-w-[1000px]">There will be photos taken of a disaster site with a drone.
