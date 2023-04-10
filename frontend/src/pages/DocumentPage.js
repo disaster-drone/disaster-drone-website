@@ -64,12 +64,9 @@ function DocumentPage(){
 
     return (
         <>
-            <div className="documentpage">
-                    <div className="documentpage-container">
-                        <section className="documentpage-title">
-                            <span className="documentpage-main-title">DOCUMENT FORM</span>
-                            <span className="documentpage-desc" >View Form and Download</span>
-                        </section>
+            <div className="bg-white w-screen h-screen">
+                    <div className='flex flex-col max-w-[1420px] mx-auto py-16  justify-center items-center'>
+                        <p className="  md:text-[4em] sm:text-[3em] text-[2em] font-bold">Download Case Form</p>
                             <PDFExport
                                 ref={pdfExportComponent}
                                 paperSize="auto"
@@ -83,7 +80,7 @@ function DocumentPage(){
                                     <p id="p-text">This case was made using the Diaster Drone website, by the insurance agent
                                     billy bob for carlos who is insured by StateFarm Insurance. There are some legals words 
                                     that might be able to go in here to make the document look a little more professional. </p>
-                                    <div className="seperation-bar-top"></div>
+                                    <div className="h-[1px] bg-[#D62311] w-[72em] m-[1em]"></div>
                                 </span>
                                 <span className="indiv-claims"> 
                                     {allImages.filter((image) => csvImageNames.includes(image.name)).map(image => (
@@ -93,9 +90,9 @@ function DocumentPage(){
                             </section>
                             </PDFExport>
                     </div>
-                    <div className="bottom-button">
+                    <div className="flex flex-col justify-center items-center pb-8">
                         <button
-                            className="pdf-button"
+                            className="flex flex-row h-16 w-72 justify-center items-center text-center bg-[#D62311] rounded-lg text-white font-bold text-[2em] hover:bg-[#FF0000]"
                             onClick={exportPDFWithComponent}>
                             Download PDF
                         </button>

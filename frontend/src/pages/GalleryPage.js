@@ -40,14 +40,11 @@ function GalleryPage(){
 
     return (
         <>  
-        <div className="gallery-page">
-            <div className="gallerypage-container">
-                <section className="gallerypage-title">
-                    <span className="gallerypage-main-title">GALLERY</span>
-                    <span className="gallerypage-desc" >Pinned Images</span>
-                </section>
-                <section className="gallerypage-gallery">
-                        <div className="wrapper-image">
+        <div className="bg-white w-screen h-screen">
+            <div className='flex flex-col max-w-[1512px] mx-auto py-16  justify-center items-center'>
+            <p className="  md:text-[4em] sm:text-[3em] text-[1.25em] font-bold">Gallery of Pinned Images</p>
+                <section className='max-w-[1512px] mx-auto flex flex-row'>
+                        <div className="flex flex-wrap md:max-w-[1080px] md:max-h-[720px] sm:max-w-[720px] sm:max-h-[500px] max-w-[500px] max-h-[320px]">
                             {allImages.filter((image) => csvImageNames.includes(image.name)).map(image => (
                                 <CloudImage url={image.url} key={image.name} alt={image.name}/>
                             ))}
