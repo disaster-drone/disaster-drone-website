@@ -64,7 +64,7 @@ function DocumentPage(){
 
     return (
         <>
-            <div className="bg-white w-screen h-screen">
+            <div className="bg-white w-screen h-screen font-[Inter]">
                     <div className='flex flex-col max-w-[1420px] mx-auto py-16  justify-center items-center'>
                         <p className="  md:text-[4em] sm:text-[3em] text-[2em] font-bold">Download Case Form</p>
                             <PDFExport

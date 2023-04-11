@@ -118,7 +118,7 @@ const FileClaimsPage = () => {
     // but the it is only images from one case and not multiple cases.
 
     return (
-      <div className="flex flex-row w-screen h-screen bg-cover overflow-hidden">
+      <div className="flex flex-row w-screen h-screen bg-cover overflow-hidden font-[Inter]">
         <div className="max-w-[1240px] mx-auto flex flex-col pt-16">
           <p className=" ml-4 mb-0 p-0 md:text-[1.5em] sm:text-6xl text-4xl font-bold">FILE A CASE</p>
             <div className="flex flex-col justify-center items-center m-1 p-0">

@@ -50,7 +50,7 @@ const Navbar = () => {
         <div className="flex h-4 bg-[#F4F3F3]"></div>
 
         <div className="h-16 bg-white">
-        <div className="flex bg-white justify-between item-center h-full max-w-[1512px] mx-auto px-4 text-gray-80 no-underline font-bold" >
+        <div className="flex bg-white justify-between item-center h-full max-w-[1512px] mx-auto px-4 text-gray-80 no-underline font-bold font-[Inter]" >
             <Link to="/dash/Homepage">
                 <img className="h-16" src={logo} />
             </Link>
@@ -75,7 +75,7 @@ const Navbar = () => {
             <div onClick={handleNav} className='md:hidden flex items-center'>
                 {nav ? <AiOutlineClose size={20}/> : <AiOutlineMenu size={30}/> }
             </div>
-            <div className={nav ? 'fixed left-0 top-0 w-[60%] h-full border-r border-r-white bg-white ease-in-out duration-500' : 'fixed left-[-100%]'}>
+            <div className={nav ? 'fixed left-0 top-0 w-[60%] h-full border-r border-r-white bg-white ease-in-out duration-500' : 'fixed left-[-100%] font-[Inter]'}>
                 <Link to="/dash/Homepage">
                     <img className="h-16 ml-4" src={logo} />
                 </Link>

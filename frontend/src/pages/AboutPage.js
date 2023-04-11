@@ -3,7 +3,7 @@ import dronePic from '../images/sf-drone-about.svg'
 const AboutPage = () => {
     return(
         <>
-        <div className="w-screen h-screen">
+        <div className="w-screen h-screen font-[Inter]">
             <div className="mx-auto flex flex-col">
                 <section className="flex flex-col bg-[#D62311]">
                 <div className="mx-auto max-w-[1512px] flex flex-col">

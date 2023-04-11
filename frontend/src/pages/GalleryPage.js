@@ -40,7 +40,7 @@ function GalleryPage(){
 
     return (
         <>  
-        <div className="bg-white w-screen h-screen">
+        <div className="bg-white w-screen h-screen font-[Inter]">
             <div className='flex flex-col max-w-[1512px] mx-auto py-16  justify-center items-center'>
             <p className="  md:text-[4em] sm:text-[3em] text-[1.25em] font-bold">Gallery of Pinned Images</p>
                 <section className='max-w-[1512px] mx-auto flex flex-row'>

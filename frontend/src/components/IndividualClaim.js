@@ -5,7 +5,7 @@ import './IndividualClaim.css'
 
 const IndividualClaim = ({url, key, name}) => {
   return (
-    <div className="flex flex-col mx-[2em]">
+    <div className="flex flex-col mx-[2em] font-[Inter]">
         <section className="flex flex-row">
           <span className="flex max-w-[25em mb-[1em]">
             <CloudImage url={url} key={key} alt={name}/>
