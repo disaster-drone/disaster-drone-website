@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import { useUpdateUserMutation, useDeleteUserMutation } from "./usersApiSlice"
 import { useNavigate } from "react-router-dom"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSave, faTrashCan } from "@fortawesome/free-solid-svg-icons"
 import { ROLES } from "../../config/roles"
 
@@ -115,14 +114,14 @@ const EditUserForm = ({ user }) => {
                             onClick={onSaveUserClicked}
                             disabled={!canSave}
                         >
-                            <FontAwesomeIcon icon={faSave} />
+                            <Button className="new icon needs to go here"></Button>
                         </button>
                         <button
                             className="icon-button"
                             title="Delete"
                             onClick={onDeleteUserClicked}
                         >
-                            <FontAwesomeIcon icon={faTrashCan} />
+                            <Button className="new icon needs to go here"></Button>
                         </button>
                     </div>
                 </div>

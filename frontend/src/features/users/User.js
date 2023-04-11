@@ -1,7 +1,4 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons"
 import { useNavigate } from 'react-router-dom'
-
 import { useSelector } from 'react-redux'
 import { selectUserById } from './usersApiSlice'
 
@@ -30,7 +27,7 @@ const User = ({ userId }) => {
                         className="icon-button table__button"
                         onClick={handleEdit}
                     >
-                        <FontAwesomeIcon icon={faPenToSquare} />
+                        <button className="new-button-needs-to-gohere"> button</button>
                     </button>
                 </td>
             </tr>

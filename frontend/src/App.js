@@ -8,13 +8,14 @@ import Homepage from './pages/Homepage'
 import AboutPage from './pages/AboutPage'
 import FileClaimsPage from './pages/FileClaimsPage'
 import LoginPage from './features/auth/LoginPage'
+import Teampage from './pages/Teampage'
 import Layout from './components/Layout'
 import DashLayout from './components/DashLayout'
 import UsersList from './features/users/UsersList'
 import ClaimsList from './features/claims/ClaimsList'
 import SettingsPage from './pages/SettingsPage'
 import DocumentPage from './pages/DocumentPage'
-import GalleryPage from './pages/GalleryPage';
+import GalleryPage from './pages/GalleryPage'
 
 
 
@@ -34,6 +35,7 @@ function App() {
             <Route path="SettingsPage" element={<SettingsPage />} />
             <Route path="DocumentPage" element={<DocumentPage />} />
             <Route path="GalleryPage" element={<GalleryPage/>} />
+            <Route path="Teampage" element={<Teampage />} />
 
             <Route path="users">
               <Route index element={<UsersList />} />
