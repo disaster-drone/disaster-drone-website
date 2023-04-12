@@ -19,7 +19,7 @@ const Teampage = () => {
     {
       name: 'Faith Gutierrez',
       title: 'Full Stack Virtual Reality Developer',
-      stack: 'Unreal Engine, Google Cloud Storage, Bash Scripting, Drone Engineer, Drone Pilot, Scrum Master',
+      stack: 'Unreal Engine, Reality Capture, Bash Scripting, Drone Engineer, Drone Pilot, Scrum Master',
       image: 'https://cdn.discordapp.com/attachments/913999827816308776/1094451580360724560/female_profile.png'
     },
     {

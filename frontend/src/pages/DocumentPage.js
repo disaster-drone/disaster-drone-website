@@ -12,7 +12,6 @@ import sfddlogo from '../images/DD1.png'
 import './DocumentPage.css'
 import { handle } from 'express/lib/router';
 
-
 function DocumentPage(){
     const apiRoot = 'http://localhost:3500';
     const [allImages, setAllImages] = useState([]); // images is an array of objects by default is set empty.

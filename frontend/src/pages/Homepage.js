@@ -2,6 +2,7 @@ import React from 'react'
 import Typed from 'react-typed'
 import jake from '../images/jake_circle.png';
 
+document.title = 'Disaster Drone'
 
 
 const Homepage = () => {

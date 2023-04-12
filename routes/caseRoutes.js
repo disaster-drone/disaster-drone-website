@@ -1,5 +1,8 @@
-const express = require('express');
+const express = require("express");
+const router  = express.Router();
+const caseController = require('../controllers/caseController')
 
-const router = express.Router();
+router.route('/getall')
+    .get(caseController.getAllCases)
 
-const dbo = require('../config/dbConnection');
+module.exports = router

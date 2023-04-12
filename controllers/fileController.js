@@ -1,14 +1,12 @@
 
 const path = require('path');
 const cwd = path.join(__dirname, '..');
-
-
+const Papa = require('papaparse');
 const processFile = require("../middleware/upload");
 const { format } = require("util");
 const { Storage } = require("@google-cloud/storage");
 const mongoose = require('mongoose');
-
-const { createSecureServer } = require('http2');
+const Case = require('../models/Case');
 
 // Instantiate a storage client with credentials
 const bucketName = 'dsd-cloud-storage';
@@ -243,76 +241,84 @@ const getListBuckets = async (req, res) => {
   }
 };
 
-// const crateNewObject = async (req, res) => {
+const createNewObject = async (req, res) => {
+  
+  const images = [];
+  const folders = new Set();
 
-//   const [csvImageNames, setCsvImageNames] = useState([]); // pinnedImages is an array of objects by default is set empty.
+  // get a list of the folders in the bucket.
+  const [files] = await storage.bucket(bucketName).getFiles();
+  if (files.length === 0) {
+    console.log(`No files found in bucket ${bucketName}`);
+  } else {
+    console.log(`Folders in bucket ${bucketName}:`);
+    files.forEach(file => {
+      const [folder] = file.name.split('/');
+      folders.add(folder);
+    });
+  }
+  
+  // loop through each folder and create an object for each one.
+  for (const folder of folders) {
 
-//   // get a list of the folders in the bucket.
-//   storage.bucket(bucketName).getFiles({delimiter: '/' }, async (err, files) => {
-//     if(err){
-//       console.log('Error getting the files', err);
-//       return
-//     }
+    //check if a case with the same name already exist in the database.
+    const existingCase = await Case.findOne({name: folder}).exec();
 
-//     // loop through each folder and create an object for each one.
-//     for (const folder of files) {
+    // if the case already exist then skip it.
+    if(existingCase){
+      console.log(`Case ${folder} already exist in the database, skipping....`);
+      continue;
+    }
 
-//       // get the name of the folder.
-//       const folderName = folder.name.split('/').slice(0,-1).join('/');
+    // get a list of all the files in the folder and seperate into images and csv files.
+    const [files] = await storage.bucket(bucketName).getFiles({prefix: folder});
+    const imageFiles = files.filter(file => file.name.endsWith('.JPG') || file.name.endsWith('.PNG'));
+    const csvFiles = files.filter(file => file.name.endsWith('.csv'));
+    const zipFiles = files.filter(file => file.name.endsWith('.zip'));
+    const imageData = [];
+    const csvData = [];
+    const zipData = [];
 
-//       //check if a case with the same name already exist in the database.
-//       const existingCase = await Case.findOne({name: folderName});
+    // get the csv url for the current case.
+    csvFiles.forEach((file) => {
+      csvData.push({
+        name: file.name,
+        url: file.metadata.mediaLink,
+      });
+    });
+    const csvUrl = await csvData[0].url
 
-//       // if the case already exist then skip it.
-//       if(existingCase){
-//         console.log(`Case ${folderName} already exist in the database, skipping....`);
-//         continue
-//       }
+    // get the images for the current case.
+    imageFiles.forEach((image) => {
+      imageData.push({
+        name: image.name,
+        caseID: image.name.split('/', 1)[0],
+        url: image.metadata.mediaLink,
+        content: image.metadata.contentType,
+      });
+    });
+    images.push(imageData)
 
-//       // get a list of all the files in the folder.
-//       const [files] = await storage.bucket(bucketName).getFiles({prefix: folderName});
-//       const imageFiles = files.filter(file => file.name.endsWith('.JPG') || file.name.endsWith('.PNG'));
-//       const csvInfo = [];
-      
-//       csvFiles.forEach((file) => {
-//         csvInfo.push({
-//           name: file.name,
-//           url: file.metadata.mediaLink,
-//           content: file.metadata.contentType,
-//         });
-//       });
-//       const cvsUrl = await csvInfo.data[0].url
-//       Papa.parse(cvsUrl, {
-//           download: true,
-//           header: false,
-//           complete: function(data) {
-//               setCsvImageNames(data.data.map((image) => image[0]))
-//           }   
-//       })
+    // getting the zip url for the current cases.
+    zipFiles.forEach((file) => {
+      zipData.push({
+        name: file.name,
+        url: file.metadata.mediaLink,
+      });
+    })
+    const zipUrl = await zipData[0].url
 
-//       // loop through each file and create a new image object for each one
-//       const images = []
-//       for(const file of imageFiles){
-//         const image = new Image({
-//           name: image.name,
-//           caseID: image.name.split('/', 1)[0],
-//           url: image.metadata.mediaLink,
-//           contentType: image.metadata.contentType,
-//         });
-//       }
-//       images.push(image)
+    //create and store the new case object in the database.
+    const result = await Case.create({
+      name: folder,
+      images: images,
+      zipUrl: zipUrl,
+      csvUrl: csvUrl,
+    });
+    console.log(`Case ${folder} created successfully!`);
+    }
+}
 
-//       // create a new case and save it to the database.
-//       const sfCase = new Case({
-//         id: folderName,
-//         caseAllImages: images,
-//         csvPinnedNames: csvImageNames,
-//       });
-//       await sfCase.save();
-//       console.log(`Case ${folderName} created successfully!`);
-//     }
-//   });
-// }
 
   
   module.exports = {
@@ -324,5 +330,6 @@ const getListBuckets = async (req, res) => {
     getListBuckets,
     getPins,
     getZip,
+    createNewObject,
   };
   

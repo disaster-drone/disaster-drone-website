@@ -28,5 +28,8 @@ router.route('/getpins')
 
 router.route('/getzip')
   .get(fileController.getZip)
+
+router.route('/createobjects')
+  .get(fileController.createNewObject)
   
 module.exports = router;

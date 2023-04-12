@@ -66,11 +66,16 @@ const FileClaimsPage = () => {
     setZipFiles(zipUrl)
     //console.log('this is the link to the zip array updated', zipFiles)
   }
+
+  const createObjects = async () => {
+    await axios.get(`${apiRoot}/files/createobjects`)
+  }
   
   useEffect(() => {
       getImages()
       getCsvData()
       downloadZip()
+      createObjects()
   }, []);
 
     const settings = {
