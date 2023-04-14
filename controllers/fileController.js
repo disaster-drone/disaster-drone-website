@@ -1,12 +1,16 @@
 
-const path = require('path');
-const cwd = path.join(__dirname, '..');
-const Papa = require('papaparse');
-const processFile = require("../middleware/upload");
-const { format } = require("util");
-const { Storage } = require("@google-cloud/storage");
-const mongoose = require('mongoose');
-const Case = require('../models/Case');
+const path = require('path')
+const cwd = path.join(__dirname, '..')
+const processFile = require("../middleware/upload")
+const { format } = require("util")
+const { Storage } = require("@google-cloud/storage")
+const mongoose = require('mongoose')
+const fetch = require('node-fetch')
+const https = require('https');
+const csv = require('csv-parser')
+const Case = require('../models/Case')
+const csvParser = require('csv-parser')
+//import React, {useState} from 'react'
 
 // Instantiate a storage client with credentials
 const bucketName = 'dsd-cloud-storage';
@@ -243,7 +247,7 @@ const getListBuckets = async (req, res) => {
 
 const createNewObject = async (req, res) => {
   
-  const images = [];
+  // const [zipUrl, setZipUrl] = React.useState('');
   const folders = new Set();
 
   // get a list of the folders in the bucket.
@@ -251,16 +255,19 @@ const createNewObject = async (req, res) => {
   if (files.length === 0) {
     console.log(`No files found in bucket ${bucketName}`);
   } else {
-    console.log(`Folders in bucket ${bucketName}:`);
+    //console.log(`Folders in bucket ${bucketName}:`);
     files.forEach(file => {
-      const [folder] = file.name.split('/');
+      const [folder] = file.name.split('/', 1);
       folders.add(folder);
     });
   }
   
+  //console.log(`Folders in bucket ${bucketName}: ${folders}`)
+
   // loop through each folder and create an object for each one.
   for (const folder of folders) {
-
+    let images = [];
+    console.log(`the current case being worked on is: ${folder}`)
     //check if a case with the same name already exist in the database.
     const existingCase = await Case.findOne({name: folder}).exec();
 
@@ -271,22 +278,13 @@ const createNewObject = async (req, res) => {
     }
 
     // get a list of all the files in the folder and seperate into images and csv files.
-    const [files] = await storage.bucket(bucketName).getFiles({prefix: folder});
-    const imageFiles = files.filter(file => file.name.endsWith('.JPG') || file.name.endsWith('.PNG'));
-    const csvFiles = files.filter(file => file.name.endsWith('.csv'));
-    const zipFiles = files.filter(file => file.name.endsWith('.zip'));
-    const imageData = [];
-    const csvData = [];
-    const zipData = [];
-
-    // get the csv url for the current case.
-    csvFiles.forEach((file) => {
-      csvData.push({
-        name: file.name,
-        url: file.metadata.mediaLink,
-      });
-    });
-    const csvUrl = await csvData[0].url
+    //console.log(`ths prefix for folder ${folder} should be ${folder}/` )
+    let [files] = await storage.bucket(bucketName).getFiles({prefix: folder});
+    //let files = allFiles.filter(file => file.name.startsWith(folder) === folder);
+    let imageFiles = files.filter(file => file.name.endsWith('.JPG') && file.name.startsWith(folder) || file.name.endsWith('.PNG') && file.name.startsWith(folder));
+    let imageData = [];
+    let zipFiles = files.filter(file => file.name.endsWith('.zip') && file.name.startsWith(folder));
+    let zipData = [];
 
     // get the images for the current case.
     imageFiles.forEach((image) => {
@@ -297,26 +295,107 @@ const createNewObject = async (req, res) => {
         content: image.metadata.contentType,
       });
     });
-    images.push(imageData)
+    //images.push(imageData)
 
     // getting the zip url for the current cases.
-    zipFiles.forEach((file) => {
-      zipData.push({
-        name: file.name,
-        url: file.metadata.mediaLink,
-      });
-    })
-    const zipUrl = await zipData[0].url
+    let zipUrl;
+    if(zipFiles.length === 0){
+      zipUrl = '';
+    }
+    else{
+      zipFiles.forEach((file) => {
+        zipData.push({
+          name: file.name,
+          zipurl: file.metadata.mediaLink,
+        });
+      })
+      zipUrl = await zipData[0].zipurl
+      //React.setZipUrl(zip);
+    }
+    //console.log(`ZIP URL FOR CASE ${existingCase.name}: `, zipUrl)
 
     //create and store the new case object in the database.
     const result = await Case.create({
       name: folder,
-      images: images,
+      images: imageData,
       zipUrl: zipUrl,
-      csvUrl: csvUrl,
     });
     console.log(`Case ${folder} created successfully!`);
     }
+}
+
+const updateCase = async (req, res) => {
+  let folders = new Set();
+
+  // get a list of the folders in the bucket.
+  const [files] = await storage.bucket(bucketName).getFiles();
+  if (files.length === 0) {
+    console.log(`No files found in bucket ${bucketName}`);
+  } else {
+    //console.log(`Folders in bucket ${bucketName}:`);
+    files.forEach(file => {
+      const [folder] = file.name.split('/');
+      folders.add(folder);
+    });
+  }
+  
+  // loop through each folder and create an object for each one.
+  for (const folder of folders) {
+
+    // look for existing cases in the database and update then with the csv and zip files.
+    let existingCase = await Case.findOne({name: folder}).exec();
+
+    // if the case already exist then skip it.
+    if(existingCase){
+      //console.log(`FOUND CASE: ${folder}, Updating with csv and zip files....`);
+      
+      // get a list of all the files in the folder and seperate into images and csv files.
+      const [files] = await storage.bucket(bucketName).getFiles({prefix: existingCase.name});
+      const csvFiles = files.filter(file => file.name.endsWith('.csv') && file.name.startsWith(existingCase.name));
+      const csvData = [];
+
+      // get the csv url for the current case.
+      csvFiles.forEach((file) => {
+        csvData.push({
+          name: file.name,
+          url: file.metadata.mediaLink,
+        });
+      });
+      let csvUrl = await csvData[0].url
+
+      
+      const parseCsv = async () => {
+        csvParsed = [];
+        https.get(csvUrl, (res) => {
+          res.pipe(csv({headers: false}))
+            .on('data', (row) => {
+              for (const [key, value] of Object.entries(row)) {
+                csvParsed.push(value)
+                console.log(`This is the parsed data for ${existingCase.name} so far:`, csvParsed)
+              }
+            })
+            .on('end', () => {
+              console.log('CSV data parsed successfully!')
+            })
+            .on('error', (err) => {
+              console.log(err)
+            })
+        })
+      }
+      
+      await parseCsv()
+    
+      //create and store the new case object in the database.
+      let result = await Case.updateOne({name: existingCase.name}, {
+        csvUrl: csvUrl,
+        csvNames: csvParsed,
+      });
+      //console.log(`Case ${existingCase.name} updated successfully!`);
+    }
+    else {
+      console.log(`Case ${folder} does not exist in the database, skipping....`);
+    }
+  }
 }
 
 
@@ -331,5 +410,6 @@ const createNewObject = async (req, res) => {
     getPins,
     getZip,
     createNewObject,
+    updateCase,
   };
   

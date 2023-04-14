@@ -7,8 +7,9 @@ const caseSchema = new mongoose.Schema({
     completed: Boolean,
     desc: String,
     zipUrl: String,
+    csvNames: Array,
     csvUrl: String, 
-    images: Array,
+    images: Object,
     agent:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'

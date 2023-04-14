@@ -29,7 +29,12 @@ router.route('/getpins')
 router.route('/getzip')
   .get(fileController.getZip)
 
-router.route('/createobjects')
+// this is creating the obects at the start.
+router.route('/createcases')
   .get(fileController.createNewObject)
+
+// this is to update the case for when the user is done with the VR env.
+router.route('/updatecases')
+  .get(fileController.updateCase)
   
 module.exports = router;
