@@ -1,5 +1,7 @@
 import dronePic from '../images/sf-drone-about.svg'
 
+// AboutPage, the about page for the website.
+
 const AboutPage = () => {
     return(
         <>

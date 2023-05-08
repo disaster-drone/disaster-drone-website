@@ -3,7 +3,8 @@ import React from 'react'
 import './SettingsPage.css';
 
 
-
+// Setting page that isn't funcitonal and is just a placeholder for now because did not really need to create 
+// for the POC.
 
 const SettingsPage = () => {
   return (

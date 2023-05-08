@@ -17,85 +17,10 @@ const bucketName = 'dsd-cloud-storage';
 const bucketNameImage = 'dsd-cloud-storage/dji_demo_images';
 const storage = new Storage();
 
-// @ desc upload a file
-// @ route POST /files
-// @ access Private
-const upload = async (req, res) => {
-    try {
-      await processFile(req, res);
-  
-      if (!req.file) {
-        return res.status(400).send({ message: "Please upload a file!" });
-      }
-  
-      // Create a new blob in the bucket and upload the file data.
-      const blob = bucket.file(req.file.originalname);
-      const blobStream = blob.createWriteStream({
-        resumable: false,
-      });
-  
-      blobStream.on("error", (err) => {
-        res.status(500).send({ message: err.message });
-      });
-  
-      blobStream.on("finish", async (data) => {
-        // Create URL for directly file access via HTTP.
-        const publicUrl = format(
-          `https://storage.googleapis.com/${bucket.name}/${blob.name}`
-        );
-  
-        try {
-          // Make the file public
-          await bucket.file(req.file.originalname).makePublic();
-        } catch {
-          return res.status(500).send({
-            message:
-              `Uploaded the file successfully: ${req.file.originalname}, but public access is denied!`,
-            url: publicUrl,
-          });
-        }
-  
-        res.status(200).send({
-          message: "Uploaded the file successfully: " + req.file.originalname,
-          url: publicUrl,
-        });
-      });
-  
-      blobStream.end(req.file.buffer);
-    } catch (err) {
-        if (err.code == "LIMIT_FILE_SIZE") {
-          return res.status(500).send({
-            message: "File size cannot be larger than 2MB!",
-          });
-        }
-    
-        res.status(500).send({
-          message: `Could not upload the file: ${req.file.originalname}. ${err}`,
-        });
-    }
-  };
-  
-
-// @ desc: make files public
-// @ route: files/makepublic
-// @access: Private
-const makePublic = async (req, res) => {
-  try{
-    const [files] = await storage.bucket(bucketName).getFiles();
-    files.forEach((file) => {
-      storage.bucket(bucketName).file(fileName).makePublic();
-      console.log(`gs://${bucketName}/${fileName} is now public.`);
-    });
-  } catch (err) {
-    console.log(err);
-    makePublic().catch(console.error);
-  }
-};
-
-
 // @ desc: get list of the files
 // @ route: get /files
 // @ access: Private
+// Individual function that returns a list of all the files in the google bucket, not used in the frontend (used for testing)
 const getListFiles = async (req, res) => {
   try {
     const [files] = await storage.bucket(bucketName).getFiles();
@@ -122,27 +47,7 @@ const getListFiles = async (req, res) => {
   }
 };
 
-  
-// @ desc download a file
-// @ route get /files/:name
-// @ access Private
-const downloadIntoMemory = async (req, res, {downloadFile}) => {
-  const contents = await storage.bucket(bucketName).file({downloadFile}).download();
-  downloadIntoMemory().catch(console.error);
-
-};
-
-// @ desc download a file
-// @ route get /files/:name
-// @ access Private
-const downloadFile = async (req, res) => {
-  const bucket = storage.bucket(bucketName);
-  const file = bucket.file(fileName);
-
-  const fileContents = await file.download();
-  console.log(`Downloaded file contents: ${fileContents.name}`);
-};
-
+// Individual function that returns a list of all the images in the google bucket, not used in the frontend (used for testing)
 const getListImages = async (req, res) => {
   try {
     const [files] = await storage.bucket(bucketName).getFiles();
@@ -170,6 +75,7 @@ const getListImages = async (req, res) => {
   }
 };
 
+// Individual function that returns a list of all the pinned images in the csv file, not used in the frontend (used for testing)
 const getPins = async (req, res) => {
   try {
     const [files] = await storage.bucket(bucketName).getFiles();
@@ -196,6 +102,7 @@ const getPins = async (req, res) => {
   }
 };
 
+// Individual function that returns a string of the download link of the zip file in the google bucket, not used in the frontend (used for testing)
 const getZip = async (req, res) => {
   try {
     const [files] = await storage.bucket(bucketName).getFiles();
@@ -222,29 +129,9 @@ const getZip = async (req, res) => {
   }
 };
 
-const getListBuckets = async (req, res) => {
-  try {
-    const [buckets] = await storage.getBuckets();
-    let bucketInfo = [];
-      
-    buckets.forEach((bucket) => {
-      bucketInfo.push({
-        name: bucket.name,
-      });
-      console.log(bucket.name)
-    });
-  
-    res.status(200).send(bucketInfo);
-    res.json(bucketInfo);
-  } catch (err) {
-    console.log(err);
-  
-    res.status(500).send({
-      message: "Unable to read list of buckets!",
-    });
-  }
-};
 
+// This function checks everything in the bucket to check for new cases
+// if a new case exist it adds it to the database, this only add the images and name.
 const createNewObject = async (req, res) => {
   
   const folders = new Set();
@@ -313,6 +200,9 @@ const createNewObject = async (req, res) => {
   }
 }
 
+// this function adds the parsed pinned images to the database.
+// this is only done after the user has downloaded rhe eviornment and selected pinned images
+// using the VR headset.
 const updateCase = async (req, res) => {
   let folders = new Set();
 
@@ -397,12 +287,8 @@ const updateCase = async (req, res) => {
 
   
   module.exports = {
-    upload,
     getListFiles,
-    downloadIntoMemory,
-    makePublic,
     getListImages,
-    getListBuckets,
     getPins,
     getZip,
     createNewObject,

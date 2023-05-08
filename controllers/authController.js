@@ -3,6 +3,8 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const asyncHandler = require('express-async-handler')
 
+// Authentication controller for the login, refresh and logout routes
+
 // @desc Login
 // @route POST /auth
 // @access Public

@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Papa from 'papaparse';
-import jsPDF from 'jspdf';
 import { PDFExport, savePDF } from "@progress/kendo-react-pdf"
-import { Link, useParams } from 'react-router-dom';
-import DocumentForm from '../components/DocumentForm'
 import IndividualClaim from '../components/IndividualClaim'
-import Loader from '../components/Loader'
-
 import sfddlogo from '../images/DD1.png'
 import './DocumentPage.css'
-import { handle } from 'express/lib/router';
+
+// Document Page, this the page when you click on 'Case Document' on the carousel of cases on the cases page
+// This is the 'Final' Report that the agent is able to download and then submit.
+
+// This does use KendoReact to create the PDF, but it is not a paid version
+// It does need a license key to work, which is in the eviroment variables
+// It is available to use in testing but not in production
+// It was used to created a PDF of the Document.
 
 function DocumentPage({currentCase}){
     const [caseImages, setCaseImages] = useState([])
