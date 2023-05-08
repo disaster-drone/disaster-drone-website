@@ -1,20 +1,12 @@
 import Typed from 'react-typed'
 import jake from '../images/jake_circle.png';
-import React, { useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
+
 
 document.title = 'Disaster Drone'
 
-
+// Homepage of the website
 const Homepage = () => {
-
-  // const apiRoot = 'http://localhost:3500';
-  // const createObjects = async () => {
-  //   await axios.get(`${apiRoot}/files/createcases`)
-  // }
-  // useEffect(() => {
-  //   createObjects();
-  // }, [])
 
   return (
       <div className='bg-[#D62311] w-screen h-screen py-16 px-4 text-white overflow-hidden font-[Inter]'>

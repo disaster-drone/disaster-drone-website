@@ -2,16 +2,13 @@ import './FileClaimsPage.css';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Papa from 'papaparse';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link, useParams } from 'react-router-dom';
-import test from '../images/DD1.png';
+import { Link } from 'react-router-dom';
 import blank from '../images/blank.png';
-const mongoose = require('mongoose');
-//const Case = require('../models/Case');
 
 
+// Arrow for the carousel
 function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
@@ -23,17 +20,24 @@ function SampleNextArrow(props) {
     );
   }
   
-  function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{ ...style, background: "grey ", }}
-        onClick={onClick}
-      />
-    );
-  }
+// Arrow for the carousel
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, background: "grey ", }}
+      onClick={onClick}
+    />
+  );
+}
 
+
+/* File Claims Page, This is the page that shows the carousel of all the cases that
+  are in the mongodb database. This page also calls the function that checks the cloud for new cases and 
+  adds them to the database. That is why there is a reload function because the carousel sometime does not
+  update when a new case is added automatically 
+*/
 const FileClaimsPage = ({setCurrentCase}) => {
 
   const apiRoot = 'http://localhost:3500';
@@ -102,11 +106,6 @@ const FileClaimsPage = ({setCurrentCase}) => {
             }
           ]
     };
-
-    //<p> Case ID: {image.name.split('/', 3)[2]}</p> THIS ONLY GETS THE PURE NAME OF THE IMAGES.
-
-    // right now, the slider is mapping over the images array to show the functionality of the carousel 
-    // but the it is only images from one case and not multiple cases.
 
     return (
       <div className="flex flex-row w-screen h-screen bg-cover overflow-hidden font-[Inter]">

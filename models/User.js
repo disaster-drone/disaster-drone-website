@@ -1,4 +1,5 @@
 // this is the user data model
+// Used mongoose for MongoDB, using to create schema that will be used in the database.
 const mongoose = require('mongoose')
 
 const UserSchema = new mongoose.Schema({

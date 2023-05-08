@@ -1,16 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Papa from 'papaparse';
-import jsPDF from 'jspdf';
-import { PDFExport, savePDF } from "@progress/kendo-react-pdf"
-import { Link, useParams } from 'react-router-dom';
-import DocumentForm from '../components/DocumentForm'
+import { PDFExport } from "@progress/kendo-react-pdf"
 import IndividualClaim from '../components/IndividualClaim'
-import Loader from '../components/Loader'
-
 import sfddlogo from '../images/DD1.png'
 import './DocumentPage.css'
-import { handle } from 'express/lib/router';
 
 function DocumentPage({currentCase}){
     const [caseImages, setCaseImages] = useState([])
@@ -21,17 +13,7 @@ function DocumentPage({currentCase}){
         setCaseCSVNames(currentCase.csvNames)
     }, [currentCase])
 
-    const container = React.useRef(null);
     const pdfExportComponent = React.useRef(null);
-    const exportPDFWithMethod = () => {
-        let element = container.current || document.body;
-        savePDF(element, {
-        paperSize: "auto",
-        margin: 40,
-        fileName: `Report for ${currentCase.name} ${ new Date().getFullYear()}`,
-        });
-    };
-
     const exportPDFWithComponent = () => {
         if (pdfExportComponent.current) {
             pdfExportComponent.current.save();

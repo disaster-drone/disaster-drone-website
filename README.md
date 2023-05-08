@@ -7,7 +7,7 @@ Website for the Disaster Drone Project
 [Download Link](https://nodejs.org/en/)
 2. Clone this repository onto your machine.
 3. In Command Prompt, navigate to the frontend folder and type "npm install".
-4. Lastly, type "npm start" to start the application.
+4. Lastly, type "npm run dev" to start the application.
 
 
 ### macOS
@@ -16,7 +16,5 @@ Website for the Disaster Drone Project
 [Download Link](https://nodejs.org/en/download/)
 2. Clone this repo on your machine.
 3. In CLI, navigate to the frontend folder and type `npm install`.
-4. Lastly, run `npm start` to start the application.
+4. Lastly, run `npm run dev` to start the application.
 
-### Dependencies needed to install if you run into errors
-1. react icons `npm i react-icons`

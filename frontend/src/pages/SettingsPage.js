@@ -3,8 +3,8 @@ import React from 'react'
 import './SettingsPage.css';
 
 
-
-
+/* Not functional, this is where we would want to add the ability to view all users and their roles, so a manager
+could go in and add speicifc cases to specific users. */ 
 const SettingsPage = () => {
   return (
     <>  

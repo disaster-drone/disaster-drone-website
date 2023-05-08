@@ -1,4 +1,4 @@
-// this is the claim data model
+// Used mongoose for MongoDB, using to create schema that will be used in the database.
 const mongoose = require('mongoose')
 
 const caseSchema = new mongoose.Schema({
