@@ -247,40 +247,32 @@ const getListBuckets = async (req, res) => {
 
 const createNewObject = async (req, res) => {
   
-  // const [zipUrl, setZipUrl] = React.useState('');
   const folders = new Set();
-
   // get a list of the folders in the bucket.
   const [files] = await storage.bucket(bucketName).getFiles();
   if (files.length === 0) {
     console.log(`No files found in bucket ${bucketName}`);
   } else {
-    //console.log(`Folders in bucket ${bucketName}:`);
     files.forEach(file => {
       const [folder] = file.name.split('/', 1);
       folders.add(folder);
     });
   }
-  
-  //console.log(`Folders in bucket ${bucketName}: ${folders}`)
 
   // loop through each folder and create an object for each one.
   for (const folder of folders) {
     let images = [];
     console.log(`the current case being worked on is: ${folder}`)
-    //check if a case with the same name already exist in the database.
+    
+    // check if case with the same name already exists in the database.
     const existingCase = await Case.findOne({name: folder}).exec();
-
-    // if the case already exist then skip it.
     if(existingCase){
       console.log(`Case ${folder} already exist in the database, skipping....`);
       continue;
     }
 
-    // get a list of all the files in the folder and seperate into images and csv files.
-    //console.log(`ths prefix for folder ${folder} should be ${folder}/` )
+    // get a list of all the files in the folder and seperate into images and csv files.)
     let [files] = await storage.bucket(bucketName).getFiles({prefix: folder});
-    //let files = allFiles.filter(file => file.name.startsWith(folder) === folder);
     let imageFiles = files.filter(file => file.name.endsWith('.JPG') && file.name.startsWith(folder) || file.name.endsWith('.PNG') && file.name.startsWith(folder));
     let imageData = [];
     let zipFiles = files.filter(file => file.name.endsWith('.zip') && file.name.startsWith(folder));
@@ -295,7 +287,6 @@ const createNewObject = async (req, res) => {
         content: image.metadata.contentType,
       });
     });
-    //images.push(imageData)
 
     // getting the zip url for the current cases.
     let zipUrl;
@@ -310,9 +301,7 @@ const createNewObject = async (req, res) => {
         });
       })
       zipUrl = await zipData[0].zipurl
-      //React.setZipUrl(zip);
     }
-    //console.log(`ZIP URL FOR CASE ${existingCase.name}: `, zipUrl)
 
     //create and store the new case object in the database.
     const result = await Case.create({
@@ -321,7 +310,7 @@ const createNewObject = async (req, res) => {
       zipUrl: zipUrl,
     });
     console.log(`Case ${folder} created successfully!`);
-    }
+  }
 }
 
 const updateCase = async (req, res) => {
@@ -361,21 +350,25 @@ const updateCase = async (req, res) => {
           url: file.metadata.mediaLink,
         });
       });
-      let csvUrl = await csvData[0].url
 
-      
+      let csvUrl = await csvData[0].url;
+
+      // declaring it outside of the block so it can be updated in the function.
+      let csvParsed = [];
+
       const parseCsv = async () => {
-        csvParsed = [];
         https.get(csvUrl, (res) => {
           res.pipe(csv({headers: false}))
             .on('data', (row) => {
               for (const [key, value] of Object.entries(row)) {
+                // updating the csvParsed array with the new data.
                 csvParsed.push(value)
                 console.log(`This is the parsed data for ${existingCase.name} so far:`, csvParsed)
               }
             })
             .on('end', () => {
               console.log('CSV data parsed successfully!')
+              console.log('this is the final array ---->', csvParsed)
             })
             .on('error', (err) => {
               console.log(err)
@@ -383,14 +376,17 @@ const updateCase = async (req, res) => {
         })
       }
       
+      // calling the function.
       await parseCsv()
+
+      console.log('This is after the function call but in the outter scope.', csvParsed)
     
       //create and store the new case object in the database.
-      let result = await Case.updateOne({name: existingCase.name}, {
+      await Case.updateOne({name: existingCase.name}, {
         csvUrl: csvUrl,
         csvNames: csvParsed,
       });
-      //console.log(`Case ${existingCase.name} updated successfully!`);
+      console.log(`Case ${existingCase.name} updated successfully!`);
     }
     else {
       console.log(`Case ${folder} does not exist in the database, skipping....`);

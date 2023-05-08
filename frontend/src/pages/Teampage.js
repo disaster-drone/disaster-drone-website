@@ -62,12 +62,12 @@ let people1 = [
       <div className="flex md:flex-col md:justify-normal mx-auto bg-[#D62311] flex-wrap justify-center">
         <div className='flex md:flex-row max-w-[1512px] pt-4 flex-col bg-[#D62311] w-full items-center'>
         {people0.map((person) => (
-            <TeamCard name={person.name} title={person.title} stack={person.stack} imagePath={person.image}></TeamCard>
+            <TeamCard key={person.name} name={person.name} title={person.title} stack={person.stack} imagePath={person.image}></TeamCard>
           ))}
         </div>
         <div className='flex md:flex-row max-w-[1512px] pt-4 flex-col bg-[#D62311] w-full items-center'>
         {people1.map((person) => (
-            <TeamCard name={person.name} title={person.title} stack={person.stack} imagePath={person.image}></TeamCard>
+            <TeamCard key={person.namee} name={person.name} title={person.title} stack={person.stack} imagePath={person.image}></TeamCard>
           ))}
         </div>
       </div>                  
