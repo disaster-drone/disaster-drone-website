@@ -1,6 +1,5 @@
 // This is the controller for the users route. 
 const User = require('../models/User')
-const Claim = require('../models/Claim') 
 require('express-async-errors');
 const asyncHandler = require('express-async-handler') // this keeps us from using so many try catch blocks as we use async 
                                                     // methods with mongoose as we try to save and use data with mongoDB.
@@ -118,12 +117,6 @@ const deleteUser = asyncHandler(async (req, res) => {
     //confirm the data
     if(!id){
         return res.status(400).json({message: 'User ID required'})
-    }
-
-    // see if there is a claim attatched to that users id.
-    const claim = await Claim.findOne({ user: id }).lean().exec()
-    if(claim){
-        return res.status(400).json({message: 'User has claims on file, cannot delete this user.'})
     }
 
     // now check if the user exist to delete.

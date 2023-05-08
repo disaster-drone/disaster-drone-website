@@ -15,9 +15,12 @@ const errorHandler = require('./middleware/errorHandler')
 const cookieParser = require('cookie-parser')
 //installs a Node.js package that allows cross origin resource sharing.
 const cors = require('cors')
-const corsOptions = require('./config/corsOptions')
-const connectDB = require('./config/conn')
 const mongoose = require('mongoose')
+const corsOptions = require('./config/corsOptions')
+
+// Connect to MongoDB
+const connectDB = require('./config/conn')
+
 const { logEvents } = require('./middleware/logger')
 const PORT = process.env.PORT || 3500
 
@@ -38,8 +41,8 @@ app.use ('/', express.static(path.join(__dirname, 'public')))
 app.use('/', require('./routes/root'))
 app.use('/auth', require('./routes/authRoutes'))
 app.use('/users', require('./routes/userRoutes'))
-app.use('/claims', require('./routes/claimRoutes'))
 app.use('/files', require('./routes/index.js'))
+app.use('/cases', require('./routes/caseRoutes.js'))
 app.use('/uploads', require('./routes/index.js'))
 
 
@@ -56,6 +59,7 @@ app.all('*', (req, res) => {
 
 app.use(errorHandler)
 
+// app.listen only listens for requests once the connection to the database is established.
 mongoose.connection.once('open', () => {
     console.log('Connected to MongoDB.')
     app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`))

@@ -5,7 +5,11 @@ import "slick-carousel/slick/slick-theme.css";
 import Papa from 'papaparse';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import test from '../images/DD1.png';
+import blank from '../images/blank.png';
+const mongoose = require('mongoose');
+//const Case = require('../models/Case');
 
 
 function SampleNextArrow(props) {
@@ -30,58 +34,45 @@ function SampleNextArrow(props) {
     );
   }
 
-
-const FileClaimsPage = () => {
+const FileClaimsPage = ({setCurrentCase}) => {
 
   const apiRoot = 'http://localhost:3500';
-  const [allImages, setAllImages] = useState([]); // images is an array of objects by default is set empty.
-  const [csvImageNames, setCsvImageNames] = useState([]); // pinnedImages is an array of objects by default is set empty.
-  const [filteredImages, setFilteredImages] = useState([]); // filterdImages is an array of objects by default is set empty.
-  const [zipFiles, setZipFiles] = useState([]);
+  const [allCases, setAllCases] = useState([]);
+  const [click, setClick] = useState(0);
 
-  // this functions get an array of image objects and loads them into the "images" array.
-  const getImages = async () => {
-      const allImagesResult = await axios.get(`${apiRoot}/files/listimages`)
-      setAllImages(allImagesResult.data)
-      //console.log('this is the array of all images', allImages)
+  const createObjects = async () => {
+    await axios.get(`${apiRoot}/files/createcases`)
   }
 
-  // this function gets the csv download link and then parses the csv file into an array of image names.
-  const getCsvData = async () => {
-      const csvData = await axios.get(`${apiRoot}/files/getpins`)
-      const cvsUrl = await csvData.data[0].url
-      Papa.parse(cvsUrl, {
-          download: true,
-          header: false,
-          complete: function(data) {
-              setCsvImageNames(data.data.map((image) => image[0]))
-          }   
-      })
-      //console.log('this is the array of image names from the csv file', csvImageNames)
+  const getAllCases = async () => {
+    const cases = await axios.get(`${apiRoot}/cases/getall`)
+    .then(res => {
+      setAllCases(res.data)
+    })
   }
 
-  const downloadZip = async () => {
-    const zipResult = await axios.get(`${apiRoot}/files/getzip`)
-    const zipUrl = await zipResult.data[0].url
-    setZipFiles(zipUrl)
-    //console.log('this is the link to the zip array updated', zipFiles)
+  function handleClick() {
+    setClick(click + 1);
   }
-  
+
   useEffect(() => {
-      getImages()
-      getCsvData()
-      downloadZip()
-  }, []);
+    createObjects();
+    getAllCases();
+  }, [click]);
+
+  function handleClick(casee) {
+    setCurrentCase(casee);
+  }
+
+  console.log('these are all the cases in the allCases array -> ', allCases)
 
     const settings = {
-        //className: "center",
-        //centerMode: true,
         dots: false,
         infinite: false,
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 3,
-        initialSlide: 1,
+        initialSlide: 0,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
         responsive: [
@@ -121,28 +112,29 @@ const FileClaimsPage = () => {
       <div className="flex flex-row w-screen h-screen bg-cover overflow-hidden font-[Inter]">
         <div className="max-w-[1240px] mx-auto flex flex-col pt-16">
           <p className=" ml-4 mb-0 p-0 md:text-[1.5em] sm:text-6xl text-4xl font-bold">FILE A CASE</p>
+          <button className="ml-4 mb-0 mt-2 bg-[#D62311] w-[8em] rounded-lg font-bold text-white" onClick={handleClick}>reload cases</button>
             <div className="flex flex-col justify-center items-center m-1 p-0">
               <Slider {...settings}>
-                {allImages.filter((image) => csvImageNames.includes(image.name)).map((image) => (
+                {allCases.map((casee) => 
                   <div className="card">
                     <div className="card-top">
-                      <img src={image.url} alt={image.name} />    
+                      { casee.images.length === 0 ? <img key={casee.name} src={blank} alt='alt' /> : <img src={casee.images[0].url} alt={"alt"} /> }
                     </div>
                     <div className="flex flex-col justify-center items-center text-[1em] text-black no-underline">
-                      <p className='p-0 m-0'> Case ID: {image.name.split('/', 1)[0]}</p>
-                      <p className='p-0 m-0'> Customer: Faith G</p>
-                      <a className="download-link" href={zipFiles} target="_blank" rel="noopener noreferrer"> 
+                      <p className='p-0 m-0'> Case ID: {casee.name.split('/', 1)[0]}</p>
+                      <p className='p-0 m-0'> Customer: {casee.client}</p>
+                      <a className="download-link" href={casee.zipUrl} target="_blank" rel="noopener noreferrer"> 
                         <button className="flex flex-row h-6 w-64 justify-center items-center text-center bg-[#D62311] rounded-lg text-white font-bold text-sm my-2 hover:bg-[#FF0000]">1. Download VR enviorment</button>
                       </a>
-                      <Link id='link' to ="/dash/GalleryPage">
-                        <button className="flex flex-row h-6 w-64 justify-center items-center text-center bg-[#D62311] rounded-lg text-white font-bold text-sm my-2 hover:bg-[#FF0000]">2. Preview pinpoints</button>
+                      <Link id='link' to ='/dash/GalleryPage/'>
+                        <button onClick={()=>handleClick(casee)} className="flex flex-row h-6 w-64 justify-center items-center text-center bg-[#D62311] rounded-lg text-white font-bold text-sm my-2 hover:bg-[#FF0000]">2. Preview pinpoints</button>
                       </Link>
-                      <Link id='link' to="/dash/DocumentPage">
-                        <button className="flex flex-row h-6 w-64 justify-center items-center text-center bg-[#D62311] rounded-lg text-white font-bold text-sm my-2 hover:bg-[#FF0000]">3. Create case document</button>
+                      <Link id='link' to='/dash/DocumentPage/'>
+                        <button onClick={()=>handleClick(casee)} className="flex flex-row h-6 w-64 justify-center items-center text-center bg-[#D62311] rounded-lg text-white font-bold text-sm my-2 hover:bg-[#FF0000]">3. Create case document</button>
                       </Link>
                     </div>
                   </div>
-                ))}
+                )}
               </Slider>
             </div>
           </div>

@@ -19,7 +19,7 @@ const Teampage = () => {
     {
       name: 'Faith Gutierrez',
       title: 'Full Stack Virtual Reality Developer',
-      stack: 'Unreal Engine, Google Cloud Storage, Bash Scripting, Drone Engineer, Drone Pilot, Scrum Master',
+      stack: 'Unreal Engine, Reality Capture, Bash Scripting, Drone Engineer, Drone Pilot, Scrum Master',
       image: 'https://cdn.discordapp.com/attachments/913999827816308776/1094451580360724560/female_profile.png'
     },
     {
@@ -62,12 +62,12 @@ let people1 = [
       <div className="flex md:flex-col md:justify-normal mx-auto bg-[#D62311] flex-wrap justify-center">
         <div className='flex md:flex-row max-w-[1512px] pt-4 flex-col bg-[#D62311] w-full items-center'>
         {people0.map((person) => (
-            <TeamCard name={person.name} title={person.title} stack={person.stack} imagePath={person.image}></TeamCard>
+            <TeamCard key={person.name} name={person.name} title={person.title} stack={person.stack} imagePath={person.image}></TeamCard>
           ))}
         </div>
         <div className='flex md:flex-row max-w-[1512px] pt-4 flex-col bg-[#D62311] w-full items-center'>
         {people1.map((person) => (
-            <TeamCard name={person.name} title={person.title} stack={person.stack} imagePath={person.image}></TeamCard>
+            <TeamCard key={person.namee} name={person.name} title={person.title} stack={person.stack} imagePath={person.image}></TeamCard>
           ))}
         </div>
       </div>                  
