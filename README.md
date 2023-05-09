@@ -1,5 +1,29 @@
-# *Disaster Drone Website*
-Website for the Disaster Drone Project
+# *Disaster Drone Website POC*
+<br />
+<br />
+
+<p align="center">
+  <a href="https://github.com/disaster-drone/">
+    <img src="https://cdn.discordapp.com/attachments/804128313521471548/1105547469007364146/DRONE.png" alt="drone logo white">
+  </a>
+</p>
+
+<br />
+
+## Tech Stack
+The MERN stack was used along side Google Cloud Platform.
+1. Mongo DB was used to store the cases once processes from the GCP.
+2. Express js was used to allow us to create and use our API's.
+3. React js was used to build the UI of the application.
+4. Node js allowed us use javascript on the server side of our applcations.
+
+### things to note
+1. TailwindCSS was used for the styling of the applcation. [Documentation](https://tailwindcss.com/docs/installation)
+2. KendoReact was used to download the PDF final report. [Link](https://www.telerik.com/kendo-react-ui/components/pdfprocessing/)
+3. For the creation of the API's to connect to GCP [References](https://github.com/googleapis/nodejs-storage)
+4. The login does work with accounts on mongoDB but can just bypass that step by adding "/dash" to the end of the localhost link.
+
+
 
 ## Installation and Startup Process
 ### Windows
