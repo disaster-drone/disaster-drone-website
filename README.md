@@ -33,3 +33,16 @@ Before getting be able to use the file a claim page, the assumption is that an t
 4. The user can click on the preview pinpoints which filters through the images in the mongo db document and only displays the images that were pinned in the virtual reality enviornment.
 
 5. Finally the user can click on the create report button which will filter the images just like the preview images but instead it will create a PDF report style format that allows the agent to add a description to every pinned image and then let then download the report.
+
+<details>
+  <summary>The title of the image group</summary><details>
+  <img src="image-url" name="image-name">
+  <img src="image-url" name="image-name">
+  <img src="image-url" name="image-name">
+  <img src="image-url" name="image-name">
+  <img src="image-url" name="image-name">
+  <img src="image-url" name="image-name">
+  <img src="image-url" name="image-name">
+  <img src="image-url" name="image-name">
+  <img src="image-url" name="image-name">
+</details>
