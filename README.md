@@ -35,7 +35,6 @@ The MERN stack was used along side Google Cloud Platform.
 
 
 ### macOS
-(macOS installation guide here)
 1. Install Node.js (Version 18 or above)
 [Download Link](https://nodejs.org/en/download/)
 2. Clone this repo on your machine.
