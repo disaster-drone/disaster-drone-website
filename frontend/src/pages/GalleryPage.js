@@ -1,9 +1,10 @@
 import './GalleryPage.css';
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import CloudImage from '../components/CloudImage';
-import { Link, useParams, useLocation} from 'react-router-dom';
 
+
+// Gallery page, this is the page that renders the images that have been selected in the VR environment.
+// This just shows those images in a large gallery format.
 function GalleryPage({currentCase}){
 
     const [caseImages, setCaseImages] = useState([])

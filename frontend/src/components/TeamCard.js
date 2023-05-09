@@ -1,6 +1,6 @@
 import React from 'react'
-import profile from '../images/dd-logo.png'
 
+// this is the teamcard component used on the teampage.
 const TeamCard = ({name, title, stack, imagePath, key}) => {
   return (
     <div className='flex flex-col bg-white drop-shadow-lg h-[19em] w-[15em] rounded-lg items-center pt-6 mx-6 my-2'>

@@ -4,7 +4,8 @@ import './SettingsPage.css';
 
 
 /* Not functional, this is where we would want to add the ability to view all users and their roles, so a manager
-could go in and add speicifc cases to specific users. */ 
+could go in and add speicifc cases to specific users, didn't really need for the POC.*/ 
+
 const SettingsPage = () => {
   return (
     <>  

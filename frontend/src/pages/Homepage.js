@@ -1,7 +1,5 @@
 import Typed from 'react-typed'
 import jake from '../images/jake_circle.png';
-import React from 'react';
-
 
 document.title = 'Disaster Drone'
 

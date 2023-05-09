@@ -7,19 +7,18 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import blank from '../images/blank.png';
 
-
 // Arrow for the carousel
 function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
       <div
-        className={className}
+        className={className} 
         style={{ ...style, background: "grey"}}
         onClick={onClick}
       />
     );
   }
-  
+
 // Arrow for the carousel
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
@@ -38,6 +37,7 @@ function SamplePrevArrow(props) {
   adds them to the database. That is why there is a reload function because the carousel sometime does not
   update when a new case is added automatically 
 */
+
 const FileClaimsPage = ({setCurrentCase}) => {
 
   const apiRoot = 'http://localhost:3500';

@@ -7,7 +7,6 @@ const caseController = require('../controllers/caseController')
 // would be called in POSTMAN with http://localhost:3500/cases/getall
 // contected in server.js
 
-
 router.route('/getall')
     .get(caseController.getAllCases)
 

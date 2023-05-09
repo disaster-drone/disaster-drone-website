@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const fileController = require("../controllers/fileController");
 
-
 // This is the routes for the files controller, functions in fileController.js
 // The string in the .route() method is the endpoint
 // would be called in POSTMAN with http://localhost:3500/files/endpoint
