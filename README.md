@@ -34,15 +34,14 @@ Before getting be able to use the file a claim page, the assumption is that an t
 
 5. Finally the user can click on the create report button which will filter the images just like the preview images but instead it will create a PDF report style format that allows the agent to add a description to every pinned image and then let then download the report.
 
-<details>
-  <summary>The title of the image group</summary><details>
-  <img src="image-url" name="image-name">
-  <img src="image-url" name="image-name">
-  <img src="image-url" name="image-name">
-  <img src="image-url" name="image-name">
-  <img src="image-url" name="image-name">
-  <img src="image-url" name="image-name">
-  <img src="image-url" name="image-name">
-  <img src="image-url" name="image-name">
-  <img src="image-url" name="image-name">
-</details>
+# Website Screenshots
+  <img src="https://github.com/disaster-drone/Documentation/blob/main/media/0.png?raw=true" name="Login">
+  <img src="https://github.com/disaster-drone/Documentation/blob/main/media/1.png?raw=true" name="Homepage">
+  <img src="https://github.com/disaster-drone/Documentation/blob/main/media/2.png?raw=true" name="Aboutpage">
+  <img src="https://github.com/disaster-drone/Documentation/blob/main/media/3.png?raw=true" name="Teampage">
+  <img src="https://github.com/disaster-drone/Documentation/blob/main/media/4.png?raw=true" name="Fileclaims-page">
+  <img src="https://github.com/disaster-drone/Documentation/blob/main/media/5.png?raw=true" name="Download-zip">
+  <img src="https://github.com/disaster-drone/Documentation/blob/main/media/6.png?raw=true" name="View-gallery">
+  <img src="https://github.com/disaster-drone/Documentation/blob/main/media/7.png?raw=true" name="Create-document">
+  <img src="https://github.com/disaster-drone/Documentation/blob/main/media/8.png?raw=true" name="Download-document">
+  <img src="https://github.com/disaster-drone/Documentation/blob/main/media/9.png?raw=true" name="Download-document">
