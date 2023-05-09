@@ -4,8 +4,8 @@ import jake from '../images/jake_circle.png';
 document.title = 'Disaster Drone'
 
 // Homepage of the website
-
 const Homepage = () => {
+
   return (
       <div className='bg-[#D62311] w-screen h-screen py-16 px-4 text-white overflow-hidden font-[Inter]'>
         <div className='max-w-[1512px] mx-auto grid md:grid-cols-2'>

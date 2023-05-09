@@ -1,8 +1,8 @@
 import React from 'react'
 import TeamCard from '../components/TeamCard'
 
-// TeamPage, displayed the team members and their roles.
 
+// TeamPage, displayed the team members and their roles.
 const Teampage = () => {
 
   let people0 = [

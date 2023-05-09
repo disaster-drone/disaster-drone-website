@@ -7,7 +7,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import blank from '../images/blank.png';
 
-// Arrow needed for the carousel
+// Arrow for the carousel
 function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
@@ -18,23 +18,25 @@ function SampleNextArrow(props) {
       />
     );
   }
-  
-  // Arrow needed for the carousel
-  function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{ ...style, background: "grey ", }}
-        onClick={onClick}
-      />
-    );
-  }
 
-// File claim page is the page where the agent can view all the cases that are in the mongodb database.
-// The 'reload page' button is sometimes neccessary to click to get the cases to show up on the page.
-// This page calls the function that checks the google cloud bucket for new cases, so sometimes it takes a second to load.
-// and that why it also needs to reload.
+// Arrow for the carousel
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, background: "grey ", }}
+      onClick={onClick}
+    />
+  );
+}
+
+
+/* File Claims Page, This is the page that shows the carousel of all the cases that
+  are in the mongodb database. This page also calls the function that checks the cloud for new cases and 
+  adds them to the database. That is why there is a reload function because the carousel sometime does not
+  update when a new case is added automatically 
+*/
 
 const FileClaimsPage = ({setCurrentCase}) => {
 

@@ -3,8 +3,8 @@ import React from 'react'
 import './SettingsPage.css';
 
 
-// Setting page that isn't funcitonal and is just a placeholder for now because did not really need to create 
-// for the POC.
+/* Not functional, this is where we would want to add the ability to view all users and their roles, so a manager
+could go in and add speicifc cases to specific users, didn't really need for the POC.*/ 
 
 const SettingsPage = () => {
   return (

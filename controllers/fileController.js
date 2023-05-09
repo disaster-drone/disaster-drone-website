@@ -1,16 +1,9 @@
-
-const path = require('path')
-const cwd = path.join(__dirname, '..')
-const processFile = require("../middleware/upload")
-const { format } = require("util")
 const { Storage } = require("@google-cloud/storage")
-const mongoose = require('mongoose')
-const fetch = require('node-fetch')
 const https = require('https');
 const csv = require('csv-parser')
 const Case = require('../models/Case')
-const csvParser = require('csv-parser')
-//import React, {useState} from 'react'
+
+// This is controller that handles all the functions related to the files in the google bucket
 
 // Instantiate a storage client with credentials
 const bucketName = 'dsd-cloud-storage';
@@ -128,7 +121,6 @@ const getZip = async (req, res) => {
     });
   }
 };
-
 
 // This function checks everything in the bucket to check for new cases
 // if a new case exist it adds it to the database, this only add the images and name.
@@ -284,8 +276,6 @@ const updateCase = async (req, res) => {
   }
 }
 
-
-  
   module.exports = {
     getListFiles,
     getListImages,
