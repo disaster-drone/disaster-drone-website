@@ -30,16 +30,18 @@ The MERN stack was used along side Google Cloud Platform.
 1. Install Node.js 18.12.1 LTS.
 [Download Link](https://nodejs.org/en/)
 2. Clone this repository onto your machine.
-3. In Command Prompt, navigate to the frontend folder and type "npm install".
-4. Lastly, type "npm run dev" to start the application.
+3. Add .env and my-service-account-key.json to connect to google cloud platform and mongodb.
+4. In Command Prompt, navigate to the frontend folder and type "npm install".
+5. Lastly, type "npm run dev" to start the application.
 
 
 ### macOS
 1. Install Node.js (Version 18 or above)
 [Download Link](https://nodejs.org/en/download/)
 2. Clone this repo on your machine.
-3. In CLI, navigate to the frontend folder and type `npm install`.
-4. Lastly, run `npm run dev` to start the application.
+3. 3. Add .env and my-service-account-key.json to connect to google cloud platform and mongodb.
+4. In CLI, navigate to the frontend folder and type `npm install`.
+5. Lastly, run `npm run dev` to start the application.
 
 ## Project Overview
 This website is the main connection between all the different elements in the project including mongodb, google storage, and the virtual reality enviornment. The Home, About, and Team pages are mainly for documentation, while the main functionality of the website lies in the Files Claim Page.
