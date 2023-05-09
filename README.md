@@ -1,5 +1,29 @@
-# *Disaster Drone Website*
-Website for the Disaster Drone Project
+# *Disaster Drone Website POC*
+<br />
+<br />
+
+<p align="center">
+  <a href="https://github.com/disaster-drone/">
+    <img src="https://cdn.discordapp.com/attachments/804128313521471548/1105547469007364146/DRONE.png" alt="drone logo white">
+  </a>
+</p>
+
+<br />
+
+## Tech Stack
+The MERN stack was used along side Google Cloud Platform.
+1. Mongo DB was used to store the cases once processes from the GCP.
+2. Express js was used to allow us to create and use our API's.
+3. React js was used to build the UI of the application.
+4. Node js allowed us use javascript on the server side of our applcations.
+
+### things to note
+1. TailwindCSS was used for the styling of the applcation. [Documentation](https://tailwindcss.com/docs/installation)
+2. KendoReact was used to download the PDF final report. [Link](https://www.telerik.com/kendo-react-ui/components/pdfprocessing/)
+3. For the creation of the API's to connect to GCP [References](https://github.com/googleapis/nodejs-storage)
+4. The login does work with accounts on mongoDB but can just bypass that step by adding "/dash" to the end of the localhost link.
+
+
 
 ## Installation and Startup Process
 ### Windows
@@ -11,7 +35,6 @@ Website for the Disaster Drone Project
 
 
 ### macOS
-(macOS installation guide here)
 1. Install Node.js (Version 18 or above)
 [Download Link](https://nodejs.org/en/download/)
 2. Clone this repo on your machine.
@@ -33,3 +56,15 @@ Before getting be able to use the file a claim page, the assumption is that an t
 4. The user can click on the preview pinpoints which filters through the images in the mongo db document and only displays the images that were pinned in the virtual reality enviornment.
 
 5. Finally the user can click on the create report button which will filter the images just like the preview images but instead it will create a PDF report style format that allows the agent to add a description to every pinned image and then let then download the report.
+
+# Website Screenshots
+  <img src="https://github.com/disaster-drone/Documentation/blob/main/media/0.png?raw=true" name="Login">
+  <img src="https://github.com/disaster-drone/Documentation/blob/main/media/1.png?raw=true" name="Homepage">
+  <img src="https://github.com/disaster-drone/Documentation/blob/main/media/2.png?raw=true" name="Aboutpage">
+  <img src="https://github.com/disaster-drone/Documentation/blob/main/media/3.png?raw=true" name="Teampage">
+  <img src="https://github.com/disaster-drone/Documentation/blob/main/media/4.png?raw=true" name="Fileclaims-page">
+  <img src="https://github.com/disaster-drone/Documentation/blob/main/media/5.png?raw=true" name="Download-zip">
+  <img src="https://github.com/disaster-drone/Documentation/blob/main/media/6.png?raw=true" name="View-gallery">
+  <img src="https://github.com/disaster-drone/Documentation/blob/main/media/7.png?raw=true" name="Create-document">
+  <img src="https://github.com/disaster-drone/Documentation/blob/main/media/8.png?raw=true" name="Download-document">
+  <img src="https://github.com/disaster-drone/Documentation/blob/main/media/9.png?raw=true" name="Download-document">
