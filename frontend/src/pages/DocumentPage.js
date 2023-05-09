@@ -3,10 +3,6 @@ import { PDFExport } from "@progress/kendo-react-pdf"
 import IndividualClaim from '../components/IndividualClaim'
 import sfddlogo from '../images/DD1.png'
 import './DocumentPage.css'
-import { PDFExport } from "@progress/kendo-react-pdf"
-import IndividualClaim from '../components/IndividualClaim'
-import sfddlogo from '../images/DD1.png'
-import './DocumentPage.css'
 
 // Document Page, this the page when you click on 'Case Document' on the carousel of cases on the cases page
 // This is the 'Final' Report that the agent is able to download and then submit.
