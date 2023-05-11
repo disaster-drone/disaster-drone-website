@@ -32,7 +32,7 @@ The MERN stack was used along side Google Cloud Platform.
 1. Install Node.js 18.12.1 LTS.
 [Download Link](https://nodejs.org/en/)
 2. Clone this repository onto your machine.
-3. There are two files missing from this repo that include important keys that connect the mongodb database, google cloud connection, and the kendo reacts PDF library. You will have to add these two files to the the main scope of the application, the same one where 'server.js' is located. This is what they will look like just not including the keys.
+3. There are two files missing from this repo that include important keys that connect the mongodb database, google cloud connection, and the kendo reacts PDF library. You will have to add these two files to the the main scope of the application, the same one where 'server.js' is located. This is what they will look like just not including the keys. The assumption is made that the persons taking over this project will use their own [google cloud account](https://cloud.google.com/), [mongodb account](https://account.mongodb.com/account/login), and [kendoreacts account](https://www.telerik.com/kendo-react-ui/components/pdfprocessing/)
 
    ``` .env
    NODE_ENV=development
@@ -66,7 +66,8 @@ The MERN stack was used along side Google Cloud Platform.
 1. Install Node.js (Version 18 or above)
 [Download Link](https://nodejs.org/en/download/)
 2. Clone this repo on your machine.
-3. There are two files missing from this repo that include important keys that connect the mongodb database, google cloud connection, and the kendo reacts PDF library. You will have to add these two files to the the main scope of the application, the same one where 'server.js' is located. This is what they will look like just not including the keys.
+3. There are two files missing from this repo that include important keys that connect the mongodb database, google cloud connection, and the kendo reacts PDF library. You will have to add these two files to the the main scope of the application, the same one where 'server.js' is located. This is what they will look like just not including the keys. The assumption is made that the persons taking over this project will use their own [google cloud account](https://cloud.google.com/), [mongodb account](https://account.mongodb.com/account/login), and [kendoreacts account](https://www.telerik.com/kendo-react-ui/components/pdfprocessing/)
+
 
    ``` .env
    NODE_ENV=development
