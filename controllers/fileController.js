@@ -234,10 +234,12 @@ const updateCase = async (req, res) => {
       });
 
       let csvUrl = await csvData[0].url;
-
-      // declaring it outside of the block so it can be updated in the function.
-      let csvParsed = [];
-
+      
+      // ISSUE HERE: csvParsed is declared and parseCsv function works as expected but once 
+      // the function is done, csvParsed is empty.
+      // I think this is a scope issue but due to the time contraints was unable to fix it. 
+      // manually added the csvNames to mongodb from the array printing in the console.
+      let csvParsed = []; 
       const parseCsv = async () => {
         https.get(csvUrl, (res) => {
           res.pipe(csv({headers: false}))
