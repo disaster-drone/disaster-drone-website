@@ -18,11 +18,12 @@ The MERN stack was used along side Google Cloud Platform.
 4. Node js allowed us use javascript on the server side of our applcations.
 
 ### things to note
-1. TailwindCSS was used for the styling of the applcation. [Documentation](https://tailwindcss.com/docs/installation)
-2. KendoReact was used to download the PDF final report. [Link](https://www.telerik.com/kendo-react-ui/components/pdfprocessing/)
-3. For the creation of the API's to connect to GCP [References](https://github.com/googleapis/nodejs-storage)
-4. The login does work with accounts on mongoDB but can just bypass that step by adding "/dash" to the end of the localhost link.
-5. The operation that parses is the csv file from the cloud and then is updates the mongo db object is slightly bugged, it does parse the csv but for some reason the scope of the array does not work properly. The issue is commented in the code in fileController.js in the updatecases function.
+1. This project was never deployed, just created in devleopment to run using node in the browser on port 3500 as set in .env.
+2. TailwindCSS was used for the styling of the applcation. [Documentation](https://tailwindcss.com/docs/installation)
+3. KendoReact was used to download the PDF final report. [Link](https://www.telerik.com/kendo-react-ui/components/pdfprocessing/)
+4. For the creation of the API's to connect to GCP [References](https://github.com/googleapis/nodejs-storage)
+5. The login does work with accounts on mongoDB but can just bypass that step by adding "/dash" to the end of the localhost link.
+6. The operation that parses is the csv file from the cloud and then is updates the mongo db object is slightly bugged, it does parse the csv but for some reason the scope of the array does not work properly. The issue is commented in the code in fileController.js in the updatecases function.
 
 
 
@@ -31,7 +32,32 @@ The MERN stack was used along side Google Cloud Platform.
 1. Install Node.js 18.12.1 LTS.
 [Download Link](https://nodejs.org/en/)
 2. Clone this repository onto your machine.
-3. Add .env and my-service-account-key.json to connect to google cloud platform and mongodb.
+3. There are two files missing from this repo that include important keys that connect the mongodb database, google cloud connection, and the kendo reacts PDF library. You will have to add these two files to the the main scope of the application, the same one where 'server.js' is located. This is what they will look like just not including the keys.
+
+   ``` .env
+   NODE_ENV=development
+   PORT=3500
+   MONGO_URI=
+   ACCESS_TOKEN_SECRET=
+   REFRESH_TOKEN_SECRET=
+   GOOGLE_APPLICATION_CREDENTIALS="./my-service-account-key.json"
+   KENDO_UI-LICENSE=
+   ```
+   
+   ``` my-service-account-key.json
+   {
+    "type": "service_account",
+    "project_id": "",
+    "private_key_id": "",
+    "private_key": "-----BEGIN PRIVATE KEY-----\",
+    "client_id": "",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": ""
+    }
+    ```
+
 4. In Command Prompt, navigate to the frontend folder and type "npm install".
 5. Lastly, type "npm run dev" to start the application.
 
@@ -40,7 +66,33 @@ The MERN stack was used along side Google Cloud Platform.
 1. Install Node.js (Version 18 or above)
 [Download Link](https://nodejs.org/en/download/)
 2. Clone this repo on your machine.
-3. Add .env and my-service-account-key.json to connect to google cloud platform and mongodb.
+3. There are two files missing from this repo that include important keys that connect the mongodb database, google cloud connection, and the kendo reacts PDF library. You will have to add these two files to the the main scope of the application, the same one where 'server.js' is located. This is what they will look like just not including the keys.
+
+   ``` .env
+   NODE_ENV=development
+   PORT=3500
+   MONGO_URI=
+   ACCESS_TOKEN_SECRET=
+   REFRESH_TOKEN_SECRET=
+   GOOGLE_APPLICATION_CREDENTIALS="./my-service-account-key.json"
+   KENDO_UI-LICENSE=
+   ```
+   
+   ``` my-service-account-key.json
+   {
+    "type": "service_account",
+    "project_id": "",
+    "private_key_id": "",
+    "private_key": "-----BEGIN PRIVATE KEY-----\",
+    "client_id": "",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": ""
+    }
+    ```
+   
+   
 4. In CLI, navigate to the frontend folder and type `npm install`.
 5. Lastly, run `npm run dev` to start the application.
 
