@@ -22,6 +22,7 @@ The MERN stack was used along side Google Cloud Platform.
 2. KendoReact was used to download the PDF final report. [Link](https://www.telerik.com/kendo-react-ui/components/pdfprocessing/)
 3. For the creation of the API's to connect to GCP [References](https://github.com/googleapis/nodejs-storage)
 4. The login does work with accounts on mongoDB but can just bypass that step by adding "/dash" to the end of the localhost link.
+5. The operation that parses is the csv file from the cloud and then is updates the mongo db object is slightly bugged, it does parse the csv but for some reason the scope of the array does not work properly. The issue is commented in the code in fileController.js in the updatecases function.
 
 
 
@@ -39,7 +40,7 @@ The MERN stack was used along side Google Cloud Platform.
 1. Install Node.js (Version 18 or above)
 [Download Link](https://nodejs.org/en/download/)
 2. Clone this repo on your machine.
-3. 3. Add .env and my-service-account-key.json to connect to google cloud platform and mongodb.
+3. Add .env and my-service-account-key.json to connect to google cloud platform and mongodb.
 4. In CLI, navigate to the frontend folder and type `npm install`.
 5. Lastly, run `npm run dev` to start the application.
 
